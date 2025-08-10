@@ -27,7 +27,7 @@ export default function LoginPage() {
       onClick={() => setActiveTab(id)}
       className={
         "flex-1 border-b-2 px-4 py-3 font-semibold transition-colors flex items-center justify-center gap-2 " +
-        (activeTab === id ? "border-pink-400 text-pink-400" : "border-transparent text-zinc-300 hover:text-zinc-100")
+        (activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground")
       }
     >
       <Icon className="h-4 w-4" />
@@ -36,19 +36,19 @@ export default function LoginPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[#0f0f19] text-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md rounded-2xl bg-[#12121e] shadow-2xl p-6">
+    <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+      <div className="w-full max-w-md rounded-2xl bg-card border border-border shadow-2xl p-6">
         {/* 로고 */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center text-4xl font-bold text-pink-400">
+          <div className="inline-flex items-center justify-center text-4xl font-bold text-primary">
             <Star className="mr-2 h-8 w-8" />
             Celefix
           </div>
-          <p className="text-zinc-400 mt-2">연예인 섭외의 모든 것</p>
+          <p className="text-muted-foreground mt-2">연예인 섭외의 모든 것</p>
         </div>
 
         {/* 탭 */}
-        <div className="flex border-b border-zinc-800 mb-6">
+        <div className="flex border-b border-border mb-6">
           <Tab id="user" label="사용자 로그인" Icon={User} />
           <Tab id="admin" label="관리자 로그인" Icon={Shield} />
         </div>
@@ -63,7 +63,6 @@ export default function LoginPage() {
               placeholder="이메일 주소 입력"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
               required
             />
           </div>
@@ -71,19 +70,19 @@ export default function LoginPage() {
           <div>
             <Label htmlFor="password" className="mb-2 block text-sm">비밀번호</Label>
             <div className="relative">
-              <Input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="비밀번호 입력"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="pr-10 bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
-                required
-              />
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="비밀번호 입력"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="pr-10"
+              required
+            />
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-zinc-400 hover:text-zinc-200"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-muted-foreground hover:text-foreground"
                 aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보이기"}
               >
                 {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -92,43 +91,43 @@ export default function LoginPage() {
           </div>
 
           <div className="flex items-center justify-between">
-            <label className="inline-flex items-center gap-2 text-sm text-zinc-300">
+            <label className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <input
                 type="checkbox"
                 checked={remember}
                 onChange={(e) => setRemember(e.target.checked)}
-                className="h-4 w-4 rounded border border-white/30 bg-transparent accent-pink-400"
+                className="h-4 w-4 rounded border border-border bg-transparent"
               />
               로그인 유지
             </label>
             {/* 내부 라우팅: react-router-dom 사용 */}
-            <Link to="/forgot" className="text-sm text-zinc-300 hover:text-pink-400">비밀번호 찾기</Link>
+            <Link to="/forgot" className="text-sm text-muted-foreground hover:text-primary">비밀번호 찾기</Link>
           </div>
 
-          <Button type="submit" className="w-full bg-pink-400 hover:bg-pink-500 font-semibold">
+          <Button type="submit" className="w-full font-semibold">
             로그인
           </Button>
 
           {/* 구분선 */}
           <div className="flex items-center my-4">
-            <div className="flex-1 border-t border-zinc-800" />
-            <span className="mx-4 text-sm text-zinc-400">또는</span>
-            <div className="flex-1 border-t border-zinc-800" />
+            <div className="flex-1 border-t border-border" />
+            <span className="mx-4 text-sm text-muted-foreground">또는</span>
+            <div className="flex-1 border-t border-border" />
           </div>
 
           {/* 소셜 로그인 */}
           <div className="grid grid-cols-2 gap-3">
-            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
+            <Button type="button" variant="outline" className="w-full">
               <span className="mr-2">G</span>Google
             </Button>
-            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
+            <Button type="button" variant="outline" className="w-full">
               <span className="mr-2"></span>Apple
             </Button>
           </div>
 
           {/* 가입 */}
-          <p className="text-center text-sm mt-6 text-zinc-300">
-            계정이 없으신가요? <Link to="/signup" className="font-medium text-pink-400">가입하기</Link>
+          <p className="text-center text-sm mt-6 text-muted-foreground">
+            계정이 없으신가요? <Link to="/signup" className="font-medium text-primary">가입하기</Link>
           </p>
         </form>
       </div>
