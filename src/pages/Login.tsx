@@ -16,7 +16,7 @@ export default function LoginPage() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`;
+      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`,
       description: `email=${email}, remember=${remember}`,
     });
   };
