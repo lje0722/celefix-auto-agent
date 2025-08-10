@@ -1,3 +1,4 @@
+
 import SEO from "@/components/SEO";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -85,11 +86,11 @@ export default function ChatNew() {
   };
 
   return (
-    <div className="flex h-full min-h-0 flex-col space-y-4 overflow-hidden">
+    <div className="flex h-[calc(100vh-5.5rem)] flex-col space-y-4 overflow-hidden">
       <SEO title="새 챗 - Gemini 연결 | Celefix" description="Gemini와 연결된 신규 채팅" />
 
       {/* 안내 영역: 키 입력 */}
-      <section className="rounded-lg border border-border bg-card p-4">
+      <section className="rounded-lg border border-border bg-card p-4 flex-shrink-0">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="text-sm text-muted-foreground">
             Gemini API 키를 입력하면 바로 대화할 수 있어요. 보안상 키는 브라우저 로컬에만 저장됩니다. (권장: Supabase 비밀 사용)
@@ -107,8 +108,8 @@ export default function ChatNew() {
       </section>
 
       {/* 채팅 박스 */}
-      <section className="flex grow overflow-hidden rounded-xl border border-border bg-card">
-        {/* 좌측 사이드바 (이전 대화와 동일) */}
+      <section className="flex flex-1 overflow-hidden rounded-xl border border-border bg-card">
+        {/* 좌측 사이드바 */}
         <aside className="sidebar hidden w-1/4 min-w-[260px] border-r border-border bg-muted/30 p-4 lg:block">
           {/* 새 채팅 버튼 */}
           <Button variant="outline" className="mb-4 w-full justify-center gap-2 border-primary text-primary hover:bg-primary/10">
@@ -191,12 +192,12 @@ export default function ChatNew() {
 
         {/* 메인 대화 */}
         <div className="flex w-full flex-col">
-          <header className="flex items-center gap-2 border-b border-border p-4">
+          <header className="flex items-center gap-2 border-b border-border p-4 flex-shrink-0">
             <Bot className="h-5 w-5 text-primary" />
             <h2 className="text-lg font-semibold">새 채팅</h2>
           </header>
 
-          <div ref={listRef} className="flex grow flex-col gap-4 overflow-y-auto p-4">
+          <div ref={listRef} className="flex flex-1 flex-col gap-4 overflow-y-auto p-4">
             {messages.map((m, i) => (
               <div key={i} className={m.role === "user" ? "ml-auto max-w-3xl" : "max-w-3xl"}>
                 <div
@@ -212,7 +213,7 @@ export default function ChatNew() {
             ))}
           </div>
 
-          <footer className="border-t border-border p-4">
+          <footer className="border-t border-border p-4 flex-shrink-0">
             <div className="relative">
               <Input
                 placeholder="메시지 입력…"

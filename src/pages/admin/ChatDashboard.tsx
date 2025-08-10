@@ -21,7 +21,7 @@ import {
 
 export default function ChatDashboard() {
   return (
-    <div className="flex h-full min-h-0 flex-col space-y-4 overflow-hidden">
+    <div className="flex h-[calc(100vh-5.5rem)] flex-col space-y-4 overflow-hidden">
       <SEO
         title="챗봇 인터페이스 - 삼성전자 런칭쇼 | Celefix"
         description="삼성전자 런칭쇼 제안 대화 인터페이스"
@@ -29,7 +29,7 @@ export default function ChatDashboard() {
 
       {/* Chat container */}
       <section
-        className="chat-container flex grow overflow-hidden rounded-xl border border-border bg-card"
+        className="chat-container flex flex-1 overflow-hidden rounded-xl border border-border bg-card"
         aria-label="챗봇 인터페이스"
       >
         {/* Left sidebar */}
@@ -138,7 +138,7 @@ export default function ChatDashboard() {
           </header>
 
           {/* Messages */}
-          <div className="flex grow flex-col gap-6 overflow-y-auto p-4">
+          <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4">
             {/* AI message 1 */}
             <div className="flex items-start gap-3">
               <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
