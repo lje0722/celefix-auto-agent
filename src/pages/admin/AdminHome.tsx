@@ -9,6 +9,7 @@ import {
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, BarChart, Bar } from "recharts";
 import { RefreshCcw, CalendarPlus } from "lucide-react";
 
+// New datasets matching the requested layout
 const contractData = [
   { month: "1월", value: 18 },
   { month: "2월", value: 22 },
@@ -30,9 +31,9 @@ const popularityData = [
 export default function AdminHome() {
   return (
     <div className="space-y-6">
-      <SEO title="관리자 홈 | Celefix" description="요청·계약·라인업 현황 요약" />
+      <SEO title="관리자 홈페이지 | Celefix" description="요청·계약·라인업 현황 요약 대시보드" />
 
-      {/* 상단 작업 영역 */}
+      {/* 상단 작업 영역 (인사 문구 제거) */}
       <section className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="gap-2">
@@ -236,4 +237,3 @@ export default function AdminHome() {
     </div>
   );
 }
-
