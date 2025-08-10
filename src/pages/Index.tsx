@@ -1,137 +1,169 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { toast } from "@/hooks/use-toast";
-import { Eye, EyeOff, Star, User, Shield } from "lucide-react";
-import { Link } from "react-router-dom"; // ✅ Next.js 의 next/link 대신 react-router-dom 사용
+import SEO from "@/components/SEO";
+import {
+  Star,
+  Building2,
+  ShieldCheck,
+  Bot,
+  CalendarCheck2,
+  FileSignature,
+  ArrowRight,
+  MapPin,
+  Users,
+} from "lucide-react";
 
-export default function LoginPage() {
-  const [activeTab, setActiveTab] = useState<"user" | "admin">("user");
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`,
-      description: `email=${email}, remember=${remember}`,
-    });
-  };
-
-  const Tab = ({ id, label, Icon }: { id: "user" | "admin"; label: string; Icon: any }) => (
-    <button
-      type="button"
-      onClick={() => setActiveTab(id)}
-      className={
-        "flex-1 border-b-2 px-4 py-3 font-semibold transition-colors flex items-center justify-center gap-2 " +
-        (activeTab === id ? "border-pink-400 text-pink-400" : "border-transparent text-zinc-300 hover:text-zinc-100")
-      }
-    >
-      <Icon className="h-4 w-4" />
-      {label}
-    </button>
-  );
-
+export default function Index() {
   return (
-    <main className="min-h-screen bg-[#0f0f19] text-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md rounded-2xl bg-[#12121e] shadow-2xl p-6">
-        {/* 로고 */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center text-4xl font-bold text-pink-400">
-            <Star className="mr-2 h-8 w-8" />
-            Celefix
+    <>
+      <SEO
+        title="Celefix | 연예인 섭외 자동화 플랫폼"
+        description="AI가 예산·컨셉에 맞춘 연예인 라인업을 추천하고 제안·계약까지 자동화합니다. 간편하게 로그인해 바로 시작해 보세요."
+      />
+
+      <div className="min-h-screen bg-background text-foreground">
+        <header className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
+            <Link to="/" className="inline-flex items-center gap-2 font-bold">
+              <Star className="h-5 w-5 text-primary" />
+              <span>Celefix</span>
+            </Link>
+            <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+              <a href="#features" className="hover:text-foreground">서비스</a>
+              <a href="#events" className="hover:text-foreground">사례</a>
+              <a href="#contact" className="hover:text-foreground">문의</a>
+              <Button asChild size="sm" variant="default" className="ml-2">
+                <Link to="/login">시작하기</Link>
+              </Button>
+            </nav>
           </div>
-          <p className="text-zinc-400 mt-2">연예인 섭외의 모든 것</p>
-        </div>
+        </header>
 
-        {/* 탭 */}
-        <div className="flex border-b border-zinc-800 mb-6">
-          <Tab id="user" label="사용자 로그인" Icon={User} />
-          <Tab id="admin" label="관리자 로그인" Icon={Shield} />
-        </div>
+        <main>
+          {/* Hero */}
+          <section className="mx-auto max-w-6xl px-4 py-16 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              당신의 행사를 <span className="text-primary">특별하게</span>
+            </h1>
+            <p className="mt-3 text-xl text-muted-foreground">연예인 섭외, 이제 더 쉽게</p>
+            <p className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
+              예산과 컨셉에 맞는 최적의 연예인을 AI가 추천합니다. 번거로운 연락과 협상 없이,
+              클릭 몇 번으로 스타와 함께하는 특별한 행사를 만들어 보세요.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button asChild size="lg" variant="hero" className="min-w-[240px]">
+                <Link to="/login" className="inline-flex items-center">
+                  <Building2 className="mr-2 h-5 w-5" /> 기관 · 학교 · 축제 담당자
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="min-w-[220px]">
+                <Link to="/login" className="inline-flex items-center">
+                  <ShieldCheck className="mr-2 h-5 w-5" /> 에이전시 관리자
+                </Link>
+              </Button>
+            </div>
+          </section>
 
-        {/* 폼 */}
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="email" className="mb-2 block text-sm">이메일</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="이메일 주소 입력"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
-              required
-            />
-          </div>
+          {/* Features */}
+          <section id="features" className="bg-muted/20 border-y border-border">
+            <div className="mx-auto max-w-6xl px-4 py-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">주요 기능</h2>
+              <div className="grid gap-6 md:grid-cols-3">
+                <article className="rounded-xl bg-card border border-border p-6 hover:shadow-lg transition-shadow">
+                  <div className="text-primary mb-3"><Bot className="h-7 w-7" /></div>
+                  <h3 className="font-semibold text-lg mb-1">AI 기반 추천</h3>
+                  <p className="text-sm text-muted-foreground">예산과 행사 컨셉에 맞는 최적의 연예인을 자동 추천합니다.</p>
+                </article>
+                <article className="rounded-xl bg-card border border-border p-6 hover:shadow-lg transition-shadow">
+                  <div className="text-primary mb-3"><CalendarCheck2 className="h-7 w-7" /></div>
+                  <h3 className="font-semibold text-lg mb-1">실시간 스케줄 확인</h3>
+                  <p className="text-sm text-muted-foreground">가용 시간을 실시간으로 확인하고 일정을 조율할 수 있습니다.</p>
+                </article>
+                <article className="rounded-xl bg-card border border-border p-6 hover:shadow-lg transition-shadow">
+                  <div className="text-primary mb-3"><FileSignature className="h-7 w-7" /></div>
+                  <h3 className="font-semibold text-lg mb-1">자동 제안서 생성</h3>
+                  <p className="text-sm text-muted-foreground">확정 라인업으로 맞춤 제안서를 자동 생성합니다.</p>
+                </article>
+              </div>
+            </div>
+          </section>
 
-          <div>
-            <Label htmlFor="password" className="mb-2 block text-sm">비밀번호</Label>
-            <div className="relative">
-              <Input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="비밀번호 입력"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="pr-10 bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-zinc-400 hover:text-zinc-200"
-                aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보이기"}
-              >
-                {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-              </button>
+          {/* Recent Events */}
+          <section id="events" className="mx-auto max-w-6xl px-4 py-16">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold">최근 성사된 행사</h2>
+              <Button variant="link" className="text-primary inline-flex items-center">
+                더 보기 <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {[{
+                tag: "대학 축제",
+                title: "서울대학교 여름 축제",
+                date: "2025.06.15",
+                place: "서울시 관악구",
+                people: "5,000명+",
+              },{
+                tag: "기업 행사",
+                title: "삼성전자 신제품 런칭쇼",
+                date: "2025.07.08",
+                place: "서울시 강남구",
+                people: "1,200명",
+              },{
+                tag: "페스티벌",
+                title: "부산 바다 음악 페스티벌",
+                date: "2025.07.22",
+                place: "부산시 해운대구",
+                people: "8,000명+",
+              }].map((e, i) => (
+                <article key={i} className="rounded-xl overflow-hidden bg-card border border-border">
+                  <div className="h-40 bg-muted/40" aria-hidden />
+                  <div className="p-5">
+                    <div className="mb-2 flex items-center justify-between">
+                      <h3 className="font-semibold">{e.title}</h3>
+                      <span className="text-xs text-muted-foreground">{e.date}</span>
+                    </div>
+                    <div className="mb-3 inline-flex items-center text-xs rounded-full bg-primary/15 text-primary px-2 py-1">
+                      {e.tag}
+                    </div>
+                    <div className="flex items-center gap-4 text-muted-foreground">
+                      <span className="inline-flex items-center text-xs"><MapPin className="mr-1 h-3 w-3" /> {e.place}</span>
+                      <span className="inline-flex items-center text-xs"><Users className="mr-1 h-3 w-3" /> {e.people}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* CTA */}
+          <section className="px-4 py-16 text-center bg-muted/20 border-t border-border">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">지금 바로 시작해보세요</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+              원하는 연예인을 클릭 한 번으로 섭외하고 최적의 라인업으로 성공적인 행사를 만들어 보세요.
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <Button asChild size="lg">
+                <Link to="/login">로그인하기</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="#features">서비스 더 알아보기</Link>
+              </Button>
+            </div>
+          </section>
+        </main>
+
+        <footer id="contact" className="border-t border-border">
+          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground flex items-center justify-between">
+            <div>© 2025 Celefix. All rights reserved.</div>
+            <div className="flex items-center gap-4">
+              <a href="#">이용약관</a>
+              <a href="#">개인정보 처리방침</a>
+              <a href="#">고객센터</a>
             </div>
           </div>
-
-          <div className="flex items-center justify-between">
-            <label className="inline-flex items-center gap-2 text-sm text-zinc-300">
-              <input
-                type="checkbox"
-                checked={remember}
-                onChange={(e) => setRemember(e.target.checked)}
-                className="h-4 w-4 rounded border border-white/30 bg-transparent accent-pink-400"
-              />
-              로그인 유지
-            </label>
-            {/* 내부 라우팅: react-router-dom 사용 */}
-            <Link to="/forgot" className="text-sm text-zinc-300 hover:text-pink-400">비밀번호 찾기</Link>
-          </div>
-
-          <Button type="submit" className="w-full bg-pink-400 hover:bg-pink-500 font-semibold">
-            로그인
-          </Button>
-
-          {/* 구분선 */}
-          <div className="flex items-center my-4">
-            <div className="flex-1 border-t border-zinc-800" />
-            <span className="mx-4 text-sm text-zinc-400">또는</span>
-            <div className="flex-1 border-t border-zinc-800" />
-          </div>
-
-          {/* 소셜 로그인 */}
-          <div className="grid grid-cols-2 gap-3">
-            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
-              <span className="mr-2">G</span>Google
-            </Button>
-            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
-              <span className="mr-2"></span>Apple
-            </Button>
-          </div>
-
-          {/* 가입 */}
-          <p className="text-center text-sm mt-6 text-zinc-300">
-            계정이 없으신가요? <Link to="/signup" className="font-medium text-pink-400">가입하기</Link>
-          </p>
-        </form>
+        </footer>
       </div>
-    </main>
+    </>
   );
 }
