@@ -83,7 +83,7 @@ export default function AdminLayout() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-screen-2xl p-6">
+      <main className="mx-auto w-full max-w-screen-2xl p-6 flex-1 min-h-0">
         <Outlet />
       </main>
     </div>

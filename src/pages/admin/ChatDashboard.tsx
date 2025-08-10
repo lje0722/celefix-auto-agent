@@ -1,4 +1,5 @@
 import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -20,7 +21,7 @@ import {
 
 export default function ChatDashboard() {
   return (
-    <div className="space-y-4">
+    <div className="flex h-full flex-col space-y-4">
       <SEO
         title="챗봇 인터페이스 - 삼성전자 런칭쇼 | Celefix"
         description="삼성전자 런칭쇼 제안 대화 인터페이스"
@@ -28,17 +29,20 @@ export default function ChatDashboard() {
 
       {/* Chat container */}
       <section
-        className="chat-container flex h-[640px] overflow-hidden rounded-xl border border-border bg-card"
+        className="chat-container flex grow overflow-hidden rounded-xl border border-border bg-card"
         aria-label="챗봇 인터페이스"
       >
         {/* Left sidebar */}
         <aside className="sidebar w-1/4 min-w-[260px] border-r border-border bg-muted/30 p-4">
           {/* New chat */}
           <Button
+            asChild
             variant="outline"
             className="new-chat-btn mb-4 w-full justify-center gap-2 border-primary text-primary hover:bg-primary/10"
           >
-            <MessageSquarePlus className="h-4 w-4" /> 새 채팅 시작하기
+            <Link to="/admin/chat/new">
+              <MessageSquarePlus className="h-4 w-4" /> 새 채팅 시작하기
+            </Link>
           </Button>
 
           {/* Search */}

@@ -24,6 +24,7 @@ import AdminNotifications from "./pages/admin/AdminNotifications";
 import UserHome from "./pages/user/UserHome";
 import UserRequest from "./pages/user/UserRequest";
 import UserFeedback from "./pages/user/UserFeedback";
+import ChatNew from "./pages/admin/ChatNew";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
                 <Route path="chat/dashboard" element={<ChatDashboard />} />
                 <Route path="chat/proposal" element={<ChatProposal />} />
                 <Route path="chat/contract" element={<ChatContract />} />
+                <Route path="chat/new" element={<ChatNew />} />
                 <Route path="calendar/talents" element={<CalendarTalents />} />
                 <Route path="calendar/events" element={<CalendarEvents />} />
                 <Route path="calendar/contracts" element={<CalendarContracts />} />
