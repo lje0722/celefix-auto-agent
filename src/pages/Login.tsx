@@ -4,14 +4,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Star, User, Shield } from "lucide-react";
-import { Link } from "react-router-dom"; // ✅ Next.js 의 next/link 대신 react-router-dom 사용
+import { Link, useNavigate } from "react-router-dom"; // ✅ Next.js 의 next/link 대신 react-router-dom 사용
 
 export default function LoginPage() {
   const [activeTab, setActiveTab] = useState<"user" | "admin">("user");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
+const [remember, setRemember] = useState(false);
+
+  const navigate = useNavigate();
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,6 +21,9 @@ export default function LoginPage() {
       title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`,
       description: `email=${email}, remember=${remember}`,
     });
+    if (activeTab === "admin") {
+      navigate("/admin");
+    }
   };
 
   const Tab = ({ id, label, Icon }: { id: "user" | "admin"; label: string; Icon: any }) => (
