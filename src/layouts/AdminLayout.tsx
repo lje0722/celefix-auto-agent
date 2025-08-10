@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Bell, Star, Home, MessageSquare, Calendar, BarChart3 } from "lucide-react";
@@ -15,19 +15,48 @@ export default function AdminLayout() {
           </div>
 
           {/* Center: Nav */}
-          <nav className="hidden items-center gap-6 text-sm text-muted-foreground sm:flex">
-            <Link to="/admin" className="flex items-center gap-2 hover:text-foreground">
+          <nav className="hidden items-center gap-4 text-sm text-muted-foreground sm:flex">
+            <NavLink
+              to="/admin"
+              end
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  : "flex items-center gap-2 hover:text-foreground"
+              }
+            >
               <Home className="h-4 w-4" /> 홈
-            </Link>
-            <Link to="/admin/chat/dashboard" className="flex items-center gap-2 hover:text-foreground">
+            </NavLink>
+            <NavLink
+              to="/admin/chat/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  : "flex items-center gap-2 hover:text-foreground"
+              }
+            >
               <MessageSquare className="h-4 w-4" /> 챗봇
-            </Link>
-            <Link to="/admin/calendar/events" className="flex items-center gap-2 hover:text-foreground">
+            </NavLink>
+            <NavLink
+              to="/admin/calendar/events"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  : "flex items-center gap-2 hover:text-foreground"
+              }
+            >
               <Calendar className="h-4 w-4" /> 캘린더
-            </Link>
-            <Link to="/admin/dashboard" className="flex items-center gap-2 hover:text-foreground">
+            </NavLink>
+            <NavLink
+              to="/admin/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  : "flex items-center gap-2 hover:text-foreground"
+              }
+            >
               <BarChart3 className="h-4 w-4" /> 대시보드
-            </Link>
+            </NavLink>
           </nav>
 
           {/* Right: Actions */}
@@ -35,9 +64,6 @@ export default function AdminLayout() {
             {/* Theme toggle to the LEFT of the button (as requested) */}
             <ThemeToggle />
 
-            <Button asChild variant="secondary" size="sm">
-              <a href="/user/request">고객 제안 요청</a>
-            </Button>
 
             <button
               aria-label="알림"
