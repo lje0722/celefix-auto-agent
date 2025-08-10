@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 
@@ -45,6 +45,7 @@ const App = () => (
               {/* Admin routes with layout */}
               <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<AdminHome />} />
+                <Route path="chat" element={<Navigate to="chat/dashboard" replace />} />
                 <Route path="chat/forecast" element={<ChatForecast />} />
                 <Route path="chat/lineup" element={<ChatLineup />} />
                 <Route path="chat/dashboard" element={<ChatDashboard />} />
