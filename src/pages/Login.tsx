@@ -7,7 +7,6 @@ import { toast } from "@/hooks/use-toast";
 
 //로그인 페이지
 
-<!DOCTYPE html>
 <html data-theme="light" lang="ko" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
