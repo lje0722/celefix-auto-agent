@@ -217,10 +217,8 @@ export default function ChatDashboard() {
                   <Button className="gap-2">
                     <FileText className="h-4 w-4" /> 제안서 작성하기
                   </Button>
-                  <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
-                    <Link to="/admin/chat/dashboard">
-                      <Share2 className="h-4 w-4" /> 세부 대시보드 보기
-                    </Link>
+                  <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
+                    <Share2 className="h-4 w-4" /> 세부 대시보드 보기
                   </Button>
                 </div>
               </div>
