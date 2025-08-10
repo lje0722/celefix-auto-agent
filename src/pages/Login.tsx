@@ -1,208 +1,142 @@
+"use client";
+
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { Eye, EyeOff, Star, User, Shield } from "lucide-react";
+import Link from "next/link";
 
-//로그인 페이지
+export default function LoginPage() {
+  const [activeTab, setActiveTab] = useState<"user" | "admin">("user");
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
 
-<html data-theme="light" lang="ko" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>로그인 페이지</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-<style>
-        body {
-            background-color: #0f0f19;
-            color: #ffffff;
-            font-family: 'Pretendard', sans-serif;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login-container {
-            background-color: #12121e;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        .form-input {
-            background-color: #1a1a2a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 12px 16px;
-            color: #ffffff;
-            width: 100%;
-        }
-        .form-input:focus {
-            border-color: #f472b6;
-            outline: none;
-        }
-        .btn-primary {
-            background-color: #f472b6;
-            color: #ffffff;
-            transition: all 0.3s;
-            border-radius: 8px;
-            padding: 12px;
-            font-weight: 600;
-            width: 100%;
-        }
-        .btn-primary:hover {
-            background-color: #ec4899;
-        }
-        .btn-outline {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f8fafc;
-            transition: all 0.3s;
-            border-radius: 8px;
-            padding: 12px;
-            font-weight: 600;
-            width: 100%;
-        }
-        .btn-outline:hover {
-            border-color: #f472b6;
-            color: #f472b6;
-        }
-        .tab {
-            cursor: pointer;
-            padding: 14px;
-            text-align: center;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-        .tab.active {
-            border-color: #f472b6;
-            color: #f472b6;
-        }
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            transition: all 0.3s;
-            background-color: #1a1a2a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .social-btn:hover {
-            background-color: #2a2a3a;
-        }
-        .form-checkbox {
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            background-color: transparent;
-            display: inline-block;
-            position: relative;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-        .form-checkbox:checked {
-            background-color: #f472b6;
-            border-color: #f472b6;
-        }
-        .form-checkbox:checked::before {
-            content: '\2713';
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 12px;
-        }
-        .celebrity-accent {
-            color: #f472b6;
-        }
-    </style>
-</head>
-<body style="">
-<div class="container mx-auto px-4 w-1280 min-h-720 flex justify-center items-center">
-<div class="login-container w-full max-w-md p-6">
-<!-- 로고 영역 -->
-<div class="text-center mb-8">
-<div class="flex justify-center">
-<div class="text-4xl font-bold celebrity-accent flex items-center">
-<i class="fas fa-star mr-2 text-4xl"></i>Celefix
-</div>
-</div>
-<p class="text-gray-400 mt-2">연예인 섭외의 모든 것</p>
-</div>
-<!-- 탭 토글 -->
-<div class="flex mb-6 border-b border-gray-800">
-<div class="tab active w-1/2" id="userTab">
-<i class="fas fa-user mr-2"></i>사용자 로그인
-</div>
-<div class="tab w-1/2" id="adminTab">
-<i class="fas fa-user-shield mr-2"></i>관리자 로그인
-</div>
-</div>
-<!-- 로그인 폼 -->
-<form>
-<div class="space-y-4">
-<div>
-<label class="block text-sm font-medium mb-2" for="email">이메일</label>
-<input class="form-input" id="email" placeholder="이메일 주소 입력" type="email">
-</div>
-<div>
-<label class="block text-sm font-medium mb-2" for="password">비밀번호</label>
-<div class="relative">
-<input class="form-input pr-10" id="password" placeholder="비밀번호 입력" type="password">
-<button class="absolute right-3 top-3 text-gray-400" type="button">
-<i class="far fa-eye"></i>
-</button>
-</div>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<input class="form-checkbox" id="remember" type="checkbox">
-<label class="text-sm text-gray-300" for="remember">로그인 유지</label>
-</div>
-<a class="text-sm text-gray-300 hover:text-pink-400" href="#">비밀번호 찾기</a>
-</div>
-<div>
-<button class="btn-primary mt-2" type="submit">로그인</button>
-</div>
-</div>
-<!-- 또는 -->
-<div class="flex items-center my-4">
-<div class="flex-grow border-t border-gray-800"></div>
-<span class="mx-4 text-sm text-gray-400">또는</span>
-<div class="flex-grow border-t border-gray-800"></div>
-</div>
-<!-- 소셜 로그인 -->
-<div class="grid grid-cols-2 gap-4 mb-6">
-<button class="social-btn" type="button">
-<i class="fab fa-google text-red-400 mr-2"></i>Google
-</button>
-<button class="social-btn" type="button">
-<i class="fab fa-apple text-white mr-2"></i>Apple
-</button>
-</div>
-<!-- 가입하기 -->
-<div class="text-center text-sm mt-6">
-<span class="text-gray-400">계정이 없으신가요?</span>
-<a class="celebrity-accent ml-1 font-medium" href="#">가입하기</a>
-</div>
-</form>
-</div>
-</div>
-<script>
-    // 탭 전환
-    document.getElementById('userTab').addEventListener('click', function() {
-        this.classList.add('active');
-        document.getElementById('adminTab').classList.remove('active');
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // 데모 동작: 실제 로그인 요청으로 교체
+    toast({
+      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`,
+      description: `email=${email}, remember=${remember}`,
     });
-    document.getElementById('adminTab').addEventListener('click', function() {
-        this.classList.add('active');
-        document.getElementById('userTab').classList.remove('active');
-    });
-</script>
+  };
 
-</body></html>
+  const Tab = ({ id, label, Icon }: { id: "user" | "admin"; label: string; Icon: any }) => (
+    <button
+      type="button"
+      onClick={() => setActiveTab(id)}
+      className={
+        "flex-1 border-b-2 px-4 py-3 font-semibold transition-colors flex items-center justify-center gap-2 " +
+        (activeTab === id ? "border-pink-400 text-pink-400" : "border-transparent text-zinc-300 hover:text-zinc-100")
+      }
+    >
+      <Icon className="h-4 w-4" />
+      {label}
+    </button>
+  );
+
+  return (
+    <main className="min-h-screen bg-[#0f0f19] text-white flex items-center justify-center p-4">
+      <SEO title="로그인 페이지" description="연예인 섭외의 모든 것 - Celefix 로그인" />
+
+      <div className="w-full max-w-md rounded-2xl bg-[#12121e] shadow-2xl p-6">
+        {/* 로고 */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center text-4xl font-bold text-pink-400">
+            <Star className="mr-2 h-8 w-8" />
+            Celefix
+          </div>
+          <p className="text-zinc-400 mt-2">연예인 섭외의 모든 것</p>
+        </div>
+
+        {/* 탭 */}
+        <div className="flex border-b border-zinc-800 mb-6">
+          <Tab id="user" label="사용자 로그인" Icon={User} />
+          <Tab id="admin" label="관리자 로그인" Icon={Shield} />
+        </div>
+
+        {/* 폼 */}
+        <form onSubmit={onSubmit} className="space-y-4">
+          <div>
+            <Label htmlFor="email" className="mb-2 block text-sm">이메일</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="이메일 주소 입력"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="password" className="mb-2 block text-sm">비밀번호</Label>
+            <div className="relative">
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="비밀번호 입력"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="pr-10 bg-[#1a1a2a] border-white/10 text-white placeholder:text-white/40"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-zinc-400 hover:text-zinc-200"
+                aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보이기"}
+              >
+                {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <label className="inline-flex items-center gap-2 text-sm text-zinc-300">
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
+                className="h-4 w-4 rounded border border-white/30 bg-transparent accent-pink-400"
+              />
+              로그인 유지
+            </label>
+            <Link href="#" className="text-sm text-zinc-300 hover:text-pink-400">비밀번호 찾기</Link>
+          </div>
+
+          <Button type="submit" className="w-full bg-pink-400 hover:bg-pink-500 font-semibold">
+            로그인
+          </Button>
+
+          {/* 구분선 */}
+          <div className="flex items-center my-4">
+            <div className="flex-1 border-t border-zinc-800" />
+            <span className="mx-4 text-sm text-zinc-400">또는</span>
+            <div className="flex-1 border-t border-zinc-800" />
+          </div>
+
+          {/* 소셜 로그인 */}
+          <div className="grid grid-cols-2 gap-3">
+            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
+              <span className="mr-2">G</span>Google
+            </Button>
+            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg[#2a2a3a]">
+              <span className="mr-2"></span>Apple
+            </Button>
+          </div>
+
+          {/* 가입 */}
+          <p className="text-center text-sm mt-6 text-zinc-300">
+            계정이 없으신가요? <Link href="#" className="font-medium text-pink-400">가입하기</Link>
+          </p>
+        </form>
+      </div>
+    </main>
+  );
+}
