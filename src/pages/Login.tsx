@@ -1,13 +1,10 @@
-"use client";
-
-import SEO from "@/components/SEO";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Star, User, Shield } from "lucide-react";
-import Link from "next/link";
+import { Link } from "react-router-dom"; // ✅ Next.js 의 next/link 대신 react-router-dom 사용
 
 export default function LoginPage() {
   const [activeTab, setActiveTab] = useState<"user" | "admin">("user");
@@ -18,9 +15,8 @@ export default function LoginPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // 데모 동작: 실제 로그인 요청으로 교체
     toast({
-      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`,
+      title: `${activeTab === "user" ? "사용자" : "관리자"} 로그인 시도`;
       description: `email=${email}, remember=${remember}`,
     });
   };
@@ -41,8 +37,6 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-screen bg-[#0f0f19] text-white flex items-center justify-center p-4">
-      <SEO title="로그인 페이지" description="연예인 섭외의 모든 것 - Celefix 로그인" />
-
       <div className="w-full max-w-md rounded-2xl bg-[#12121e] shadow-2xl p-6">
         {/* 로고 */}
         <div className="text-center mb-8">
@@ -107,7 +101,8 @@ export default function LoginPage() {
               />
               로그인 유지
             </label>
-            <Link href="#" className="text-sm text-zinc-300 hover:text-pink-400">비밀번호 찾기</Link>
+            {/* 내부 라우팅: react-router-dom 사용 */}
+            <Link to="/forgot" className="text-sm text-zinc-300 hover:text-pink-400">비밀번호 찾기</Link>
           </div>
 
           <Button type="submit" className="w-full bg-pink-400 hover:bg-pink-500 font-semibold">
@@ -126,14 +121,14 @@ export default function LoginPage() {
             <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
               <span className="mr-2">G</span>Google
             </Button>
-            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg[#2a2a3a]">
+            <Button type="button" variant="outline" className="w-full bg-[#1a1a2a] border-white/10 text-white hover:bg-[#2a2a3a]">
               <span className="mr-2"></span>Apple
             </Button>
           </div>
 
           {/* 가입 */}
           <p className="text-center text-sm mt-6 text-zinc-300">
-            계정이 없으신가요? <Link href="#" className="font-medium text-pink-400">가입하기</Link>
+            계정이 없으신가요? <Link to="/signup" className="font-medium text-pink-400">가입하기</Link>
           </p>
         </form>
       </div>
