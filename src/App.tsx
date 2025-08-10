@@ -13,7 +13,8 @@ import Login from "./pages/Login";
 import AdminHome from "./pages/admin/AdminHome";
 import ChatForecast from "./pages/admin/ChatForecast";
 import ChatLineup from "./pages/admin/ChatLineup";
-import ChatDashboard from "./pages/admin/ChatDashboard";
+
+import ChatDetailDashboard from "./pages/admin/ChatDetailDashboard";
 import ChatProposal from "./pages/admin/ChatProposal";
 import ChatContract from "./pages/admin/ChatContract";
 import CalendarTalents from "./pages/admin/CalendarTalents";
@@ -48,7 +49,7 @@ const App = () => (
                 <Route path="chat" element={<Navigate to="/admin/chat/dashboard" replace />} />
                 <Route path="chat/forecast" element={<ChatForecast />} />
                 <Route path="chat/lineup" element={<ChatLineup />} />
-                <Route path="chat/dashboard" element={<ChatDashboard />} />
+                <Route path="chat/dashboard" element={<ChatDetailDashboard />} />
                 <Route path="chat/proposal" element={<ChatProposal />} />
                 <Route path="chat/contract" element={<ChatContract />} />
                 <Route path="chat/new" element={<ChatNew />} />
