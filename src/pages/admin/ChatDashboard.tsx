@@ -104,7 +104,7 @@ export default function ChatDashboard() {
 
               <ul className="space-y-2">
                 <li
-                  className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary"
+                  className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-[hsl(var(--info))]"
                   data-active={activeThread === "seoul"}
                   onClick={() => setActiveThread("seoul")}
                 >
