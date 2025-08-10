@@ -8,6 +8,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function AdminLayout() {
   return (
@@ -18,7 +19,8 @@ export default function AdminLayout() {
             <header className="h-14 flex items-center border-b px-4 gap-3">
               <SidebarTrigger />
               <Link to="/" className="text-sm font-semibold">Celefix Admin</Link>
-              <div className="ml-auto">
+              <div className="ml-auto flex items-center gap-2">
+                <ThemeToggle />
                 <Button asChild variant="secondary" size="sm">
                   <a href="/user/request">고객 제안 요청</a>
                 </Button>

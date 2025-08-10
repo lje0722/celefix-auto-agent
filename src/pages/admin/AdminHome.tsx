@@ -32,12 +32,8 @@ export default function AdminHome() {
     <div className="space-y-6">
       <SEO title="관리자 홈 | Celefix" description="요청·계약·라인업 현황 요약" />
 
-      {/* 상단 환영 영역 */}
-      <section className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">안녕하세요, 김희연 관리자님!</h1>
-          <p className="text-muted-foreground mt-1">오늘의 요청 및 계약 현황을 확인하세요.</p>
-        </div>
+      {/* 상단 작업 영역 */}
+      <section className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="gap-2">
             <RefreshCcw className="h-4 w-4" /> 새로고침

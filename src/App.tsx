@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
-import ThemeToggle from "@/components/ThemeToggle";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AdminLayout from "./layouts/AdminLayout";
@@ -35,10 +35,6 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            {/* Global fixed theme toggle (top-right) */}
-            <div className="fixed right-4 top-4 z-50">
-              <ThemeToggle />
-            </div>
 
             <Routes>
               {/* Public routes */}
