@@ -45,7 +45,7 @@ const App = () => (
               {/* Admin routes with layout */}
               <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<AdminHome />} />
-                <Route path="chat" element={<Navigate to="chat/dashboard" replace />} />
+                <Route path="chat" element={<Navigate to="/admin/chat/dashboard" replace />} />
                 <Route path="chat/forecast" element={<ChatForecast />} />
                 <Route path="chat/lineup" element={<ChatLineup />} />
                 <Route path="chat/dashboard" element={<ChatDashboard />} />
