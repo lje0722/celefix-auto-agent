@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/hooks/use-toast";
-import { Bot, MessageSquarePlus, Send } from "lucide-react";
+import { Bot, MessageSquarePlus, Send, Search, Lightbulb, Star, Users, Reply } from "lucide-react";
 
 interface ChatMsg {
   role: "user" | "model";
@@ -85,7 +85,7 @@ export default function ChatNew() {
   };
 
   return (
-    <div className="flex h-full flex-col space-y-4">
+    <div className="flex h-full min-h-0 flex-col space-y-4 overflow-hidden">
       <SEO title="새 챗 - Gemini 연결 | Celefix" description="Gemini와 연결된 신규 채팅" />
 
       {/* 안내 영역: 키 입력 */}
@@ -108,13 +108,85 @@ export default function ChatNew() {
 
       {/* 채팅 박스 */}
       <section className="flex grow overflow-hidden rounded-xl border border-border bg-card">
-        {/* 좌측(간단 버전) */}
-        <aside className="hidden w-1/4 min-w-[260px] border-r border-border bg-muted/30 p-4 lg:block">
-          <Button variant="outline" className="mb-4 w-full justify-center gap-2">
-            <MessageSquarePlus className="h-4 w-4" /> 새 채팅
+        {/* 좌측 사이드바 (이전 대화와 동일) */}
+        <aside className="sidebar hidden w-1/4 min-w-[260px] border-r border-border bg-muted/30 p-4 lg:block">
+          {/* 새 채팅 버튼 */}
+          <Button variant="outline" className="mb-4 w-full justify-center gap-2 border-primary text-primary hover:bg-primary/10">
+            <MessageSquarePlus className="h-4 w-4" /> 새 채팅 시작하기
           </Button>
-          <Separator className="my-3" />
-          <div className="text-sm text-muted-foreground">최근 대화가 여기에 표시됩니다.</div>
+          {/* 검색 */}
+          <div className="relative mb-4">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input placeholder="채팅 검색..." className="pl-9 bg-background/60" aria-label="채팅 검색" />
+          </div>
+
+          <div className="flex h-[calc(100%-132px)] flex-col overflow-y-auto pr-1">
+            {/* 선제 제안 */}
+            <div className="category-section mb-4">
+              <div className="category-header mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="category-icon grid h-6 w-6 place-items-center rounded bg-primary/15 text-primary">
+                    <Lightbulb className="h-3.5 w-3.5" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-primary">선제 제안</h3>
+                </div>
+                <Star className="h-3.5 w-3.5 text-primary" />
+              </div>
+              <ul className="space-y-2">
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary" data-active>
+                  <div className="text-sm font-medium">삼성전자 런칭쇼 제안</div>
+                  <div className="truncate text-xs text-muted-foreground">아이유, 적재, 에픽하이 라인업 제안...</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">LG 신제품 발표회</div>
+                  <div className="truncate text-xs text-muted-foreground">유명 인플루언서 섭외 제안</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">현대자동차 론칭쇼</div>
+                  <div className="truncate text-xs text-muted-foreground">유명 아이돌 그룹 섭외 전략</div>
+                </li>
+              </ul>
+            </div>
+
+            {/* 일반 라인업 추천 */}
+            <div className="category-section">
+              <div className="category-header mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="category-icon grid h-6 w-6 place-items-center rounded bg-info/15 text-[hsl(var(--info))]">
+                    <Users className="h-3.5 w-3.5" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-[hsl(var(--info))]">일반 라인업 추천</h3>
+                </div>
+                <Reply className="h-3.5 w-3.5 text-[hsl(var(--info))]" />
+              </div>
+              <ul className="space-y-2">
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">서울대 축제 제안</div>
+                  <div className="truncate text-xs text-muted-foreground">축제 라인업 추천 및 분석</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">부산 음악 페스티벌</div>
+                  <div className="truncate text-xs text-muted-foreground">해외 아티스트 섭외 논의</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">고려대 가을 축제</div>
+                  <div className="truncate text-xs text-muted-foreground">힙합 아티스트 라인업 추천</div>
+                </li>
+              </ul>
+            </div>
+
+            <Separator className="my-3" />
+
+            {/* 하단 프로필 */}
+            <div className="mt-auto">
+              <div className="flex items-center gap-2 rounded-md px-2 py-2">
+                <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
+                  김
+                </div>
+                <div className="text-sm">김희연 관리자</div>
+              </div>
+            </div>
+          </div>
         </aside>
 
         {/* 메인 대화 */}

@@ -21,7 +21,7 @@ import {
 
 export default function ChatDashboard() {
   return (
-    <div className="flex h-full flex-col space-y-4">
+    <div className="flex h-full min-h-0 flex-col space-y-4 overflow-hidden">
       <SEO
         title="챗봇 인터페이스 - 삼성전자 런칭쇼 | Celefix"
         description="삼성전자 런칭쇼 제안 대화 인터페이스"
