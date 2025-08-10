@@ -6,7 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/hooks/use-toast";
 import { Bot, MessageSquarePlus, Send, Search, Lightbulb, Star, Users, Reply } from "lucide-react";
-
+import { Badge } from "@/components/ui/badge";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem } from "@/components/ui/dropdown-menu";
+import { SlidersHorizontal } from "lucide-react";
 interface ChatMsg {
   role: "user" | "model";
   content: string;
@@ -23,6 +25,9 @@ export default function ChatNew() {
     },
   ]);
   const listRef = useRef<HTMLDivElement>(null);
+
+  type Mode = "proactive" | "general";
+  const [mode, setMode] = useState<Mode>("proactive");
 
   useEffect(() => {
     const saved = localStorage.getItem("GEMINI_API_KEY") || "";
@@ -192,9 +197,29 @@ export default function ChatNew() {
 
         {/* 메인 대화 */}
         <div className="flex w-full flex-col">
-          <header className="flex items-center gap-2 border-b border-border p-4 flex-shrink-0">
-            <Bot className="h-5 w-5 text-primary" />
-            <h2 className="text-lg font-semibold">새 채팅</h2>
+          <header className="flex items-center justify-between gap-2 border-b border-border p-4 flex-shrink-0">
+            <div className="flex items-center gap-2">
+              <Bot className="h-5 w-5 text-primary" />
+              <h2 className="text-lg font-semibold">새 채팅</h2>
+              <Badge variant="secondary" className="ml-1">
+                {mode === "proactive" ? "선제 제안" : "일반 라인업 추천"}
+              </Badge>
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2" aria-label="채팅 옵션">
+                  <SlidersHorizontal className="h-4 w-4" />
+                  옵션
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="z-50">
+                <DropdownMenuRadioGroup value={mode} onValueChange={(v) => setMode(v as Mode)}>
+                  <DropdownMenuRadioItem value="proactive">선제 제안</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="general">일반 라인업 추천</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </header>
 
           <div ref={listRef} className="flex flex-1 flex-col gap-4 overflow-y-auto p-4">
