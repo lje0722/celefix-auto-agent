@@ -124,11 +124,9 @@ const CalendarTalents: React.FC = () => {
       </header>
 
       <section aria-label="상태 및 동기화" className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2 rounded-lg border border-success/60 bg-success/10 px-3 py-2 ring-2 ring-success/30">
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-success/20 ring-1 ring-success/60">
-            <CheckCircle2 className="h-4 w-4 text-success" />
-          </span>
-          <span className="text-sm font-medium text-success">Google Calendar 연동됨</span>
+        <div className="flex items-center gap-2 rounded-lg border border-success bg-success px-3 py-2">
+          <CheckCircle2 className="h-4 w-4 text-success-foreground" />
+          <span className="text-sm font-medium text-success-foreground">Google Calendar 연동됨</span>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" onClick={onRefresh} aria-label="새로고침">
