@@ -225,8 +225,10 @@ export default function ChatDashboard() {
                   <div className="max-w-3xl rounded-md bg-muted/40 p-4">
                     <p className="mb-4">감사합니다! 삼성전자에 제안하실 때 도움이 되도록 아래 자료들을 바로 확인하실 수 있습니다.</p>
                     <div className="flex flex-wrap gap-3">
-                      <Button className="gap-2">
-                        <FileText className="h-4 w-4" /> 제안서 작성하기
+                      <Button asChild className="gap-2">
+                        <Link to="/admin/chat/proposal">
+                          <FileText className="h-4 w-4" /> 제안서 작성하기
+                        </Link>
                       </Button>
                       <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
                         <Link to="/admin/chat/dashboard-detail">
