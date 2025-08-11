@@ -198,11 +198,11 @@ const CalendarTalents: React.FC = () => {
         <div className="flex flex-wrap gap-2">
           {[
             { name: "아이유", dot: "bg-primary", active: true },
-            { name: "적재", dot: "bg-accent", active: true },
+            { name: "적재", dot: "bg-success", active: true },
             { name: "에픽하이", dot: "bg-success", active: true },
             { name: "뉴진스", dot: "bg-warning", active: true },
-            { name: "에스파", dot: "bg-accent", active: true },
-            { name: "아이브", dot: "bg-secondary", active: true },
+            { name: "에스파", dot: "bg-warning", active: true },
+            { name: "아이브", dot: "bg-primary", active: true },
             { name: "BTS", dot: "bg-muted-foreground", active: false },
           ].map((a) => (
             <span
