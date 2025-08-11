@@ -7,7 +7,7 @@ export default function AdminLayout() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 z-50 h-14 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto flex h-full max-w-screen-2xl items-center justify-between px-4">
+        <div className="mx-auto grid h-full max-w-screen-2xl items-center px-4 grid-cols-[1fr_auto_1fr]">
           {/* Left: Brand */}
           <div className="flex items-center gap-2">
             <Star className="h-5 w-5 text-primary" aria-hidden="true" />
@@ -15,7 +15,7 @@ export default function AdminLayout() {
           </div>
 
           {/* Center: Nav */}
-          <nav className="hidden items-center gap-4 text-sm text-muted-foreground sm:flex">
+          <nav className="hidden items-center gap-4 text-sm text-muted-foreground sm:flex justify-self-center">
             <NavLink
               to="/admin"
               end
@@ -60,7 +60,7 @@ export default function AdminLayout() {
           </nav>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-self-end">
             {/* Theme toggle to the LEFT of the button (as requested) */}
             <ThemeToggle />
 
