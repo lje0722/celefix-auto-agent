@@ -90,13 +90,13 @@ const CalendarEvents = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
               <i className="fas fa-calendar-day hidden" aria-hidden /> 일
             </button>
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
               <i className="fas fa-calendar-week hidden" aria-hidden /> 주
             </button>
-            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale ring-4 ring-accent/30 ring-offset-2 ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
               <i className="fas fa-calendar-alt hidden" aria-hidden /> 월
             </button>
           </div>
@@ -261,10 +261,10 @@ const CalendarEvents = () => {
             <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-accent" />진행중</div>
           </div>
           <div className="flex items-center">
-            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
               <Filter className="h-4 w-4" /> 필터
             </button>
-            <button className="ml-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="ml-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
               <Plus className="h-4 w-4" /> 행사 추가
             </button>
           </div>

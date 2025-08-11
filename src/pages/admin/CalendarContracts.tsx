@@ -148,13 +148,13 @@ const CalendarContracts = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
               일
             </button>
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
               주
             </button>
-            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]">월</button>
+            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale ring-4 ring-accent/30 ring-offset-2 ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">월</button>
           </div>
         </div>
 
