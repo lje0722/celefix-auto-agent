@@ -68,13 +68,11 @@ export default function AdminNotifications() {
         <TabsContent value="requests" className="mt-6 space-y-6">
           {/* 긴급 요청 - 높은 우선순위 */}
           <Card className="relative overflow-hidden">
-            <LeftStripe color="bg-[hsl(var(--destructive))]" />
+            <LeftStripe color={approvedSNU ? "bg-[hsl(var(--success))]" : "bg-[hsl(var(--destructive))]"} />
             <CardHeader className="pb-4">
               <div className="flex items-start justify-between">
                 <div className="flex items-center">
-                  <div
-                    className={`mr-5 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full font-bold ${approvedSNU ? "bg-[hsl(var(--success))] text-[hsl(var(--success-foreground))]" : "bg-primary text-primary-foreground"}`}
-                  >
+                  <div className="mr-5 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full bg-primary text-primary-foreground font-bold">
                     서울대
                   </div>
                   <div>
