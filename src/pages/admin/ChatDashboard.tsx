@@ -22,11 +22,11 @@ import { useEffect, useState } from "react";
 import SeoulFestivalThread from "./threads/SeoulFestivalThread";
 export default function ChatDashboard() {
   const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("samsung");
-  const [visibleCount, setVisibleCount] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
     if (activeThread !== "samsung") return;
-    setVisibleCount(1);
+    setVisibleCount(0);
     const total = 7;
     const id = setInterval(() => {
       setVisibleCount((c) => {
@@ -159,9 +159,25 @@ export default function ChatDashboard() {
           <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4">
             {activeThread === "samsung" ? (
               <>
+                {/* Thinking before AI 1 */}
+                {visibleCount === 0 && (
+                  <div className="flex items-start gap-3 animate-fade-in">
+                    <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+                      <div className="flex items-center gap-1">
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* AI message 1 */}
                 {visibleCount >= 1 && (
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 animate-fade-in">
                     <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
                       <Bot className="h-4 w-4" />
                     </div>
@@ -197,9 +213,25 @@ export default function ChatDashboard() {
                   </div>
                 )}
 
+                {/* Thinking before AI 2 */}
+                {visibleCount === 2 && (
+                  <div className="flex items-start gap-3 animate-fade-in">
+                    <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+                      <div className="flex items-center gap-1">
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* AI message 2 */}
                 {visibleCount >= 3 && (
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 animate-fade-in">
                     <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
                       <Bot className="h-4 w-4" />
                     </div>
@@ -234,9 +266,25 @@ export default function ChatDashboard() {
                   </div>
                 )}
 
+                {/* Thinking before AI 3 */}
+                {visibleCount === 4 && (
+                  <div className="flex items-start gap-3 animate-fade-in">
+                    <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+                      <div className="flex items-center gap-1">
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* AI message 3 with buttons */}
                 {visibleCount >= 5 && (
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 animate-fade-in">
                     <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
                       <Bot className="h-4 w-4" />
                     </div>
