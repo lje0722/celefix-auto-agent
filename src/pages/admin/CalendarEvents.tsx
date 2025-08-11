@@ -41,7 +41,7 @@ const CalendarEvents = () => {
           <span className="font-medium">중요 공지!</span>
           <span className="text-sm text-muted-foreground">8월 15일 대학 축제 시즌이 시작됩니다. 이번 달 총 8개 대학교와 계약이 필요합니다.</span>
         </div>
-        <button className="inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-2 py-1 text-xs text-accent transition hover:bg-accent/20">
+        <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
           <i className="fas fa-tasks hidden" aria-hidden /> 업무 할당
         </button>
       </div>
@@ -90,13 +90,13 @@ const CalendarEvents = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <button className="mr-2 rounded-lg border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
               <i className="fas fa-calendar-day hidden" aria-hidden /> 일
             </button>
-            <button className="mr-2 rounded-lg border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
               <i className="fas fa-calendar-week hidden" aria-hidden /> 주
             </button>
-            <button className="rounded-lg border border-border bg-muted/60 px-3 py-1 text-sm">
+            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">
               <i className="fas fa-calendar-alt hidden" aria-hidden /> 월
             </button>
           </div>
@@ -262,10 +262,10 @@ const CalendarEvents = () => {
             <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-muted/60" />완료</div>
           </div>
           <div className="flex items-center">
-            <button className="inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">
               <Filter className="h-4 w-4" /> 필터
             </button>
-            <button className="ml-2 inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="ml-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">
               <Plus className="h-4 w-4" /> 행사 추가
             </button>
           </div>

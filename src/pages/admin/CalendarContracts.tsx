@@ -92,7 +92,7 @@ const CalendarContracts = () => {
             서울대학교 축제 계약이 7일 이내 만료 예정입니다. (2025.08.13)
           </span>
         </div>
-        <button className="inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-2 py-1 text-xs text-accent transition hover:bg-accent/20">
+        <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
           <Mail className="h-4 w-4" /> 담당자에게 알림
         </button>
       </div>
@@ -148,13 +148,13 @@ const CalendarContracts = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <button className="mr-2 rounded-lg border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
               일
             </button>
-            <button className="mr-2 rounded-lg border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
               주
             </button>
-            <button className="rounded-lg border border-border bg-muted/60 px-3 py-1 text-sm">월</button>
+            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">월</button>
           </div>
         </div>
 
@@ -313,10 +313,10 @@ const CalendarContracts = () => {
             <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-primary/60" />갱신 예정</div>
           </div>
           <div className="flex items-center">
-            <button className="inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">
               <Filter className="h-4 w-4" /> 필터
             </button>
-            <button className="ml-2 inline-flex items-center gap-1 rounded border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20">
+            <button className="ml-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90">
               <Plus className="h-4 w-4" /> 계약 추가
             </button>
           </div>

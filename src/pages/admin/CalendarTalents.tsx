@@ -230,11 +230,11 @@ const CalendarTalents: React.FC = () => {
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="gap-1"><CalendarIcon className="h-4 w-4" /> 일</Button>
-          <Button variant="outline" size="sm" className="gap-1"><CalendarIcon className="h-4 w-4" /> 주</Button>
-          <Button variant="secondary" size="sm" className="gap-1"><CalendarIcon className="h-4 w-4" /> 월</Button>
-        </div>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20"><CalendarIcon className="h-4 w-4" /> 일</Button>
+            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20"><CalendarIcon className="h-4 w-4" /> 주</Button>
+            <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><CalendarIcon className="h-4 w-4" /> 월</Button>
+          </div>
       </section>
 
       <section aria-label="연예인 스케줄 캘린더" className="rounded-lg overflow-hidden border">
@@ -274,8 +274,8 @@ const CalendarTalents: React.FC = () => {
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-destructive/60 inline-block" /> 충돌</div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" className="gap-1" size="sm"><Filter className="h-4 w-4" /> 필터</Button>
-          <Button variant="secondary" className="gap-1" size="sm"><Plus className="h-4 w-4" /> 일정 추가</Button>
+          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><Filter className="h-4 w-4" /> 필터</Button>
+          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><Plus className="h-4 w-4" /> 일정 추가</Button>
         </div>
       </section>
 
