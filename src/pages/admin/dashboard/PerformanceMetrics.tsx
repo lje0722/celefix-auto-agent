@@ -2,9 +2,9 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, BarChart, Bar } from "recharts";
 
 const feeLineData = [
-  { month: "6월", "솔로": 3.2, "걸그룹": 4.1, "배우": 2.1, "보이그룹": 3.6 },
-  { month: "7월", "솔로": 3.6, "걸그룹": 4.4, "배우": 2.4, "보이그룹": 3.2 },
-  { month: "8월", "솔로": 3.9, "걸그룹": 4.9, "배우": 2.8, "보이그룹": 3.8 },
+  { month: "6월", "방탄소년단": 8.0, "아이유": 6.2, "뉴진스": 4.7, "에스파": 3.3 },
+  { month: "7월", "방탄소년단": 8.5, "아이유": 6.8, "뉴진스": 5.0, "에스파": 3.6 },
+  { month: "8월", "방탄소년단": 9.0, "아이유": 7.1, "뉴진스": 5.4, "에스파": 3.9 },
 ];
 
 const contractAvg = [
@@ -18,16 +18,24 @@ export default function PerformanceMetrics() {
   return (
     <div className="space-y-6">
       <div>
-        <div className="text-sm font-medium mb-2">출연료 추이 (상위 5개 장르)</div>
-        <ChartContainer config={{}} className="h-56 w-full">
+        <div className="text-sm font-medium mb-2">연예인 성과지표 추이</div>
+        <ChartContainer
+          config={{
+            방탄소년단: { label: "방탄소년단", color: "hsl(var(--info))" },
+            아이유: { label: "아이유", color: "hsl(var(--success))" },
+            뉴진스: { label: "뉴진스", color: "hsl(var(--warning))" },
+            에스파: { label: "에스파", color: "hsl(var(--urgent))" },
+          }}
+          className="h-56 w-full"
+        >
           <LineChart data={feeLineData}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
             <YAxis stroke="hsl(var(--muted-foreground))" />
-            <Line type="monotone" dataKey="솔로" stroke="hsl(var(--primary))" strokeWidth={2} />
-            <Line type="monotone" dataKey="걸그룹" stroke="hsl(var(--accent))" strokeWidth={2} />
-            <Line type="monotone" dataKey="배우" stroke="hsl(var(--secondary-foreground))" strokeWidth={2} />
-            <Line type="monotone" dataKey="보이그룹" stroke="hsl(var(--muted-foreground))" strokeWidth={2} />
+            <Line type="monotone" dataKey="방탄소년단" stroke="var(--color-방탄소년단)" strokeWidth={2.5} />
+            <Line type="monotone" dataKey="아이유" stroke="var(--color-아이유)" strokeWidth={2.5} />
+            <Line type="monotone" dataKey="뉴진스" stroke="var(--color-뉴진스)" strokeWidth={2.5} />
+            <Line type="monotone" dataKey="에스파" stroke="var(--color-에스파)" strokeWidth={2.5} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
           </LineChart>
