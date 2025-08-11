@@ -6,7 +6,7 @@ import { Bell, Star, Home, MessageSquare, Calendar, BarChart3 } from "lucide-rea
 export default function AdminLayout() {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="h-14 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 h-14 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-full max-w-screen-2xl items-center justify-between px-4">
           {/* Left: Brand */}
           <div className="flex items-center gap-2">
