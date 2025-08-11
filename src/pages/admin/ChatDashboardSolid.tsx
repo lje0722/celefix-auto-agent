@@ -192,11 +192,6 @@ export default function ChatDashboardSolid() {
                       <Share2 className="h-4 w-4" /> 세부 대시보드 보기
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="gap-2">
-                    <Link to="/admin/chat/result">
-                      <FileText className="h-4 w-4" /> 결과물 보기
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </div>
@@ -221,9 +216,6 @@ export default function ChatDashboardSolid() {
                     <Link to="/admin/chat/contract">
                       <FileSignature className="h-4 w-4" /> 계약서 확인하기
                     </Link>
-                  </Button>
-                  <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
-                    <CalendarDays className="h-4 w-4" /> 일정 확인하기
                   </Button>
                 </div>
               </div>
