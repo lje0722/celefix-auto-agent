@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-import { Star, ClipboardList, BarChart3, Trophy, Bot, TrendingUp, ArrowRight, Save as SaveIcon } from "lucide-react";
+import { Star, ClipboardList, BarChart3, Trophy, Bot, TrendingUp, ArrowRight } from "lucide-react";
 type RatingValue = 1 | 2 | 3 | 4 | 5;
 
 const RatingStars = ({ value, onChange, size = 'md' }: { value: number | null; onChange: (v: RatingValue) => void; size?: 'sm' | 'md'; }) => {
@@ -414,11 +414,11 @@ const UserFeedback = () => {
           {/* Actions */}
           <div className="flex justify-end">
             <div className="flex gap-3">
-              <Button variant="outline" onClick={handleSave} className="gap-2">
-                <SaveIcon className="h-4 w-4" /> 임시 저장
+              <Button variant="outline" onClick={handleSave}>
+                임시 저장
               </Button>
-              <Button onClick={handleNext} disabled={loading} className="gap-2">
-                {loading ? "저장 중..." : (<><span>저장</span> <SaveIcon className="h-4 w-4" /></>)}
+              <Button onClick={handleNext} disabled={loading}>
+                {loading ? "저장 중..." : "저장"}
               </Button>
             </div>
           </div>
