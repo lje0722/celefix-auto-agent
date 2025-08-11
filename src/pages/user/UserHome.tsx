@@ -6,13 +6,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import aespaAlbum from "@/assets/artists/aespa-album.jpg";
-import txtAlbum from "@/assets/artists/txt-album.jpg";
-import iveAlbum from "@/assets/artists/ive-album.jpg";
-import jeokjaeAlbum from "@/assets/artists/jeokjae-album.jpg";
-
 const UserHome = () => {
-  const artistAlbums = [aespaAlbum, txtAlbum, iveAlbum, jeokjaeAlbum];
+  const artistAlbums = [
+    "/lovable-uploads/10dac3ee-b9c1-40f1-9c99-6d6910e2b7ad.png",
+    "/lovable-uploads/15de82c7-aea5-440e-ad89-9b3c852eacda.png",
+    "/lovable-uploads/53846977-76eb-46e1-a02a-bad75b5ca7c4.png",
+    "/lovable-uploads/7bbc29ce-f354-47df-b6ff-ac29c80c7bea.png",
+  ];
   return (
     <div className="container mx-auto px-6 py-10 relative">
       {/* SEO */}
