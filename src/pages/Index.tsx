@@ -42,12 +42,12 @@ export default function Index() {
           {/* Hero */}
           <section className="mx-auto max-w-6xl px-4 py-16 text-center">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              당신의 업무를 <span className="text-primary">특별하게</span>
+              당신의 캐시팅 비서, <span className="text-primary">AI</span>
             </h1>
             <p className="mt-3 text-xl text-muted-foreground">연예인 섭외, 이제 더 쉽게</p>
             <p className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
-              예산과 컨셉에 맞는 최적의 연예인을 AI가 추천합니다. 번거로운 연락과 협상 없이,
-              클릭 몇 번으로 스타와 함께하는 특별한 행사를 만들어 보세요.
+              예산·컨셉·스케줄에 맞는 아티스트를 AI가 추천합니다. 
+              반복되는 연락·협상 과정을, 클릭 몇 번으로 섭외 절차를 완료하세요
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">
