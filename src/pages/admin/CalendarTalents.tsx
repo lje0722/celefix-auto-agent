@@ -231,9 +231,9 @@ const CalendarTalents: React.FC = () => {
           </Button>
         </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20"><CalendarIcon className="h-4 w-4" /> 일</Button>
-            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20"><CalendarIcon className="h-4 w-4" /> 주</Button>
-            <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><CalendarIcon className="h-4 w-4" /> 월</Button>
+            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]"><CalendarIcon className="h-4 w-4" /> 일</Button>
+            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]"><CalendarIcon className="h-4 w-4" /> 주</Button>
+            <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><CalendarIcon className="h-4 w-4" /> 월</Button>
           </div>
       </section>
 
@@ -274,8 +274,8 @@ const CalendarTalents: React.FC = () => {
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-destructive/60 inline-block" /> 충돌</div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><Filter className="h-4 w-4" /> 필터</Button>
-          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 shadow"><Plus className="h-4 w-4" /> 일정 추가</Button>
+          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><Filter className="h-4 w-4" /> 필터</Button>
+          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><Plus className="h-4 w-4" /> 일정 추가</Button>
         </div>
       </section>
 
