@@ -68,7 +68,7 @@ const UserFeedback = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "다음 단계로 이동", description: "세부 평가 단계로 이동합니다." });
+      toast({ description: "기본 피드백이 저장되었습니다." });
     }, 600);
   };
 
@@ -418,7 +418,7 @@ const UserFeedback = () => {
                 <SaveIcon className="h-4 w-4" /> 임시 저장
               </Button>
               <Button onClick={handleNext} disabled={loading} className="gap-2">
-                {loading ? "이동 중..." : (<><span>다음 단계로</span> <ArrowRight className="h-4 w-4" /></>)}
+                {loading ? "저장 중..." : (<><span>저장</span> <SaveIcon className="h-4 w-4" /></>)}
               </Button>
             </div>
           </div>
