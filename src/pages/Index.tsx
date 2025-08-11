@@ -12,7 +12,7 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
-
+import ThemeToggle from "@/components/ThemeToggle";
 export default function Index() {
   return (
     <>
@@ -35,6 +35,7 @@ export default function Index() {
               <Button asChild size="sm" variant="default" className="ml-2">
                 <Link to="/login">시작하기</Link>
               </Button>
+              <ThemeToggle className="ml-2" />
             </nav>
           </div>
         </header>
