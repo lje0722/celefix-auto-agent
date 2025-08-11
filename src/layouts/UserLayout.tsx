@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
-import { Bell, Star, Home, FileSignature, MessageSquare } from "lucide-react";
+import { Star, Home, FileSignature, MessageSquare } from "lucide-react";
 
 export default function UserLayout() {
   return (
@@ -45,15 +45,6 @@ export default function UserLayout() {
           {/* Right: Actions */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Link
-              to="/admin/notifications"
-              aria-label="알림"
-              className="relative inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
-              role="button"
-            >
-              <Bell className="h-4 w-4" />
-              <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />
-            </Link>
             <div className="hidden sm:flex items-center gap-2">
               <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
                 서
