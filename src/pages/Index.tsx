@@ -140,21 +140,6 @@ export default function Index() {
             </div>
           </section>
 
-          {/* CTA */}
-          <section className="px-4 py-16 text-center bg-muted/20 border-t border-border">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">지금 바로 시작해보세요</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              원하는 연예인을 클릭 한 번으로 섭외하고 최적의 라인업으로 성공적인 행사를 만들어 보세요.
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <Button asChild size="lg">
-                <Link to="/login">로그인하기</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="#features">서비스 더 알아보기</Link>
-              </Button>
-            </div>
-          </section>
         </main>
 
         <footer id="contact" className="border-t border-border">
