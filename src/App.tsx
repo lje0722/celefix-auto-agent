@@ -27,6 +27,7 @@ import UserFeedback from "./pages/user/UserFeedback";
 import ChatNew from "./pages/admin/ChatNew";
 import ChatDashboardDetail from "./pages/admin/ChatDashboardDetail";
 import ChatResult from "./pages/admin/ChatResult";
+import ChatDashboardSolid from "./pages/admin/ChatDashboardSolid";
 import UserLayout from "./layouts/UserLayout";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
                 <Route path="chat/forecast" element={<ChatForecast />} />
                 <Route path="chat/lineup" element={<ChatLineup />} />
                 <Route path="chat/dashboard" element={<ChatDashboard />} />
+                <Route path="chat/dashboard/solid" element={<ChatDashboardSolid />} />
                 <Route path="chat/dashboard-detail" element={<ChatDashboardDetail />} />
                 <Route path="chat/proposal" element={<ChatProposal />} />
                 <Route path="chat/result" element={<ChatResult />} />
