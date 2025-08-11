@@ -257,8 +257,10 @@ export default function ChatDashboard() {
                   <div className="max-w-3xl rounded-md bg-muted/40 p-4">
                     <p className="mb-4">축하드립니다! 빠른 승인을 받으셨네요. 삼성전자 런칭쇼 계약을 위한 계약서를 바로 준비해드리겠습니다.</p>
                     <div className="flex flex-wrap gap-3">
-                      <Button className="gap-2">
-                        <FileSignature className="h-4 w-4" /> 계약서 확인하기
+                      <Button asChild className="gap-2">
+                        <Link to="/admin/chat/contract">
+                          <FileSignature className="h-4 w-4" /> 계약서 확인하기
+                        </Link>
                       </Button>
                       <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
                         <CalendarDays className="h-4 w-4" /> 일정 확인하기
