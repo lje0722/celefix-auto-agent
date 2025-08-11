@@ -67,9 +67,6 @@ export default function AdminNotifications() {
           {/* 긴급 요청 - 높은 우선순위 */}
           <Card className="relative overflow-hidden">
             <LeftStripe color="bg-[hsl(var(--destructive))]" />
-            <div className="absolute right-4 top-4">
-              <Badge variant="destructive">긴급 요청</Badge>
-            </div>
             <CardHeader className="pb-4">
               <div className="flex items-start justify-between">
                 <div className="flex items-center">
@@ -86,6 +83,7 @@ export default function AdminNotifications() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
+                  <Badge variant="destructive">긴급 요청</Badge>
                   <Badge variant="destructive">높은 우선순위</Badge>
                   <Badge variant="secondary">대기중</Badge>
                 </div>
