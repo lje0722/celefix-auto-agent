@@ -11,7 +11,11 @@ import {
   Users,
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import eventUniv from "@/assets/events/university-festival.jpg";
+import eventCorp from "@/assets/events/corporate-launch.jpg";
+import eventBeach from "@/assets/events/beach-music-festival.jpg";
 export default function Index() {
+  const eventImages = [eventUniv, eventCorp, eventBeach];
   return (
     <>
       <SEO
@@ -112,7 +116,7 @@ export default function Index() {
                 people: "8,000명+",
               }].map((e, i) => (
                 <article key={i} className="rounded-xl overflow-hidden bg-card border border-border">
-                  <div className="h-40 bg-muted/40" aria-hidden />
+                  <img src={eventImages[i]} alt={`${e.title} 현장 사진 - ${e.tag}`} loading="lazy" decoding="async" className="h-40 w-full object-cover" />
                   <div className="p-5">
                     <div className="mb-2 flex items-center justify-between">
                       <h3 className="font-semibold">{e.title}</h3>
