@@ -19,7 +19,8 @@ import {
   BarChart,
   Bar,
 } from "recharts";
-import { Download, RefreshCw } from "lucide-react";
+import { Download, RefreshCw, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const snsData = [
   { month: "2월", likes: 22000, comments: 12000, shares: 6000 },
@@ -245,6 +246,14 @@ export default function ChatDashboardDetail() {
           </section>
         </section>
       </main>
+
+      <footer className="border-t border-border p-4">
+        <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
+          <Link to="/admin/chat/dashboard">
+            <ArrowLeft className="h-4 w-4" /> 챗봇으로 돌아가기
+          </Link>
+        </Button>
+      </footer>
     </div>
   );
 }

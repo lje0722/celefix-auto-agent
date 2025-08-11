@@ -2,7 +2,8 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarPlus, CheckCircle2, FileDown, FileSignature, Printer } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, CalendarPlus, CheckCircle2, FileDown, FileSignature, Printer } from "lucide-react";
 
 const ChatContract = () => {
   return (
@@ -194,13 +195,20 @@ const ChatContract = () => {
       </section>
 
       {/* 액션 버튼 */}
-      <footer className="flex items-center justify-center gap-3">
-        <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
-          <CalendarPlus className="h-4 w-4" /> 캘린더에 일정 추가
+      <footer className="flex items-center justify-between">
+        <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
+          <Link to="/admin/chat/dashboard">
+            <ArrowLeft className="h-4 w-4" /> 챗봇으로 돌아가기
+          </Link>
         </Button>
-        <Button className="gap-2">
-          <CheckCircle2 className="h-4 w-4" /> 계약 완료 처리
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
+            <CalendarPlus className="h-4 w-4" /> 캘린더에 일정 추가
+          </Button>
+          <Button className="gap-2">
+            <CheckCircle2 className="h-4 w-4" /> 계약 완료 처리
+          </Button>
+        </div>
       </footer>
     </main>
   );
