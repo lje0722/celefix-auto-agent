@@ -36,7 +36,7 @@ export default function AdminHome() {
       {/* 상단 환영 영역 */}
       <section className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold">안녕하세요, 관리자님!</h1>
+          <h1 className="text-2xl font-bold">안녕하세요, 김희연 관리자님!</h1>
           <p className="text-muted-foreground mt-1">오늘의 요청 및 계약 현황을 확인하세요</p>
         </div>
         <div className="flex gap-2">

@@ -79,7 +79,7 @@ export default function AdminLayout() {
               <div className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
                 김
               </div>
-              <span className="hidden text-sm sm:inline">김희연 관리자</span>
+              
             </div>
           </div>
         </div>
