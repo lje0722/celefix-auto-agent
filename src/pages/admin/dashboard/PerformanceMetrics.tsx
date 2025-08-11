@@ -3,8 +3,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, BarChart, Bar } from "rec
 
 const feeLineData = [
   { month: "6월", "방탄소년단": 8.0, "아이유": 6.2, "뉴진스": 4.7, "에스파": 3.3 },
-  { month: "7월", "방탄소년단": 8.5, "아이유": 6.8, "뉴진스": 5.0, "에스파": 3.6 },
-  { month: "8월", "방탄소년단": 9.0, "아이유": 7.1, "뉴진스": 5.4, "에스파": 3.9 },
+  { month: "7월", "방탄소년단": 8.8, "아이유": 6.9, "뉴진스": 5.1, "에스파": 3.7 },
+  { month: "8월", "방탄소년단": 8.2, "아이유": 6.5, "뉴진스": 4.8, "에스파": 3.4 },
 ];
 
 const contractAvg = [
@@ -32,10 +32,10 @@ export default function PerformanceMetrics() {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
             <YAxis stroke="hsl(var(--muted-foreground))" />
-            <Line type="monotone" dataKey="방탄소년단" stroke="var(--color-방탄소년단)" strokeWidth={2.5} />
-            <Line type="monotone" dataKey="아이유" stroke="var(--color-아이유)" strokeWidth={2.5} />
-            <Line type="monotone" dataKey="뉴진스" stroke="var(--color-뉴진스)" strokeWidth={2.5} />
-            <Line type="monotone" dataKey="에스파" stroke="var(--color-에스파)" strokeWidth={2.5} />
+            <Line type="monotone" dataKey="방탄소년단" stroke="hsl(var(--info))" strokeWidth={2.25} />
+            <Line type="monotone" dataKey="아이유" stroke="hsl(var(--success))" strokeWidth={2.25} />
+            <Line type="monotone" dataKey="뉴진스" stroke="hsl(var(--primary))" strokeWidth={2.25} />
+            <Line type="monotone" dataKey="에스파" stroke="hsl(var(--accent-foreground))" strokeWidth={2.25} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
           </LineChart>
