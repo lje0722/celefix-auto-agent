@@ -327,14 +327,14 @@ const CalendarContracts = () => {
           {/* 진행률 카드 */}
           <div className="rounded-lg border border-border bg-muted/30 p-3">
             <h3 className="mb-3 flex items-center text-sm font-medium">
-              <ListChecks className="mr-2 h-4 w-4 text-accent" /> 계약 단계별 진행률
+              <ListChecks className="mr-2 h-4 w-4 text-primary" /> 계약 단계별 진행률
             </h3>
             <div className="space-y-3">
               {[ 
-                { title: "서울대학교 축제 계약", pct: 80, color: "bg-success" },
-                { title: "고려대학교 축제 계약", pct: 45, color: "bg-accent" },
+                { title: "서울대학교 축제 계약", pct: 80, color: "bg-primary" },
+                { title: "고려대학교 축제 계약", pct: 45, color: "bg-info" },
                 { title: "연세대학교 축제 계약", pct: 30, color: "bg-warning" },
-                { title: "LG 기업행사 계약", pct: 65, color: "bg-accent" },
+                { title: "LG 기업행사 계약", pct: 65, color: "bg-success" },
               ].map((row) => (
                 <div key={row.title}>
                   <div className="mb-1 flex items-center justify-between text-xs">
