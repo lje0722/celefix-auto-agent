@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import {
   Star,
-  Building2,
-  ShieldCheck,
   Bot,
   CalendarCheck2,
   FileSignature,
@@ -60,18 +58,6 @@ export default function Index() {
               예산과 컨셉에 맞는 최적의 연예인을 AI가 추천합니다. 번거로운 연락과 협상 없이,
               클릭 몇 번으로 스타와 함께하는 특별한 행사를 만들어 보세요.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" variant="hero" className="min-w-[240px]">
-                <Link to="/login" className="inline-flex items-center">
-                  <Building2 className="mr-2 h-5 w-5" /> 기관 · 학교 · 축제 담당자
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="min-w-[220px]">
-                <Link to="/login" className="inline-flex items-center">
-                  <ShieldCheck className="mr-2 h-5 w-5" /> 에이전시 관리자
-                </Link>
-              </Button>
-            </div>
           </section>
 
           {/* Features */}
