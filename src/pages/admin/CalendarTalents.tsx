@@ -270,7 +270,6 @@ const CalendarTalents: React.FC = () => {
       <section aria-label="범례 및 액션" className="flex items-center justify-between text-sm mt-4">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-success/60 inline-block" /> 가용</div>
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-success/60 inline-block" /> 확정</div>
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-warning/60 inline-block" /> 협의중</div>
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-destructive/60 inline-block" /> 충돌</div>
         </div>
