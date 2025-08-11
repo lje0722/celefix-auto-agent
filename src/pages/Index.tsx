@@ -46,7 +46,7 @@ export default function Index() {
             </h1>
             <p className="mt-3 text-xl text-muted-foreground">연예인 섭외, 이제 더 쉽게</p>
             <p className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
-              예산·컨셉·스케줄에 맞는 아티스트를 AI가 추천합니다. 
+              예산·컨셉·스케줄에 맞는 아티스트를 AI가 추천합니다.<br />
               반복되는 연락·협상 과정을, 클릭 몇 번으로 섭외 절차를 완료하세요
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
