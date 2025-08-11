@@ -12,6 +12,7 @@ import {
   Plus,
   ListChecks,
   FileText,
+  Calendar as CalendarIcon,
 } from "lucide-react";
 
 const CalendarContracts = () => {

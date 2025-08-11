@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { ChevronLeft, ChevronRight, RefreshCw, Filter, Plus, Info, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, RefreshCw, Filter, Plus, Info, CheckCircle2, Calendar as CalendarIcon } from "lucide-react";
 
 const CalendarEvents = () => {
   return (
@@ -90,14 +90,14 @@ const CalendarEvents = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
-              <i className="fas fa-calendar-day hidden" aria-hidden /> 일
+            <button className="mr-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
+              <CalendarIcon className="h-4 w-4" /> 일
             </button>
-            <button className="mr-2 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
-              <i className="fas fa-calendar-week hidden" aria-hidden /> 주
+            <button className="mr-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
+              <CalendarIcon className="h-4 w-4" /> 주
             </button>
-            <button className="rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale ring-4 ring-accent/30 ring-offset-2 ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
-              <i className="fas fa-calendar-alt hidden" aria-hidden /> 월
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale ring-4 ring-accent/30 ring-offset-2 ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
+              <CalendarIcon className="h-4 w-4" /> 월
             </button>
           </div>
         </div>
