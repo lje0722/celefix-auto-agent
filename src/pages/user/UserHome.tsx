@@ -209,7 +209,7 @@ const UserHome = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[{name:'에스파 (aespa)',tag:'걸그룹',price:'4,700만원'},{name:'투모로우바이투게더',tag:'보이그룹',price:'5,200만원'},{name:'아이브 (IVE)',tag:'걸그룹',price:'4,800만원'},{name:'적재',tag:'솔로',price:'2,800만원'}].map((a,i)=> (
             <Card key={i} className="overflow-hidden">
-              <img src={artistAlbums[i]} alt={`${a.name} 메인 앨범 커버`} loading="lazy" decoding="async" className="h-32 w-full object-cover" />
+              <img src={artistAlbums[i]} alt={`${a.name} 포스터`} loading="lazy" decoding="async" className="h-32 w-full object-cover" />
               <CardContent className="p-3">
                 <h3 className="font-medium">{a.name}</h3>
                 <div className="flex items-center justify-between text-sm text-muted-foreground">
