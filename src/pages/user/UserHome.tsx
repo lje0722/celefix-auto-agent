@@ -35,10 +35,10 @@ const UserHome = () => {
           </div>
 
           {/* Center: main nav */}
-          <div className="hidden sm:flex items-center justify-center gap-1">
-            <Link to="/user" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary/15 text-primary border border-primary/30">홈</Link>
-            <Link to="/user/request" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">요청서</Link>
-            <Link to="/user/feedback" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">피드백</Link>
+          <div className="hidden sm:flex items-center justify-center gap-6">
+            <Link to="/user" aria-current="page" className="text-primary font-medium">홈</Link>
+            <Link to="/user/request" className="text-muted-foreground hover:text-foreground">요청서</Link>
+            <Link to="/user/feedback" className="text-muted-foreground hover:text-foreground">피드백</Link>
           </div>
 
           {/* Right: notifications + profile */}
