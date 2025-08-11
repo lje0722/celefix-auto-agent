@@ -2,15 +2,15 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, ResponsiveContainer } from "recharts";
 
 const pieDataGenre = [
-  { name: "솔로", value: 60, fill: "hsl(var(--primary))" },
-  { name: "그룹", value: 31, fill: "hsl(var(--accent))" },
-  { name: "기타", value: 9, fill: "hsl(var(--muted-foreground))" },
+  { name: "솔로", value: 60, fill: "hsl(var(--success))" },
+  { name: "그룹", value: 31, fill: "hsl(var(--info))" },
+  { name: "기타", value: 9, fill: "hsl(var(--urgent))" },
 ];
 
 const pieDataGeneration = [
-  { name: "Z", value: 44, fill: "hsl(var(--primary))" },
-  { name: "M", value: 38, fill: "hsl(var(--accent))" },
-  { name: "X+", value: 18, fill: "hsl(var(--muted-foreground))" },
+  { name: "Z", value: 44, fill: "hsl(var(--success))" },
+  { name: "M", value: 38, fill: "hsl(var(--warning))" },
+  { name: "X+", value: 18, fill: "hsl(var(--info))" },
 ];
 
 const feeLineData = [
@@ -26,6 +26,18 @@ const contractAvg = [
   { name: "보이그룹", value: 22.3 },
 ];
 
+const RADIAN = Math.PI / 180;
+const renderPieLabel = ({ cx, cy, midAngle, outerRadius, percent, name }: any) => {
+  const radius = outerRadius + 12;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  return (
+    <text x={x} y={y} fill="hsl(var(--foreground))" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" className="font-semibold">
+      {`${name} ${Math.round((percent || 0) * 100)}%`}
+    </text>
+  );
+};
+
 export default function PortfolioAnalysis() {
   return (
     <div className="space-y-4">
@@ -34,9 +46,9 @@ export default function PortfolioAnalysis() {
           <div className="text-sm font-medium mb-2">장르별 연예인 분포</div>
           <ChartContainer config={{}} className="aspect-square">
             <PieChart>
-              <Pie data={pieDataGenre} dataKey="value" nameKey="name" outerRadius={80} label>
+              <Pie data={pieDataGenre} dataKey="value" nameKey="name" outerRadius={80} labelLine={false} label={renderPieLabel}>
                 {pieDataGenre.map((entry, i) => (
-                  <Cell key={`cell-g-${i}`} fill={entry.fill} />
+                  <Cell key={`cell-g-${i}`} fill={entry.fill} stroke="hsl(var(--background))" strokeWidth={1} />
                 ))}
               </Pie>
               <ChartTooltip content={<ChartTooltipContent hideIndicator />} />
@@ -48,9 +60,9 @@ export default function PortfolioAnalysis() {
           <div className="text-sm font-medium mb-2">세대별 연예인 분포</div>
           <ChartContainer config={{}} className="aspect-square">
             <PieChart>
-              <Pie data={pieDataGeneration} dataKey="value" nameKey="name" outerRadius={80} label>
+              <Pie data={pieDataGeneration} dataKey="value" nameKey="name" outerRadius={80} labelLine={false} label={renderPieLabel}>
                 {pieDataGeneration.map((entry, i) => (
-                  <Cell key={`cell-gen-${i}`} fill={entry.fill} />
+                  <Cell key={`cell-gen-${i}`} fill={entry.fill} stroke="hsl(var(--background))" strokeWidth={1} />
                 ))}
               </Pie>
               <ChartTooltip content={<ChartTooltipContent hideIndicator />} />
