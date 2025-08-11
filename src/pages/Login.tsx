@@ -23,6 +23,8 @@ const [remember, setRemember] = useState(false);
     });
     if (activeTab === "admin") {
       navigate("/admin");
+    } else {
+      navigate("/user");
     }
   };
 
