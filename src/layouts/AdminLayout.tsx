@@ -60,7 +60,7 @@ export default function AdminLayout() {
           </nav>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-2 justify-self-end">
+          <div className="flex items-center gap-3 justify-self-end">
             {/* Theme toggle to the LEFT of the button (as requested) */}
             <ThemeToggle />
 
@@ -68,7 +68,7 @@ export default function AdminLayout() {
             <Link
               to="/admin/notifications"
               aria-label="알림"
-              className="relative inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
+              className="relative inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-muted"
               role="button"
             >
               <Bell className="h-4 w-4" />
@@ -76,7 +76,7 @@ export default function AdminLayout() {
             </Link>
 
             <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
                 김
               </div>
               <span className="hidden text-sm sm:inline">김희연 관리자</span>
