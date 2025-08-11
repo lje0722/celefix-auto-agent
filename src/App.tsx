@@ -26,6 +26,7 @@ import UserRequest from "./pages/user/UserRequest";
 import UserFeedback from "./pages/user/UserFeedback";
 import ChatNew from "./pages/admin/ChatNew";
 import ChatDashboardDetail from "./pages/admin/ChatDashboardDetail";
+import UserLayout from "./layouts/UserLayout";
 
 const queryClient = new QueryClient();
 
@@ -63,9 +64,11 @@ const App = () => (
               </Route>
 
               {/* User routes */}
-              <Route path="/user" element={<UserHome />} />
-              <Route path="/user/request" element={<UserRequest />} />
-              <Route path="/user/feedback" element={<UserFeedback />} />
+              <Route path="/user" element={<UserLayout />}>
+                <Route index element={<UserHome />} />
+                <Route path="request" element={<UserRequest />} />
+                <Route path="feedback" element={<UserFeedback />} />
+              </Route>
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

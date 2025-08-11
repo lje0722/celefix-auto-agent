@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { Bell, Plus, ArrowRight, Star, Home, FileSignature, MessageSquare } from "lucide-react";
+import { Plus, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,53 +12,7 @@ const UserHome = () => {
       {/* SEO */}
       <SEO title="사용자 홈 | Celefix" description="기관·학교·축제 담당자 포털" />
 
-      {/* Top nav */}
-      <header className="mb-6">
-        <nav aria-label="사용자 내비게이션" className="grid grid-cols-3 items-center rounded-xl border border-border bg-card/60 backdrop-blur px-4 py-3 shadow">
-          {/* Left: logo + icon shortcuts */}
-          <div className="flex items-center gap-3">
-            <Link to="/" className="inline-flex items-center font-bold text-primary">
-              <Star className="mr-2 h-5 w-5" />
-              Celefix
-            </Link>
-            <div className="hidden sm:flex items-center gap-1 ml-2">
-              <Link to="/user" aria-label="홈" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
-                <Home className="h-4 w-4" />
-              </Link>
-              <Link to="/user/request" aria-label="요청서" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
-                <FileSignature className="h-4 w-4" />
-              </Link>
-              <Link to="/user/feedback" aria-label="피드백" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
-                <MessageSquare className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Center: main nav */}
-          <div className="hidden sm:flex items-center justify-center gap-6">
-            <Link to="/user" aria-current="page" className="text-primary font-medium">홈</Link>
-            <Link to="/user/request" className="text-muted-foreground hover:text-foreground">요청서</Link>
-            <Link to="/user/feedback" className="text-muted-foreground hover:text-foreground">피드백</Link>
-          </div>
-
-          {/* Right: notifications + profile */}
-          <div className="flex items-center justify-end gap-3">
-            <Link
-              to="/admin/notifications"
-              aria-label="알림"
-              className="relative inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
-            >
-              <Bell className="h-4 w-4" />
-              <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />
-            </Link>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-3 py-1.5">
-              <div className="h-6 w-6 rounded-full bg-primary/60 text-primary-foreground flex items-center justify-center text-[10px]">서</div>
-              <span className="hidden sm:inline text-sm">서울대학교 축제준비위원회</span>
-            </div>
-          </div>
-        </nav>
-      </header>
-
+      {/* Page intro (content only; header is handled by UserLayout) */}
       <section className="mb-6">
         <h1 className="text-2xl font-bold">안녕하세요, 서울대학교 축제준비위원회님!</h1>
         <p className="text-muted-foreground mt-2">연예인 섭외 요청과 진행 상황을 확인해보세요.</p>
