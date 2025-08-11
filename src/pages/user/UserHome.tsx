@@ -6,7 +6,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import aespaAlbum from "@/assets/artists/aespa-album.jpg";
+import txtAlbum from "@/assets/artists/txt-album.jpg";
+import iveAlbum from "@/assets/artists/ive-album.jpg";
+import jeokjaeAlbum from "@/assets/artists/jeokjae-album.jpg";
+
 const UserHome = () => {
+  const artistAlbums = [aespaAlbum, txtAlbum, iveAlbum, jeokjaeAlbum];
   return (
     <div className="container mx-auto px-6 py-10 relative">
       {/* SEO */}
@@ -203,7 +209,7 @@ const UserHome = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[{name:'에스파 (aespa)',tag:'걸그룹',price:'4,700만원'},{name:'투모로우바이투게더',tag:'보이그룹',price:'5,200만원'},{name:'아이브 (IVE)',tag:'걸그룹',price:'4,800만원'},{name:'적재',tag:'솔로',price:'2,800만원'}].map((a,i)=> (
             <Card key={i} className="overflow-hidden">
-              <div className="h-32 bg-muted" aria-hidden="true" />
+              <img src={artistAlbums[i]} alt={`${a.name} 메인 앨범 커버`} loading="lazy" decoding="async" className="h-32 w-full object-cover" />
               <CardContent className="p-3">
                 <h3 className="font-medium">{a.name}</h3>
                 <div className="flex items-center justify-between text-sm text-muted-foreground">
