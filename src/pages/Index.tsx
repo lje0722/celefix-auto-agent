@@ -11,6 +11,7 @@ import {
   ArrowRight,
   MapPin,
   Users,
+  Bell,
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 export default function Index() {
@@ -36,6 +37,14 @@ export default function Index() {
                 <Link to="/login">시작하기</Link>
               </Button>
               <ThemeToggle className="ml-2" />
+              <Link
+                to="/admin/notifications"
+                aria-label="알림"
+                className="relative inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
+              >
+                <Bell className="h-4 w-4" />
+                <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />
+              </Link>
             </nav>
           </div>
         </header>

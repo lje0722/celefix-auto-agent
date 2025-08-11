@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import { Eye, EyeOff, Star, User, Shield } from "lucide-react";
+import { Eye, EyeOff, Star, User, Shield, Bell } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom"; // ✅ Next.js 의 next/link 대신 react-router-dom 사용
 
 export default function LoginPage() {
@@ -41,7 +41,15 @@ const [remember, setRemember] = useState(false);
   );
 
   return (
-    <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+    <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4 relative">
+      <Link
+        to="/admin/notifications"
+        aria-label="알림"
+        className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-muted"
+      >
+        <Bell className="h-4 w-4" />
+        <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />
+      </Link>
       <div className="w-full max-w-md rounded-2xl bg-card border border-border shadow-2xl p-6">
         {/* 로고 */}
         <div className="text-center mb-8">
