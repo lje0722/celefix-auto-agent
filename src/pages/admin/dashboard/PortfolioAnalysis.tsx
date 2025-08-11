@@ -2,15 +2,15 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, ResponsiveContainer } from "recharts";
 
 const pieDataGenre = [
-  { name: "솔로", value: 60, fill: "hsl(var(--success))" },
-  { name: "그룹", value: 31, fill: "hsl(var(--info))" },
-  { name: "기타", value: 9, fill: "hsl(var(--urgent))" },
+  { name: "솔로", value: 60, fill: "hsl(var(--primary))" },
+  { name: "그룹", value: 31, fill: "hsl(var(--foreground))" },
+  { name: "기타", value: 9, fill: "hsl(var(--brand-2))" },
 ];
 
 const pieDataGeneration = [
-  { name: "Z", value: 44, fill: "hsl(var(--success))" },
-  { name: "M", value: 38, fill: "hsl(var(--warning))" },
-  { name: "X+", value: 18, fill: "hsl(var(--info))" },
+  { name: "Z", value: 44, fill: "hsl(var(--primary))" },
+  { name: "M", value: 38, fill: "hsl(var(--foreground))" },
+  { name: "X+", value: 18, fill: "hsl(var(--brand-2))" },
 ];
 
 const feeLineData = [
