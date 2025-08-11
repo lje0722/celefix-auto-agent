@@ -58,6 +58,14 @@ export default function Index() {
               예산과 컨셉에 맞는 최적의 연예인을 AI가 추천합니다. 번거로운 연락과 협상 없이,
               클릭 몇 번으로 스타와 함께하는 특별한 행사를 만들어 보세요.
             </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button asChild size="lg">
+                <Link to="/login">로그인하기</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="#features">서비스 더 알아보기</Link>
+              </Button>
+            </div>
           </section>
 
           {/* Features */}
