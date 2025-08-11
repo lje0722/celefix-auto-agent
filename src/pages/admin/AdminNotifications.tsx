@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CalendarDays, Clock, Check, X, Eye, AlertTriangle } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 const Stat = ({ label, value }: { label: string; value: number }) => (
   <div className="rounded-md border bg-muted/40 px-3 py-2 text-sm">
@@ -121,7 +121,9 @@ export default function AdminNotifications() {
             <CardFooter className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">담당자: 미지정</span>
               <div className="flex gap-2">
-                <Button size="sm">
+                <Button size="sm" onClick={() =>
+                  toast({ title: "축제 승인되었습니다.", description: "서울대학교 축제준비위원회의 요청이 승인 처리되었습니다." })
+                }>
                   <Check className="mr-2 h-4 w-4" /> 승인
                 </Button>
                 <Button size="sm" variant="destructive">
