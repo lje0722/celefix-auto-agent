@@ -1,5 +1,5 @@
 import SEO from "@/components/SEO";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -23,7 +23,14 @@ import SeoulFestivalThread from "./threads/SeoulFestivalThread";
 export default function ChatDashboard() {
   const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("samsung");
   const [visibleCount, setVisibleCount] = useState(0);
+  const location = useLocation();
 
+  useEffect(() => {
+    const thread = new URLSearchParams(location.search).get("thread");
+    if (thread === "seoul" || thread === "samsung") {
+      setActiveThread(thread as "samsung" | "seoul");
+    }
+  }, [location.search]);
   useEffect(() => {
     if (activeThread !== "samsung") return;
     setVisibleCount(0);

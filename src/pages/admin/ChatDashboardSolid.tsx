@@ -83,9 +83,11 @@ export default function ChatDashboardSolid() {
               </div>
 
               <ul className="space-y-2">
-                <li className="chat-item rounded-md border border-border bg-muted/30 p-3">
-                  <div className="text-sm font-medium">서울대 축제 제안</div>
-                  <div className="truncate text-xs text-muted-foreground">축제 라인업 추천 및 분석</div>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <Link to="/admin/chat/dashboard?thread=seoul" className="block">
+                    <div className="text-sm font-medium">서울대 축제 제안</div>
+                    <div className="truncate text-xs text-muted-foreground">축제 라인업 추천 및 분석</div>
+                  </Link>
                 </li>
                 <li className="chat-item rounded-md border border-border bg-muted/30 p-3">
                   <div className="text-sm font-medium">부산 음악 페스티벌</div>
