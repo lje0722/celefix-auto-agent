@@ -217,9 +217,8 @@ const UserHome = () => {
               </div>
               <CardContent className="p-3">
                 <h3 className="font-medium">{a.name}</h3>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <span>{a.tag}</span>
-                  <span>{a.price}</span>
+                <div className="text-sm text-muted-foreground">
+                  {a.tag}
                 </div>
               </CardContent>
             </Card>
