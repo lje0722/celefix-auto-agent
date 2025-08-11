@@ -54,6 +54,7 @@ const App = () => (
                 <Route path="chat/proposal" element={<ChatProposal />} />
                 <Route path="chat/contract" element={<ChatContract />} />
                 <Route path="chat/new" element={<ChatNew />} />
+                <Route path="calendar" element={<Navigate to="/admin/calendar/talents" replace />} />
                 <Route path="calendar/talents" element={<CalendarTalents />} />
                 <Route path="calendar/events" element={<CalendarEvents />} />
                 <Route path="calendar/contracts" element={<CalendarContracts />} />

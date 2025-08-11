@@ -38,7 +38,7 @@ export default function AdminLayout() {
               <MessageSquare className="h-4 w-4" /> 챗봇
             </NavLink>
             <NavLink
-              to="/admin/calendar/events"
+              to="/admin/calendar"
               className={({ isActive }) =>
                 isActive
                   ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
