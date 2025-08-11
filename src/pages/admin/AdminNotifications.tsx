@@ -1,4 +1,5 @@
 import SEO from "@/components/SEO";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -26,6 +27,7 @@ const LeftStripe = ({ color }: { color: string }) => (
 
 export default function AdminNotifications() {
   const { toast } = useToast();
+  const [approvedSNU, setApprovedSNU] = useState(false);
 
   const handleMarkAllRead = () =>
     toast({ title: "모두 읽음 처리", description: "모든 알림을 읽음 처리했어요." });
@@ -70,7 +72,9 @@ export default function AdminNotifications() {
             <CardHeader className="pb-4">
               <div className="flex items-start justify-between">
                 <div className="flex items-center">
-                  <div className="mr-5 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full bg-primary text-primary-foreground font-bold">
+                  <div
+                    className={`mr-5 grid h-14 w-14 flex-shrink-0 place-items-center rounded-full font-bold ${approvedSNU ? "bg-[hsl(var(--success))] text-[hsl(var(--success-foreground))]" : "bg-primary text-primary-foreground"}`}
+                  >
                     서울대
                   </div>
                   <div>
@@ -121,9 +125,17 @@ export default function AdminNotifications() {
             <CardFooter className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">담당자: 미지정</span>
               <div className="flex gap-2">
-                <Button size="sm" onClick={() =>
-                  toast({ title: "축제 승인되었습니다.", description: "서울대학교 축제준비위원회의 요청이 승인 처리되었습니다." })
-                }>
+                <Button
+                  size="sm"
+                  className={approvedSNU ? "bg-[hsl(var(--success))] text-[hsl(var(--success-foreground))] hover:bg-[hsl(var(--success))]" : ""}
+                  onClick={() => {
+                    setApprovedSNU(true);
+                    toast({
+                      title: "축제 승인되었습니다.",
+                      description: "서울대학교 축제준비위원회의 요청이 승인 처리되었습니다.",
+                    });
+                  }}
+                >
                   <Check className="mr-2 h-4 w-4" /> 승인
                 </Button>
                 <Button size="sm" variant="destructive">
