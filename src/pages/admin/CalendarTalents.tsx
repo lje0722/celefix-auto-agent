@@ -14,14 +14,10 @@ type CalendarEvent = {
 };
 
 const statusStyles: Record<Status, string> = {
-  available:
-    "bg-accent/15 border-l-2 border-accent text-foreground/80",
-  booked:
-    "bg-primary/15 border-l-2 border-primary text-foreground/80",
-  pending:
-    "bg-secondary/20 border-l-2 border-secondary text-foreground/80",
-  conflict:
-    "bg-destructive/15 border-l-2 border-destructive text-foreground/80",
+  available: "bg-success/15 border-l-2 border-success text-foreground/90",
+  booked: "bg-success/15 border-l-2 border-success text-foreground/90",
+  pending: "bg-warning/20 border-l-2 border-warning text-foreground/90",
+  conflict: "bg-destructive/15 border-l-2 border-destructive text-foreground/90",
 };
 
 function getMonthGrid(year: number, monthIndex0: number) {
@@ -266,9 +262,9 @@ const CalendarTalents: React.FC = () => {
 
       <section aria-label="범례 및 액션" className="flex items-center justify-between text-sm mt-4">
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-accent/60 inline-block" /> 가용</div>
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-primary/60 inline-block" /> 확정</div>
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-secondary/60 inline-block" /> 협의중</div>
+          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-success/60 inline-block" /> 가용</div>
+          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-success/60 inline-block" /> 확정</div>
+          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-warning/60 inline-block" /> 협의중</div>
           <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-destructive/60 inline-block" /> 충돌</div>
         </div>
         <div className="flex items-center gap-2">
