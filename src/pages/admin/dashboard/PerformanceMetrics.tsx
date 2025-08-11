@@ -32,10 +32,10 @@ export default function PerformanceMetrics() {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
             <YAxis stroke="hsl(var(--muted-foreground))" />
-            <Line type="monotone" dataKey="방탄소년단" stroke="hsl(var(--info))" strokeWidth={2.25} />
-            <Line type="monotone" dataKey="아이유" stroke="hsl(var(--success))" strokeWidth={2.25} />
-            <Line type="monotone" dataKey="뉴진스" stroke="hsl(var(--primary))" strokeWidth={2.25} />
-            <Line type="monotone" dataKey="에스파" stroke="hsl(var(--accent-foreground))" strokeWidth={2.25} />
+            <Line type="linear" dataKey="방탄소년단" stroke="hsl(var(--info))" strokeWidth={2.25} />
+            <Line type="linear" dataKey="아이유" stroke="hsl(var(--success))" strokeWidth={2.25} />
+            <Line type="linear" dataKey="뉴진스" stroke="hsl(var(--primary))" strokeWidth={2.25} />
+            <Line type="linear" dataKey="에스파" stroke="hsl(var(--accent-foreground))" strokeWidth={2.25} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
           </LineChart>
