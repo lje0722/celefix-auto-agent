@@ -197,7 +197,7 @@ const ChatContract = () => {
       {/* 액션 버튼 */}
       <footer className="flex items-center justify-between">
         <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
-          <Link to="/admin/chat/dashboard">
+          <Link to="/admin/chat/dashboard/solid">
             <ArrowLeft className="h-4 w-4" /> 챗봇으로 돌아가기
           </Link>
         </Button>
