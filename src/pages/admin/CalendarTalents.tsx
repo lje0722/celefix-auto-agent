@@ -2,9 +2,9 @@ import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
 import { AlertTriangle, Bell, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import * as React from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type Status = "available" | "booked" | "pending" | "conflict";
 
@@ -197,18 +197,25 @@ const CalendarTalents: React.FC = () => {
         </div>
         <div className="flex flex-wrap gap-2">
           {[
-            { name: "아이유", dot: "bg-primary" },
-            { name: "적재", dot: "bg-accent" },
-            { name: "에픽하이", dot: "bg-secondary" },
-            { name: "뉴진스", dot: "bg-accent" },
-            { name: "에스파", dot: "bg-primary" },
-            { name: "아이브", dot: "bg-secondary" },
-            { name: "BTS", dot: "bg-primary" },
+            { name: "아이유", dot: "bg-primary", active: true },
+            { name: "적재", dot: "bg-accent", active: true },
+            { name: "에픽하이", dot: "bg-success", active: true },
+            { name: "뉴진스", dot: "bg-warning", active: true },
+            { name: "에스파", dot: "bg-accent", active: true },
+            { name: "아이브", dot: "bg-secondary", active: true },
+            { name: "BTS", dot: "bg-muted-foreground", active: false },
           ].map((a) => (
-            <Badge key={a.name} variant="secondary" className="rounded-full px-3 py-1 text-xs">
+            <span
+              key={a.name}
+              className={`inline-flex items-center rounded-full px-3 py-1 text-xs border ${
+                a.active
+                  ? "bg-primary/20 border-primary/50 text-foreground"
+                  : "bg-muted/40 border-border text-muted-foreground"
+              }`}
+            >
               <span className={`w-2 h-2 rounded-full inline-block mr-1 ${a.dot}`} />
               {a.name}
-            </Badge>
+            </span>
           ))}
         </div>
       </section>
