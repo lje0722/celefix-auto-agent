@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { Bell, Plus, ArrowRight, Star } from "lucide-react";
+import { Bell, Plus, ArrowRight, Star, Home, FileSignature, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,19 +14,35 @@ const UserHome = () => {
 
       {/* Top nav */}
       <header className="mb-6">
-        <nav aria-label="사용자 내비게이션" className="flex items-center justify-between rounded-xl border border-border bg-card/60 backdrop-blur px-4 py-3 shadow">
+        <nav aria-label="사용자 내비게이션" className="grid grid-cols-3 items-center rounded-xl border border-border bg-card/60 backdrop-blur px-4 py-3 shadow">
+          {/* Left: logo + icon shortcuts */}
           <div className="flex items-center gap-3">
             <Link to="/" className="inline-flex items-center font-bold text-primary">
               <Star className="mr-2 h-5 w-5" />
               Celefix
             </Link>
-            <div className="hidden sm:flex items-center gap-1 ml-4">
-              <Link to="/user" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary/15 text-primary border border-primary/30">홈</Link>
-              <Link to="/user/request" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">요청서</Link>
-              <Link to="/user/feedback" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">피드백</Link>
+            <div className="hidden sm:flex items-center gap-1 ml-2">
+              <Link to="/user" aria-label="홈" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
+                <Home className="h-4 w-4" />
+              </Link>
+              <Link to="/user/request" aria-label="요청서" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
+                <FileSignature className="h-4 w-4" />
+              </Link>
+              <Link to="/user/feedback" aria-label="피드백" className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted">
+                <MessageSquare className="h-4 w-4" />
+              </Link>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+
+          {/* Center: main nav */}
+          <div className="hidden sm:flex items-center justify-center gap-1">
+            <Link to="/user" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary/15 text-primary border border-primary/30">홈</Link>
+            <Link to="/user/request" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">요청서</Link>
+            <Link to="/user/feedback" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-muted">피드백</Link>
+          </div>
+
+          {/* Right: notifications + profile */}
+          <div className="flex items-center justify-end gap-3">
             <Link
               to="/admin/notifications"
               aria-label="알림"
