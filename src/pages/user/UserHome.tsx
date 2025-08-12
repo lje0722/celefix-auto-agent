@@ -1,10 +1,8 @@
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { Plus, ArrowRight } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const UserHome = () => {
@@ -159,47 +157,6 @@ const UserHome = () => {
         </div>
       </section>
 
-      {/* Quick request form preview */}
-      <section className="mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold">빠른 섭외 요청</h2>
-          <Link to="/user/request" className="text-sm text-primary inline-flex items-center">양식 전체보기 <ArrowRight className="ml-1 h-4 w-4" /></Link>
-        </div>
-        <Card>
-          <CardContent className="p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <div className="mb-4">
-                  <Label htmlFor="budget" className="mb-2 block text-sm">예산 (단위: 만원)</Label>
-                  <Input id="budget" type="number" placeholder="예산 입력 (예: 5000)" />
-                </div>
-                <div className="mb-4">
-                  <Label className="mb-2 block text-sm">원하는 아티스트</Label>
-                  <div className="relative">
-                    <Input placeholder="아티스트 검색..." />
-                    <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">⌘K</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="mb-4">
-                  <Label htmlFor="event_name" className="mb-2 block text-sm">행사명</Label>
-                  <Input id="event_name" placeholder="행사명 입력" />
-                </div>
-                <div className="mb-4">
-                  <Label htmlFor="event_date" className="mb-2 block text-sm">행사 날짜</Label>
-                  <Input id="event_date" type="date" />
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 flex justify-end">
-              <Button asChild>
-                <Link to="/user/request">요청서 작성 완료하기</Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
 
       {/* Recommended artists */}
       <section>
