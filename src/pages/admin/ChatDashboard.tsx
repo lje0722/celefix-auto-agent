@@ -146,12 +146,13 @@ export default function ChatDashboard() {
     }
 
     if (activeThread === "seoul") {
-      setSeoulMessages((m) => [
-        ...m,
-        { role: "user", text: content },
-        { role: "ai", node: <SeoulFestivalAnswer /> },
-      ]);
+      setSeoulMessages((m) => [...m, { role: "user", text: content }]);
       setInput("");
+      setTyping(true);
+      setTimeout(() => {
+        setSeoulMessages((m) => [...m, { role: "ai", node: <SeoulFestivalAnswer /> }]);
+        setTyping(false);
+      }, 3000);
     }
   };
 
@@ -326,6 +327,21 @@ export default function ChatDashboard() {
                       <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
                     </div>
                   )
+                )}
+
+                {typing && (
+                  <div className="flex items-start gap-3 animate-fade-in">
+                    <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+                      <div className="flex items-center gap-1">
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
+                        <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
+                      </div>
+                    </div>
+                  </div>
                 )}
               </>
             )}
