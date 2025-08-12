@@ -45,6 +45,12 @@ export default function UserLayout() {
           {/* Right: Actions */}
           <div className="flex items-center gap-2 justify-self-end">
             <ThemeToggle />
+            <div
+              className="hidden sm:grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold"
+              aria-label="사용자 이니셜"
+            >
+              서
+            </div>
           </div>
         </div>
       </header>
