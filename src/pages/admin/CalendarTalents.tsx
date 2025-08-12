@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { AlertTriangle, Bell, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw, Users } from "lucide-react";
+import { AlertTriangle, Bell, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import * as React from "react";
@@ -118,16 +118,8 @@ const CalendarTalents: React.FC = () => {
   return (
     <div>
       <SEO title="캘린더(연예인) | Celefix" description="연예인 가용 여부 캘린더" />
-      <header className="mb-4">
-        <h1 className="text-2xl font-bold flex items-center"><Users className="h-5 w-5 mr-2 text-primary" />연예인 스케줄 캘린더</h1>
-        <p className="text-muted-foreground mt-1">가용/확정/협의 중/충돌 상태를 한눈에 확인하세요.</p>
-      </header>
 
-      <section aria-label="상태 및 동기화" className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2 rounded-lg border border-success bg-success px-3 py-2">
-          <CheckCircle2 className="h-4 w-4 text-success-foreground" />
-          <span className="text-sm font-medium text-success-foreground">Google Calendar 연동됨</span>
-        </div>
+      <section aria-label="상태 및 동기화" className="flex items-center justify-end mb-4">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" onClick={onRefresh} aria-label="새로고침">
             <RefreshCcw className="h-4 w-4" />
