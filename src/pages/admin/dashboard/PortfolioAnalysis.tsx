@@ -2,15 +2,15 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, ResponsiveContainer } from "recharts";
 
 const pieDataGenre = [
-  { name: "솔로", value: 60, fill: "hsl(var(--primary))" },
-  { name: "그룹", value: 31, fill: "hsl(var(--foreground))" },
-  { name: "기타", value: 9, fill: "hsl(var(--brand-2))" },
+  { name: "댄스", value: 60, fill: "hsl(var(--primary))" },
+  { name: "힙합/랩", value: 31, fill: "hsl(var(--foreground))" },
+  { name: "발라드", value: 9, fill: "hsl(var(--brand-2))" },
 ];
 
 const pieDataGeneration = [
-  { name: "Z", value: 44, fill: "hsl(var(--primary))" },
-  { name: "M", value: 38, fill: "hsl(var(--foreground))" },
-  { name: "X+", value: 18, fill: "hsl(var(--brand-2))" },
+  { name: "1등급", value: 44, fill: "hsl(var(--primary))" },
+  { name: "2등급", value: 38, fill: "hsl(var(--foreground))" },
+  { name: "3등급", value: 18, fill: "hsl(var(--brand-2))" },
 ];
 
 const feeLineData = [
@@ -57,7 +57,7 @@ export default function PortfolioAnalysis() {
           </ChartContainer>
         </div>
         <div>
-          <div className="text-sm font-medium mb-2">세대별 연예인 분포</div>
+          <div className="text-sm font-medium mb-2">연예인 등급표</div>
           <ChartContainer config={{}} className="aspect-square">
             <PieChart>
               <Pie data={pieDataGeneration} dataKey="value" nameKey="name" outerRadius={80} labelLine={false} label={renderPieLabel}>
@@ -72,8 +72,8 @@ export default function PortfolioAnalysis() {
         </div>
       </div>
 
-      <div>
-        <div className="text-sm font-medium mb-2">연예인 성별 및 형태 분포</div>
+        <div>
+          <div className="text-sm font-medium mb-2">연예인 팀 타입 및 분포</div>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
           <div className="rounded-md border bg-muted/40 p-3 text-center">
             <div className="text-xs text-muted-foreground">솔로 아티스트</div>
