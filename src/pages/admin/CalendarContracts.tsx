@@ -1,7 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
 import {
-  FileSignature,
   RefreshCw,
   CheckCircle2,
   Info,
@@ -21,7 +20,7 @@ const CalendarContracts = () => {
       <SEO title="캘린더(계약관리) | Celefix" description="계약 상태 캘린더" />
 
       <nav aria-label="캘린더 탭" className="border-b mb-4">
-        <ul className="flex gap-1 justify-end">
+        <ul className="flex gap-1">
           <li>
             <NavLink
               to="/admin/calendar/talents"
@@ -67,10 +66,7 @@ const CalendarContracts = () => {
         </ul>
       </nav>
 
-      <header className="flex items-center justify-between mb-4 px-1">
-        <h1 className="text-2xl font-bold flex items-center">
-          <FileSignature className="h-5 w-5 mr-2 text-primary" /> 계약 관리 스케줄
-        </h1>
+      <header className="flex items-center justify-end mb-4 px-1">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-1 text-xs">
             <span>Google Calendar 연동됨</span>

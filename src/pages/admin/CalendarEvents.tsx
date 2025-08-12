@@ -8,7 +8,7 @@ const CalendarEvents = () => {
       <SEO title="캘린더(행사) | Celefix" description="행사 일정 캘린더" />
 
       <nav aria-label="캘린더 탭" className="border-b mb-4">
-        <ul className="flex gap-1 justify-end">
+        <ul className="flex gap-1">
           <li>
             <NavLink to="/admin/calendar/talents" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>연예인 스케줄</NavLink>
           </li>
