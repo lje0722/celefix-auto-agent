@@ -146,7 +146,8 @@ const CalendarTalents: React.FC = () => {
       <div className="flex items-center justify-between rounded-md border-l-4 border-destructive bg-destructive/20 p-3 mb-4">
         <div className="flex items-center gap-2">
           <AlertTriangle className="h-4 w-4 text-destructive" />
-          <span className="font-medium">스케줄 충돌 감지! 아이유님의 7월 4일 일정이 중복되어있습니다. (2건의 스케줄 충돌)</span>
+          <span className="font-medium">스케줄 충돌 감지!</span>
+          <span className="text-sm text-muted-foreground">아이유님의 7월 4일 일정이 중복되어있습니다. (2건의 스케줄 충돌)</span>
         </div>
         <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
           <Bell className="h-3.5 w-3.5" />
