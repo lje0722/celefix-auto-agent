@@ -19,7 +19,102 @@ import {
   Users,
 } from "lucide-react";
 
+import { useEffect, useRef, useState } from "react";
 export default function ChatDashboardSolid() {
+  const botSteps: JSX.Element[] = [
+    (
+      <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+        <p className="mb-3">
+          안녕하세요, 김희연 관리자님. 오늘은
+          <span className="font-semibold text-primary"> 삼성전자의 신제품 갤럭시 Z 폴드 5 런칭쇼</span>
+          에 대한 제안을 드리고자 합니다.
+        </p>
+        <p className="mb-3">
+          8월 내 출시 예정인 삼성전자의 신제품 행사에
+          <span className="text-primary"> 아이유, 적재, 에픽하이</span>
+          를 메인 라인업으로 제안하는 것이 어떨까요? 최근 아이유의 인기, 적재의 음악성, 에픽하이의 대중적 인지도를 고려할 때 매우 효과적일 것으로 분석됩니다.
+        </p>
+        <p>
+          예상 예산은 <span className="text-primary">5억 5천만원</span> 선으로, 런칭쇼의 규모와 영향력을 고려했을 때 투자 대비 효과가 높을 것으로 예측됩니다. 어떻게 생각하시나요?
+        </p>
+      </div>
+    ),
+    (
+      <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+        <p className="mb-3">네, 자세히 설명드리겠습니다.</p>
+        <p className="mb-3">
+          <span className="font-semibold text-primary">아이유</span>는 최근 새 앨범이 2500만 스트리밍을 달성했으며, 20-30대 소비자층에게 96% 호감도를 기록하고 있습니다. 갤럭시의 주요 타겟층과 정확히 일치합니다.
+        </p>
+        <p className="mb-3">
+          <span className="font-semibold text-primary">적재</span>는 인디 음악계의 대표 기타리스트로, 최근 콜라보레이션 앨범으로 스트리밍 차트 상위권을 유지하고 있습니다. 특히 감성적인 곡들로 2030 세대에게 높은 평가를 받고 있어 갤럭시의 감성적 브랜딩에 적합합니다.
+        </p>
+        <p className="mb-3">
+          <span className="font-semibold text-primary">에픽하이</span>는 국내 힙합 음악의 대표주자로, 장수 그룹이지만 꾸준히 신곡을 발매하며 대중성과 음악성을 모두 인정받고 있습니다. 특히 남녀노소 모두에게 사랑받는 음악 스타일로 제품의 폭넓은 소구력을 강화할 수 있습니다.
+        </p>
+        <p className="mb-3">세 아티스트를 함께 섭외함으로써 다양한 연령층과 취향에 동시에 어필할 수 있습니다. 삼성전자의 브랜드 이미지와도 매우 적합하며, 런칭쇼 영상이 SNS에서 바이럴 컨텐츠가 될 가능성이 높습니다.</p>
+        <p>추가로, 예상 미디어 노출 효과는 약 15억원 상당으로 예측됩니다. 투자 대비 약 2.7배의 마케팅 효과를 기대할 수 있습니다.</p>
+      </div>
+    ),
+    (
+      <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+        <p className="mb-4">감사합니다! 삼성전자에 제안하실 때 도움이 되도록 아래 자료들을 바로 확인하실 수 있습니다.</p>
+        <div className="flex flex-wrap gap-3">
+          <Button asChild className="gap-2">
+            <Link to="/admin/chat/proposal">
+              <FileText className="h-4 w-4" /> 제안서 작성하기
+            </Link>
+          </Button>
+          <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
+            <Link to="/admin/chat/dashboard-detail">
+              <Share2 className="h-4 w-4" /> 세부 대시보드 보기
+            </Link>
+          </Button>
+        </div>
+      </div>
+    ),
+    (
+      <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+        <p className="mb-4">축하드립니다! 빠른 승인을 받으셨네요. 삼성전자 런칭쇼 계약을 위한 계약서를 바로 준비해드리겠습니다.</p>
+        <div className="flex flex-wrap gap-3">
+          <Button asChild className="gap-2">
+            <Link to="/admin/chat/contract">
+              <FileSignature className="h-4 w-4" /> 계약서 확인하기
+            </Link>
+          </Button>
+        </div>
+      </div>
+    ),
+  ];
+
+  const [messages, setMessages] = useState<{ role: "ai" | "user"; node?: JSX.Element; text?: string }[]>([
+    { role: "ai", node: botSteps[0] },
+  ]);
+  const [nextBotIndex, setNextBotIndex] = useState(1);
+  const [input, setInput] = useState("");
+  const [typing, setTyping] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
+  }, [messages, typing]);
+
+  const send = () => {
+    const content = input.trim();
+    if (!content) return;
+    setMessages((m) => [...m, { role: "user", text: content }]);
+    setInput("");
+
+    if (nextBotIndex < botSteps.length) {
+      setTyping(true);
+      const idx = nextBotIndex;
+      setTimeout(() => {
+        setMessages((m) => [...m, { role: "ai", node: botSteps[idx] }]);
+        setNextBotIndex(idx + 1);
+        setTyping(false);
+      }, 3000);
+    }
+  };
+
   return (
     <div className="flex h-[calc(100vh-5.5rem)] flex-col space-y-4 overflow-hidden">
       <SEO title="삼성전자 런칭쇼 제안 - 고정 보기 | Celefix" description="애니메이션 없이 즉시 확인하는 삼성전자 런칭쇼 제안 대화" />
@@ -115,120 +210,59 @@ export default function ChatDashboardSolid() {
             </div>
           </header>
 
-          {/* All messages visible from start (no animation) */}
-          <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4">
-            {/* AI message 1 */}
-            <div className="flex items-start gap-3">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Bot className="h-4 w-4" />
-              </div>
-              <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-                <p className="mb-3">
-                  안녕하세요, 김희연 관리자님. 오늘은
-                  <span className="font-semibold text-primary"> 삼성전자의 신제품 갤럭시 Z 폴드 5 런칭쇼</span>
-                  에 대한 제안을 드리고자 합니다.
-                </p>
-                <p className="mb-3">
-                  8월 내 출시 예정인 삼성전자의 신제품 행사에
-                  <span className="text-primary"> 아이유, 적재, 에픽하이</span>
-                  를 메인 라인업으로 제안하는 것이 어떨까요? 최근 아이유의 인기, 적재의 음악성, 에픽하이의 대중적 인지도를 고려할 때 매우 효과적일 것으로 분석됩니다.
-                </p>
-                <p>
-                  예상 예산은 <span className="text-primary">5억 5천만원</span> 선으로, 런칭쇼의 규모와 영향력을 고려했을 때 투자 대비 효과가 높을 것으로 예측됩니다. 어떻게 생각하시나요?
-                </p>
-              </div>
-            </div>
+          {/* Dynamic messages */}
+          <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4" ref={listRef}>
+            {messages.map((msg, idx) =>
+              msg.role === "ai" ? (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                    <Bot className="h-4 w-4" />
+                  </div>
+                  {msg.node}
+                </div>
+              ) : (
+                <div key={idx} className="ml-auto flex max-w-3xl items-start gap-3">
+                  <div className="rounded-md bg-primary/10 p-4">
+                    <p>{msg.text}</p>
+                  </div>
+                  <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
+                </div>
+              )
+            )}
 
-            {/* User message 1 */}
-            <div className="ml-auto flex max-w-3xl items-start gap-3">
-              <div className="rounded-md bg-primary/10 p-4">
-                <p>흥미로운 제안이네요. 좀 더 자세한 정보를 알려주세요. 아이유, 적재, 에픽하이의 최근 활동과 런칭쇼에 적합한 이유가 궁금합니다.</p>
-              </div>
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
-            </div>
-
-            {/* AI message 2 */}
-            <div className="flex items-start gap-3">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Bot className="h-4 w-4" />
-              </div>
-              <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-                <p className="mb-3">네, 자세히 설명드리겠습니다.</p>
-                <p className="mb-3">
-                  <span className="font-semibold text-primary">아이유</span>는 최근 새 앨범이 2500만 스트리밍을 달성했으며, 20-30대 소비자층에게 96% 호감도를 기록하고 있습니다. 갤럭시의 주요 타겟층과 정확히 일치합니다.
-                </p>
-                <p className="mb-3">
-                  <span className="font-semibold text-primary">적재</span>는 인디 음악계의 대표 기타리스트로, 최근 콜라보레이션 앨범으로 스트리밍 차트 상위권을 유지하고 있습니다. 특히 감성적인 곡들로 2030 세대에게 높은 평가를 받고 있어 갤럭시의 감성적 브랜딩에 적합합니다.
-                </p>
-                <p className="mb-3">
-                  <span className="font-semibold text-primary">에픽하이</span>는 국내 힙합 음악의 대표주자로, 장수 그룹이지만 꾸준히 신곡을 발매하며 대중성과 음악성을 모두 인정받고 있습니다. 특히 남녀노소 모두에게 사랑받는 음악 스타일로 제품의 폭넓은 소구력을 강화할 수 있습니다.
-                </p>
-                <p className="mb-3">세 아티스트를 함께 섭외함으로써 다양한 연령층과 취향에 동시에 어필할 수 있습니다. 삼성전자의 브랜드 이미지와도 매우 적합하며, 런칭쇼 영상이 SNS에서 바이럴 컨텐츠가 될 가능성이 높습니다.</p>
-                <p>추가로, 예상 미디어 노출 효과는 약 15억원 상당으로 예측됩니다. 투자 대비 약 2.7배의 마케팅 효과를 기대할 수 있습니다.</p>
-              </div>
-            </div>
-
-            {/* User message 2 */}
-            <div className="ml-auto flex max-w-3xl items-start gap-3">
-              <div className="rounded-md bg-primary/10 p-4">
-                <p>좋은 분석이네요. 이 제안은 괜찮아 보입니다. 삼성전자 담당자에게 이 내용을 전달해볼게요.</p>
-              </div>
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
-            </div>
-
-            {/* AI message 3 with buttons */}
-            <div className="flex items-start gap-3">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Bot className="h-4 w-4" />
-              </div>
-              <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-                <p className="mb-4">감사합니다! 삼성전자에 제안하실 때 도움이 되도록 아래 자료들을 바로 확인하실 수 있습니다.</p>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild className="gap-2">
-                    <Link to="/admin/chat/proposal">
-                      <FileText className="h-4 w-4" /> 제안서 작성하기
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/10">
-                    <Link to="/admin/chat/dashboard-detail">
-                      <Share2 className="h-4 w-4" /> 세부 대시보드 보기
-                    </Link>
-                  </Button>
+            {typing && (
+              <div className="flex items-start gap-3 animate-fade-in">
+                <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <Bot className="h-4 w-4" />
+                </div>
+                <div className="max-w-3xl rounded-md bg-muted/40 p-4">
+                  <div className="flex items-center gap-1">
+                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
+                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
+                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* User message 3 */}
-            <div className="ml-auto flex max-w-3xl items-start gap-3">
-              <div className="rounded-md bg-primary/10 p-4">
-                <p>방금 삼성전자 담당자와 통화했습니다. 우리의 제안을 승인했어요! 계약서를 준비해주세요.</p>
-              </div>
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
-            </div>
-
-            {/* AI message 4 with buttons */}
-            <div className="flex items-start gap-3">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Bot className="h-4 w-4" />
-              </div>
-              <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-                <p className="mb-4">축하드립니다! 빠른 승인을 받으셨네요. 삼성전자 런칭쇼 계약을 위한 계약서를 바로 준비해드리겠습니다.</p>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild className="gap-2">
-                    <Link to="/admin/chat/contract">
-                      <FileSignature className="h-4 w-4" /> 계약서 확인하기
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Input */}
           <footer className="border-t border-border p-4">
             <div className="relative">
-              <Input placeholder="메시지 입력…" className="message-input w-full pr-11" aria-label="메시지 입력" />
-              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2">
+              <Input
+                placeholder="메시지 입력…"
+                className="message-input w-full pr-11"
+                aria-label="메시지 입력"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    send();
+                  }
+                }}
+              />
+              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || typing}>
                 <Send className="h-5 w-5 text-primary" />
               </Button>
             </div>
