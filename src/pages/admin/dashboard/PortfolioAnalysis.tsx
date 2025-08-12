@@ -52,7 +52,7 @@ export default function PortfolioAnalysis() {
                 ))}
               </Pie>
               <ChartTooltip content={<ChartTooltipContent hideIndicator />} />
-              <ChartLegend content={<ChartLegendContent />} />
+              <ChartLegend content={<ChartLegendContent hideIndicator />} />
             </PieChart>
           </ChartContainer>
         </div>
@@ -66,7 +66,7 @@ export default function PortfolioAnalysis() {
                 ))}
               </Pie>
               <ChartTooltip content={<ChartTooltipContent hideIndicator />} />
-              <ChartLegend content={<ChartLegendContent />} />
+              <ChartLegend content={<ChartLegendContent hideIndicator />} />
             </PieChart>
           </ChartContainer>
         </div>
