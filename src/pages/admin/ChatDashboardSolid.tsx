@@ -5,7 +5,6 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import {
   Bot,
-  CalendarDays,
   FileText,
   FileSignature,
   Lightbulb,
@@ -13,13 +12,12 @@ import {
   MoreVertical,
   Reply,
   Search,
-  Send,
   Share2,
   Star,
   Users,
 } from "lucide-react";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 export default function ChatDashboardSolid() {
   const botSteps: JSX.Element[] = [
     (
@@ -86,35 +84,7 @@ export default function ChatDashboardSolid() {
     ),
   ];
 
-  const [messages, setMessages] = useState<{ role: "ai" | "user"; node?: JSX.Element; text?: string }[]>([
-    { role: "ai", node: botSteps[0] },
-  ]);
-  const [nextBotIndex, setNextBotIndex] = useState(1);
-  const [input, setInput] = useState("");
-  const [typing, setTyping] = useState(false);
-  const [isComposing, setIsComposing] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, typing]);
-
-  const send = () => {
-    const content = input.trim();
-    if (!content) return;
-    setMessages((m) => [...m, { role: "user", text: content }]);
-    setInput("");
-
-    if (nextBotIndex < botSteps.length) {
-      setTyping(true);
-      const idx = nextBotIndex;
-      setTimeout(() => {
-        setMessages((m) => [...m, { role: "ai", node: botSteps[idx] }]);
-        setNextBotIndex(idx + 1);
-        setTyping(false);
-      }, 3000);
-    }
-  };
 
   return (
     <div className="flex h-[calc(100vh-5.5rem)] flex-col space-y-4 overflow-hidden">
@@ -211,67 +181,18 @@ export default function ChatDashboardSolid() {
             </div>
           </header>
 
-          {/* Dynamic messages */}
+          {/* Messages - static */}
           <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4" ref={listRef}>
-            {messages.map((msg, idx) =>
-              msg.role === "ai" ? (
-                <div key={idx} className="flex items-start gap-3">
-                  <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                    <Bot className="h-4 w-4" />
-                  </div>
-                  {msg.node}
-                </div>
-              ) : (
-                <div key={idx} className="ml-auto flex max-w-3xl items-start gap-3">
-                  <div className="rounded-md bg-primary/10 p-4">
-                    <p>{msg.text}</p>
-                  </div>
-                  <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
-                </div>
-              )
-            )}
-
-            {typing && (
-              <div className="flex items-start gap-3 animate-fade-in">
+            {botSteps.map((node, idx) => (
+              <div key={idx} className="flex items-start gap-3">
                 <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
                   <Bot className="h-4 w-4" />
                 </div>
-                <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-                  <div className="flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse" />
-                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:150ms]" />
-                    <span className="h-2 w-2 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:300ms]" />
-                  </div>
-                </div>
+                {node}
               </div>
-            )}
+            ))}
           </div>
 
-          {/* Input */}
-          <footer className="border-t border-border p-4">
-            <div className="relative">
-              <Input
-                placeholder="메시지 입력…"
-                className="message-input w-full pr-11"
-                aria-label="메시지 입력"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onCompositionStart={() => setIsComposing(true)}
-                onCompositionEnd={() => setIsComposing(false)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    const native: any = e.nativeEvent;
-                    if (native?.isComposing || isComposing) return;
-                    e.preventDefault();
-                    send();
-                  }
-                }}
-              />
-              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || typing}>
-                <Send className="h-5 w-5 text-primary" />
-              </Button>
-            </div>
-          </footer>
         </section>
       </section>
     </div>
