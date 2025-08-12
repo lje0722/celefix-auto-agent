@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 import SeoulFestivalThread from "./threads/SeoulFestivalThread";
 export default function ChatDashboard() {
   const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("samsung");
-  const [visibleCount, setVisibleCount] = useState(-1);
+  const [visibleCount, setVisibleCount] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -32,8 +32,19 @@ export default function ChatDashboard() {
     }
   }, [location.search]);
   useEffect(() => {
-    // autoplay disabled
-    setVisibleCount(-1);
+    if (activeThread !== "samsung") return;
+    setVisibleCount(0);
+    const total = 7;
+    const id = setInterval(() => {
+      setVisibleCount((c) => {
+        if (c >= total) {
+          clearInterval(id);
+          return c;
+        }
+        return c + 1;
+      });
+    }, 3000);
+    return () => clearInterval(id);
   }, [activeThread]);
 
   return (
