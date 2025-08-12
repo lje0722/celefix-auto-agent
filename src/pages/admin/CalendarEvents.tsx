@@ -8,7 +8,7 @@ const CalendarEvents = () => {
       <SEO title="캘린더(행사) | Celefix" description="행사 일정 캘린더" />
 
       <nav aria-label="캘린더 탭" className="border-b mb-4">
-        <ul className="flex gap-1">
+        <ul className="flex gap-1 justify-end">
           <li>
             <NavLink to="/admin/calendar/talents" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>연예인 스케줄</NavLink>
           </li>
@@ -22,7 +22,7 @@ const CalendarEvents = () => {
       </nav>
 
       <header className="flex items-center justify-between mb-4 px-1">
-        <h1 className="text-2xl font-bold">행사 스케줄 캘린더</h1>
+        <h1 className="text-2xl font-bold flex items-center"><CalendarIcon className="h-5 w-5 mr-2 text-primary" />행사 스케줄 캘린더</h1>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-1 text-xs">
             <i className="fab fa-google hidden" aria-hidden />

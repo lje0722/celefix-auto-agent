@@ -21,7 +21,7 @@ const CalendarContracts = () => {
       <SEO title="캘린더(계약관리) | Celefix" description="계약 상태 캘린더" />
 
       <nav aria-label="캘린더 탭" className="border-b mb-4">
-        <ul className="flex gap-1">
+        <ul className="flex gap-1 justify-end">
           <li>
             <NavLink
               to="/admin/calendar/talents"
