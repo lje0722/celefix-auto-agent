@@ -18,13 +18,13 @@ const UserHome = () => {
       <SEO title="사용자 홈 | Celefix" description="기관·학교·축제 담당자 포털" />
 
       {/* Page intro (content only; header is handled by UserLayout) */}
-      <section className="mb-6">
+      <section className="mb-8 md:mb-10 lg:mb-12">
         <h1 className="text-2xl font-bold">안녕하세요, 서울대학교 축제준비위원회님!</h1>
         <p className="text-muted-foreground mt-2">연예인 섭외 요청과 진행 상황을 확인해보세요.</p>
       </section>
 
       {/* Quick CTA */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8 md:mb-10 lg:mb-12">
         <div />
         <Button asChild size="lg" className="font-semibold">
           <Link to="/user/request">
@@ -34,7 +34,7 @@ const UserHome = () => {
       </div>
 
       {/* Status summary */}
-      <section aria-labelledby="status-summary" className="mb-6">
+      <section aria-labelledby="status-summary" className="mb-8 md:mb-10 lg:mb-12">
         <h2 id="status-summary" className="sr-only">요청 상태 요약</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card>
@@ -66,7 +66,7 @@ const UserHome = () => {
 
 
       {/* Recent requests + History */}
-      <section className="flex flex-col lg:flex-row gap-6 mb-6">
+      <section className="flex flex-col lg:flex-row gap-6 mb-10 md:mb-12">
         {/* Recent */}
         <div className="lg:w-1/2 w-full">
           <div className="flex items-center justify-between mb-4">
