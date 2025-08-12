@@ -64,16 +64,6 @@ const UserHome = () => {
         </div>
       </section>
 
-      {/* Promo banner */}
-      <section className="mb-6">
-        <div className="w-full rounded-xl border border-accent/50 bg-accent/20 p-4 flex items-center justify-between">
-          <div>
-            <h3 className="font-semibold mb-1">여름 축제 특별 패키지</h3>
-            <p className="text-sm text-muted-foreground">3팀 이상 섭외 시 20% 할인! 7월 31일까지 유효합니다.</p>
-          </div>
-          <Button variant="secondary" className="text-sm">자세히 보기</Button>
-        </div>
-      </section>
 
       {/* Recent requests + History */}
       <section className="flex flex-col lg:flex-row gap-6 mb-6">
