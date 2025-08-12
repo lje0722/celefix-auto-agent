@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { AlertTriangle, Bell, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw } from "lucide-react";
+import { AlertTriangle, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import * as React from "react";
@@ -119,27 +119,27 @@ const CalendarTalents: React.FC = () => {
     <div>
       <SEO title="캘린더(연예인) | Celefix" description="연예인 가용 여부 캘린더" />
 
-      <section aria-label="상태 및 동기화" className="flex items-center justify-end mb-4">
+      <header className="mb-4 flex items-center justify-between">
+        <h1 className="text-2xl font-bold">연예인 스케줄 캘린더</h1>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="icon" onClick={onRefresh} aria-label="새로고침">
+          <div className="inline-flex items-center gap-2 rounded-full border border-success/40 bg-success/10 px-3 py-1.5">
+            <CheckCircle2 className="h-4 w-4 text-success-foreground" />
+            <span className="text-sm font-medium text-success-foreground">Google Calendar 연동됨</span>
+          </div>
+          <Button variant="ghost" size="icon" onClick={onRefresh} aria-label="새로고침">
             <RefreshCcw className="h-4 w-4" />
           </Button>
-          <Button variant="secondary" className="gap-2 text-sm">
-            <CalendarIcon className="h-4 w-4" /> 일정 추가 빠르게
-          </Button>
         </div>
-      </section>
+      </header>
 
-      <section aria-label="충돌 알림" className="mb-4">
-        <div className="flex items-center justify-between rounded-md border border-destructive bg-destructive/10 px-3 py-2">
-          <div className="flex items-center text-sm">
-            <AlertTriangle className="h-4 w-4 text-destructive mr-2" />
-            <span className="font-medium">스케줄 충돌 감지!</span>
-            <span className="ml-2 text-muted-foreground">아이유님의 7월 4일 일정이 중복되어 있습니다. (2건의 스케줄 충돌)</span>
+      <section aria-label="중요 공지" className="mb-4">
+        <div className="flex items-center justify-between rounded-lg border border-warning bg-warning/20 px-4 py-3">
+          <div className="flex items-center gap-2 text-sm">
+            <AlertTriangle className="h-4 w-4 text-warning" />
+            <span className="font-semibold">중요 공지!</span>
+            <span className="text-muted-foreground">8월 스케줄 조율이 시작됩니다. 인기 아티스트 우선 배정 부탁드립니다.</span>
           </div>
-          <Button variant="outline" size="sm" className="gap-1">
-            <Bell className="h-4 w-4" /> 알림 보내기
-          </Button>
+          <Button variant="secondary" size="sm">업무 할당</Button>
         </div>
       </section>
 
