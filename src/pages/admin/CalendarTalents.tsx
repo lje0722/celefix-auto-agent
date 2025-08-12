@@ -119,7 +119,7 @@ const CalendarTalents: React.FC = () => {
     <div>
       <SEO title="캘린더(연예인) | Celefix" description="연예인 가용 여부 캘린더" />
 
-      <nav aria-label="캘린더 탭" className="border-b mb-4">
+      <nav aria-label="캘린더 탭" className="border-b mb-4 flex items-center justify-between">
         <ul className="flex gap-1">
           <li>
             <NavLink to="/admin/calendar/talents" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>연예인 스케줄</NavLink>
@@ -131,19 +131,17 @@ const CalendarTalents: React.FC = () => {
             <NavLink to="/admin/calendar/contracts" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>계약 관리</NavLink>
           </li>
         </ul>
-      </nav>
-
-      <header className="flex items-center justify-end mb-4 px-1">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-1 text-xs">
             <span>Google Calendar 연동됨</span>
             <CheckCircle2 className="h-4 w-4 text-success" aria-hidden />
           </div>
-          <button className="rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="새로고침">
+          <button className="rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="새로고침" onClick={onRefresh}>
             <RefreshCw className="h-4 w-4" />
           </button>
         </div>
-      </header>
+      </nav>
+
 
       <div className="flex items-center justify-between rounded-md border-l-4 border-warning bg-warning/20 p-3 mb-4">
         <div className="flex items-center gap-2">
