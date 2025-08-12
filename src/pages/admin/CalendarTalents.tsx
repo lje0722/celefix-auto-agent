@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { AlertTriangle, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCcw } from "lucide-react";
+import { AlertTriangle, Info, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import * as React from "react";
@@ -119,123 +119,113 @@ const CalendarTalents: React.FC = () => {
     <div>
       <SEO title="캘린더(연예인) | Celefix" description="연예인 가용 여부 캘린더" />
 
-      <header className="mb-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">연예인 스케줄 캘린더</h1>
-        <div className="flex items-center gap-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-success/40 bg-success/10 px-3 py-1.5">
-            <CheckCircle2 className="h-4 w-4 text-success-foreground" />
-            <span className="text-sm font-medium text-success-foreground">Google Calendar 연동됨</span>
-          </div>
-          <Button variant="ghost" size="icon" onClick={onRefresh} aria-label="새로고침">
-            <RefreshCcw className="h-4 w-4" />
-          </Button>
-        </div>
-      </header>
-
-      <section aria-label="중요 공지" className="mb-4">
-        <div className="flex items-center justify-between rounded-lg border border-warning bg-warning/20 px-4 py-3">
-          <div className="flex items-center gap-2 text-sm">
-            <AlertTriangle className="h-4 w-4 text-warning" />
-            <span className="font-semibold">중요 공지!</span>
-            <span className="text-muted-foreground">8월 스케줄 조율이 시작됩니다. 인기 아티스트 우선 배정 부탁드립니다.</span>
-          </div>
-          <Button variant="secondary" size="sm">업무 할당</Button>
-        </div>
-      </section>
-
-      <nav aria-label="캘린더 유형 탭" className="border-b mb-4">
+      <nav aria-label="캘린더 탭" className="border-b mb-4">
         <ul className="flex gap-1">
           <li>
-            <NavLink
-              to="/admin/calendar/talents"
-              className={({ isActive }) =>
-                `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`
-              }
-            >
-              연예인 스케줄
-            </NavLink>
+            <NavLink to="/admin/calendar/talents" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>연예인 스케줄</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/admin/calendar/events"
-              className={({ isActive }) =>
-                `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`
-              }
-            >
-              행사 스케줄
-            </NavLink>
+            <NavLink to="/admin/calendar/events" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>행사 스케줄</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/admin/calendar/contracts"
-              className={({ isActive }) =>
-                `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`
-              }
-            >
-              계약 관리
-            </NavLink>
+            <NavLink to="/admin/calendar/contracts" className={({ isActive }) => `px-4 py-2 text-sm font-medium border-b-2 ${isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>계약 관리</NavLink>
           </li>
         </ul>
       </nav>
 
-      <section aria-label="필터" className="rounded-lg border bg-card p-3 mb-4">
-        <div className="flex items-center justify-between mb-2">
-          <div className="font-medium text-sm">연예인 필터</div>
-          <div className="text-xs">
-            <button className="text-primary hover:underline">모두 선택</button>
-            <span className="text-muted-foreground mx-2">|</span>
-            <button className="text-primary hover:underline">선택 해제</button>
+      <header className="flex items-center justify-between mb-4 px-1">
+        <h1 className="text-2xl font-bold">연예인 스케줄 캘린더</h1>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-1 text-xs">
+            <span>Google Calendar 연동됨</span>
+            <CheckCircle2 className="h-4 w-4 text-success" aria-hidden />
+          </div>
+          <button className="rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="새로고침">
+            <RefreshCw className="h-4 w-4" />
+          </button>
+        </div>
+      </header>
+
+      <div className="flex items-center justify-between rounded-md border-l-4 border-warning bg-warning/20 p-3 mb-4">
+        <div className="flex items-center gap-2">
+          <Info className="h-4 w-4 text-warning" />
+          <span className="font-medium">중요 공지!</span>
+          <span className="text-sm text-muted-foreground">8월 15일 대학 축제 시즌 조율이 시작됩니다. 인기 아티스트 우선 배정 부탁드립니다.</span>
+        </div>
+        <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
+          업무 할당
+        </button>
+      </div>
+
+      <section className="rounded-lg border border-border bg-card p-4">
+        {/* 필터 영역 */}
+        <div className="mb-4 border-b pb-3">
+          <div className="mb-2 flex items-center justify-between">
+            <div className="font-medium">연예인 필터</div>
+            <div className="text-xs">
+              <button className="text-info hover:underline">모두 선택</button>
+              <span className="mx-2 text-muted-foreground">|</span>
+              <button className="text-info hover:underline">선택 해제</button>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { name: "아이유", dot: "bg-primary", active: true },
+              { name: "적재", dot: "bg-success", active: true },
+              { name: "에픽하이", dot: "bg-info", active: true },
+              { name: "뉴진스", dot: "bg-warning", active: true },
+              { name: "에스파", dot: "bg-accent", active: true },
+              { name: "아이브", dot: "bg-urgent", active: true },
+              { name: "BTS", dot: "bg-muted-foreground", active: false },
+            ].map((a) => (
+              <button
+                key={a.name}
+                className={`flex items-center rounded-full border px-3 py-1 text-xs transition ${
+                  a.active ? "bg-muted/60 border-accent/50" : "bg-muted/30 border-border text-muted-foreground"
+                }`}
+              >
+                <span className={`mr-1 inline-block h-2 w-2 rounded-full ${a.dot}`} />
+                {a.name}
+              </button>
+            ))}
           </div>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {[
-            { name: "아이유", dot: "bg-primary", active: true },
-            { name: "적재", dot: "bg-success", active: true },
-            { name: "에픽하이", dot: "bg-info", active: true },
-            { name: "뉴진스", dot: "bg-warning", active: true },
-            { name: "에스파", dot: "bg-accent-foreground", active: true },
-            { name: "아이브", dot: "bg-urgent", active: true },
-            { name: "BTS", dot: "bg-muted-foreground", active: false },
-          ].map((a) => (
-            <span
-              key={a.name}
-              className={`inline-flex items-center rounded-full px-3 py-1 text-xs border ${
-                a.active
-                  ? "bg-primary/20 border-primary/50 text-foreground"
-                  : "bg-muted/40 border-border text-muted-foreground"
-              }`}
-            >
-              <span className={`w-2 h-2 rounded-full inline-block mr-1 ${a.dot}`} />
-              {a.name}
-            </span>
-          ))}
-        </div>
-      </section>
 
-      <section aria-label="캘린더 컨트롤" className="flex items-center justify-between mb-3">
-        <div className="flex items-center">
-          <Button variant="outline" size="icon" className="mr-2" onClick={onPrev} aria-label="이전 달">
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <h2 className="text-xl font-bold">2025년 7월</h2>
-          <Button variant="outline" size="icon" className="ml-2" onClick={onNext} aria-label="다음 달">
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]"><CalendarIcon className="h-4 w-4" /> 일</Button>
-            <Button variant="outline" size="sm" className="gap-1 rounded-full border-accent text-accent bg-accent/10 hover:bg-accent/20 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)]"><CalendarIcon className="h-4 w-4" /> 주</Button>
-            <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><CalendarIcon className="h-4 w-4" /> 월</Button>
+        {/* 컨트롤 영역 */}
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <button className="mr-2 rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="이전 달" onClick={onPrev}>
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <h2 className="text-xl font-bold">2025년 7월</h2>
+            <button className="ml-2 rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="다음 달" onClick={onNext}>
+              <ChevronRight className="h-4 w-4" />
+            </button>
           </div>
-      </section>
-
-      <section aria-label="연예인 스케줄 캘린더" className="rounded-lg overflow-hidden border">
-        {/* 요일 헤더 */}
-        <div className="grid grid-cols-7 bg-muted px-2 py-2">
-          {"일월화수목금토".split("").map((d, i) => (
-            <div key={d} className={`text-center text-sm ${i === 0 ? "text-destructive" : i === 6 ? "text-accent" : "text-foreground"}`}>{d}</div>
-          ))}
+          <div className="flex items-center">
+            <button className="mr-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
+              <CalendarIcon className="h-4 w-4" /> 일
+            </button>
+            <button className="mr-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent/10 px-3 py-1 text-sm text-accent transition hover:bg-accent/20 hover:text-accent-foreground hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:ring-offset-2">
+              <CalendarIcon className="h-4 w-4" /> 주
+            </button>
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale ring-4 ring-accent/30 ring-offset-2 ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
+              <CalendarIcon className="h-4 w-4" /> 월
+            </button>
+          </div>
         </div>
+
+        {/* 캘린더 헤더 */}
+        <div className="grid grid-cols-7 rounded-t-lg bg-muted/30 p-2 text-center">
+          <div className="text-urgent">일</div>
+          <div>월</div>
+          <div>화</div>
+          <div>수</div>
+          <div>목</div>
+          <div>금</div>
+          <div className="text-info">토</div>
+        </div>
+
         {/* 날짜 그리드 */}
         <div className="grid grid-cols-7">
           {cells.map(({ date, inCurrentMonth }) => {
@@ -245,31 +235,37 @@ const CalendarTalents: React.FC = () => {
             return (
               <div
                 key={key}
-                className={`min-h-28 border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
+                className={`min-h-28 border border-border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
               >
-                <div className="text-right text-sm mb-1">{date.getDate()}</div>
+                <div className="mb-1 text-right text-sm">{date.getDate()}</div>
                 <div className="space-y-1">
                   {evts.map((e, idx) => (
-                    <div key={idx} className={`truncate px-2 py-0.5 text-xs rounded ${statusStyles[e.status]}`}>{e.label}</div>
+                    <div key={idx} className={`truncate rounded border-l-2 px-2 py-0.5 text-xs ${statusStyles[e.status]}`}>{e.label}</div>
                   ))}
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* 범례 + 액션 */}
+        <div className="mt-4 flex items-center justify-between px-2 text-sm">
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-success/60" />가용</div>
+            <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-warning/60" />협의중</div>
+            <div className="flex items-center"><div className="mr-1 h-3 w-3 rounded bg-destructive/60" />충돌</div>
+          </div>
+          <div className="flex items-center">
+            <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
+              <Filter className="h-4 w-4" /> 필터
+            </button>
+            <button className="ml-2 inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-3 py-1 text-sm text-accent-foreground shadow transition hover:bg-accent/90 hover-scale hover:ring-4 hover:ring-accent/30 hover:ring-offset-2 hover:ring-offset-background focus-visible:ring-4 focus-visible:ring-accent/40">
+              <Plus className="h-4 w-4" /> 일정 추가
+            </button>
+          </div>
+        </div>
       </section>
 
-      <section aria-label="범례 및 액션" className="flex items-center justify-between text-sm mt-4">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-success/60 inline-block" /> 가용</div>
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-warning/60 inline-block" /> 협의중</div>
-          <div className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-destructive/60 inline-block" /> 충돌</div>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><Filter className="h-4 w-4" /> 필터</Button>
-          <Button variant="secondary" size="sm" className="gap-1 rounded-full border border-accent bg-accent text-accent-foreground hover:bg-accent/90 transition-shadow hover:shadow-[0_0_16px_hsl(var(--accent)/0.6)] focus:shadow-[0_0_18px_hsl(var(--accent)/0.7)] shadow"><Plus className="h-4 w-4" /> 일정 추가</Button>
-        </div>
-      </section>
 
       <section aria-label="충돌 해결 제안" className="mt-4 rounded-lg border bg-card p-3">
         <h3 className="text-sm font-medium flex items-center mb-2"><AlertTriangle className="h-4 w-4 text-yellow-500 mr-2" />충돌 해결 제안</h3>
