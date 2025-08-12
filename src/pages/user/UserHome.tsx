@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { Plus } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -23,15 +23,6 @@ const UserHome = () => {
         <p className="text-muted-foreground mt-2">연예인 섭외 요청과 진행 상황을 확인해보세요.</p>
       </section>
 
-      {/* Quick CTA */}
-      <div className="flex items-center justify-between mb-8 md:mb-10 lg:mb-12">
-        <div />
-        <Button asChild size="lg" className="font-semibold">
-          <Link to="/user/request">
-            <Plus className="mr-2 h-4 w-4" /> 새 섭외 요청하기
-          </Link>
-        </Button>
-      </div>
 
       {/* Status summary */}
       <section aria-labelledby="status-summary" className="mb-8 md:mb-10 lg:mb-12">
