@@ -19,7 +19,7 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import SeoulFestivalThread from "./threads/SeoulFestivalThread";
+import SeoulFestivalThread, { SeoulFestivalAnswer } from "./threads/SeoulFestivalThread";
 export default function ChatDashboard() {
   const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("samsung");
   const location = useLocation();
@@ -95,6 +95,7 @@ export default function ChatDashboard() {
   const [messages, setMessages] = useState<{ role: "ai" | "user"; node?: JSX.Element; text?: string }[]>([
     { role: "ai", node: botSteps[0] },
   ]);
+  const [seoulMessages, setSeoulMessages] = useState<{ role: "ai" | "user"; node?: JSX.Element; text?: string }[]>([]);
   const [nextBotIndex, setNextBotIndex] = useState(1);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -113,6 +114,10 @@ export default function ChatDashboard() {
       setMessages([{ role: "ai", node: botSteps[0] }]);
       setNextBotIndex(1);
       setTyping(false);
+    } else if (activeThread === "seoul") {
+      setSeoulMessages([]);
+      setTyping(false);
+      setInput("");
     }
   }, [activeThread]);
 
@@ -121,20 +126,32 @@ export default function ChatDashboard() {
   }, [messages, typing]);
 
   const send = () => {
-    if (activeThread !== "samsung") return;
     const content = input.trim();
     if (!content) return;
-    setMessages((m) => [...m, { role: "user", text: content }]);
-    setInput("");
 
-    if (nextBotIndex < botSteps.length) {
-      setTyping(true);
-      const idx = nextBotIndex;
-      setTimeout(() => {
-        setMessages((m) => [...m, { role: "ai", node: botSteps[idx] }]);
-        setNextBotIndex(idx + 1);
-        setTyping(false);
-      }, 3000);
+    if (activeThread === "samsung") {
+      setMessages((m) => [...m, { role: "user", text: content }]);
+      setInput("");
+
+      if (nextBotIndex < botSteps.length) {
+        setTyping(true);
+        const idx = nextBotIndex;
+        setTimeout(() => {
+          setMessages((m) => [...m, { role: "ai", node: botSteps[idx] }]);
+          setNextBotIndex(idx + 1);
+          setTyping(false);
+        }, 3000);
+      }
+      return;
+    }
+
+    if (activeThread === "seoul") {
+      setSeoulMessages((m) => [
+        ...m,
+        { role: "user", text: content },
+        { role: "ai", node: <SeoulFestivalAnswer /> },
+      ]);
+      setInput("");
     }
   };
 
@@ -291,7 +308,26 @@ export default function ChatDashboard() {
                 )}
               </>
             ) : (
-              <SeoulFestivalThread />
+              <>
+                <SeoulFestivalThread />
+                {seoulMessages.map((msg, idx) =>
+                  msg.role === "ai" ? (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                        <Bot className="h-4 w-4" />
+                      </div>
+                      {msg.node}
+                    </div>
+                  ) : (
+                    <div key={idx} className="ml-auto flex max-w-3xl items-start gap-3">
+                      <div className="rounded-md bg-primary/10 p-4">
+                        <p>{msg.text}</p>
+                      </div>
+                      <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
+                    </div>
+                  )
+                )}
+              </>
             )}
           </div>
 
@@ -303,7 +339,7 @@ export default function ChatDashboard() {
                 className="message-input w-full pr-11"
                 aria-label="메시지 입력"
                 value={input}
-                disabled={activeThread !== "samsung"}
+                disabled={false}
                 onChange={(e) => setInput(e.target.value)}
                 onCompositionStart={() => setIsComposing(true)}
                 onCompositionEnd={() => setIsComposing(false)}
@@ -316,7 +352,7 @@ export default function ChatDashboard() {
                   }
                 }}
               />
-              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || typing || activeThread !== "samsung"}>
+              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || (activeThread === "samsung" && typing)}>
                 <Send className="h-5 w-5 text-primary" />
               </Button>
             </div>
