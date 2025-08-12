@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { ChevronLeft, ChevronRight, RefreshCw, Filter, Plus, Info, CheckCircle2, Calendar as CalendarIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, RefreshCw, Filter, Plus, Info, CheckCircle2, Calendar as CalendarIcon, ClipboardCheck } from "lucide-react";
 
 const CalendarEvents = () => {
   return (
@@ -38,7 +38,7 @@ const CalendarEvents = () => {
           <span className="text-sm text-muted-foreground">8월 15일 대학 축제 시즌이 시작됩니다. 이번 달 총 8개 대학교와 계약이 필요합니다.</span>
         </div>
         <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
-          <i className="fas fa-tasks hidden" aria-hidden /> 업무 할당
+          <ClipboardCheck className="h-3.5 w-3.5" /> 업무 할당
         </button>
       </div>
 
