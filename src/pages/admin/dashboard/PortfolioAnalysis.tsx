@@ -43,7 +43,7 @@ export default function PortfolioAnalysis() {
     <div className="space-y-4">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <div className="text-sm font-medium mb-1">장르별 연예인 분포</div>
+          <div className="mt-1 text-sm font-medium mb-1">장르별 연예인 분포</div>
           <ChartContainer config={{}} className="aspect-square">
             <PieChart>
               <Pie data={pieDataGenre} dataKey="value" nameKey="name" outerRadius={80} labelLine={false} label={renderPieLabel}>
@@ -57,7 +57,7 @@ export default function PortfolioAnalysis() {
           </ChartContainer>
         </div>
         <div>
-          <div className="text-sm font-medium mb-1">연예인 등급표</div>
+          <div className="mt-1 text-sm font-medium mb-1">연예인 등급표</div>
           <ChartContainer config={{}} className="aspect-square">
             <PieChart>
               <Pie data={pieDataGeneration} dataKey="value" nameKey="name" outerRadius={80} labelLine={false} label={renderPieLabel}>
