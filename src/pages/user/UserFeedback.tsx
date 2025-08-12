@@ -119,12 +119,6 @@ const UserFeedback = () => {
 
       {/* Tabs */}
       <Tabs defaultValue="basic" className="space-y-6">
-        <TabsList>
-          <TabsTrigger value="basic" className="gap-2"><ClipboardList className="h-4 w-4" />기본 피드백</TabsTrigger>
-          <TabsTrigger value="detail" disabled className="gap-2"><BarChart3 className="h-4 w-4" />세부 평가</TabsTrigger>
-          <TabsTrigger value="result" disabled className="gap-2"><Trophy className="h-4 w-4" />행사 성과</TabsTrigger>
-          <TabsTrigger value="ai" disabled className="gap-2"><Bot className="h-4 w-4" />AI 분석</TabsTrigger>
-        </TabsList>
 
         <TabsContent value="basic" className="space-y-8">
           {/* Overall satisfaction */}
