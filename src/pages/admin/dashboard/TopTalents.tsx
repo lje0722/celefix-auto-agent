@@ -18,21 +18,21 @@ const TALENTS: Talent[] = [
 
 export default function TopTalents() {
   return (
-    <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
+    <div className="space-y-4">
       {TALENTS.map((t) => (
-        <div key={t.rank} className="rounded-md border bg-muted/40 p-3 flex items-center">
+        <div key={t.rank} className="rounded-lg border bg-muted/40 p-4 flex items-center">
           <div className="w-8 text-sm font-bold text-primary mr-3 text-center">{t.rank}</div>
           <div className="mr-3 grid h-10 w-10 place-items-center rounded-full bg-primary/20 text-primary text-xs font-bold">
             {t.code}
           </div>
           <div className="flex-1">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <div className="font-medium">{t.name}</div>
               <span className="rounded-full border bg-background px-2 py-0.5 text-[11px] text-muted-foreground">
                 {t.genre}
               </span>
             </div>
-            <div className="mt-1 flex items-center gap-3">
+            <div className="mt-2 flex items-center gap-4">
               <div className="w-28">
                 <div className="h-1.5 rounded bg-muted">
                   <div className="h-1.5 rounded bg-primary" style={{ width: `${t.popularity}%` }} />

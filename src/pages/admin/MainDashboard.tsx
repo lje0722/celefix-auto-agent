@@ -53,7 +53,7 @@ const MainDashboard = () => {
         <Card>
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg">인기 연예인 TOP 10</CardTitle>
+              <CardTitle className="text-lg">인기 연예인 TOP 5</CardTitle>
               <Button variant="outline" size="sm">인기도 기준</Button>
             </div>
           </CardHeader>
