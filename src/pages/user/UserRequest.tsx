@@ -59,7 +59,7 @@ const UserRequest = () => {
                   onChange={(e) => {
                     const raw = e.target.value.replace(/,/g, "");
                     const num = Number(raw) || 0;
-                    const clamped = Math.max(0, Math.min(100_000_000, num));
+                    const clamped = Math.max(0, Math.min(1_000_000_000, num));
                     setBudget(clamped);
                   }}
                   aria-describedby="budget-help"
@@ -71,12 +71,12 @@ const UserRequest = () => {
             </div>
 
             <div>
-              <Label htmlFor="budget-range">예산 범위 (0 ~ 1억원)</Label>
+              <Label htmlFor="budget-range">예산 범위 (0 ~ 10억원)</Label>
               <div className="mt-4">
                 <Slider
                   id="budget-range"
                   min={0}
-                  max={100000000}
+                  max={1000000000}
                   step={1000000}
                   value={[budget]}
                   onValueChange={(v) => setBudget(v[0] ?? 0)}
