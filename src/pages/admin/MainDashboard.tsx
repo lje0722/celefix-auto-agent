@@ -66,7 +66,7 @@ const MainDashboard = () => {
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg">연예인 포트폴리오 분석</CardTitle>
-              <Button variant="outline" size="sm">장르별 보기</Button>
+              <Button variant="outline" size="sm">자세히 보기</Button>
             </div>
           </CardHeader>
           <CardContent>
