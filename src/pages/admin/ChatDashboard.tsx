@@ -98,6 +98,7 @@ export default function ChatDashboard() {
   const [nextBotIndex, setNextBotIndex] = useState(1);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [isComposing, setIsComposing] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -304,8 +305,12 @@ export default function ChatDashboard() {
                 value={input}
                 disabled={activeThread !== "samsung"}
                 onChange={(e) => setInput(e.target.value)}
+                onCompositionStart={() => setIsComposing(true)}
+                onCompositionEnd={() => setIsComposing(false)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
+                    const native: any = e.nativeEvent;
+                    if (native?.isComposing || isComposing) return;
                     e.preventDefault();
                     send();
                   }
