@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { NavLink } from "react-router-dom";
-import { AlertTriangle, Info, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCw } from "lucide-react";
+import { AlertTriangle, Bell, Calendar as CalendarIcon, CheckCircle2, ChevronLeft, ChevronRight, Filter, Plus, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import * as React from "react";
@@ -149,7 +149,8 @@ const CalendarTalents: React.FC = () => {
           <span className="font-medium">스케줄 충돌 감지! 아이유님의 7월 4일 일정이 중복되어있습니다. (2건의 스케줄 충돌)</span>
         </div>
         <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
-          업무 할당
+          <Bell className="h-3.5 w-3.5" />
+          알림 보내기
         </button>
       </div>
 
