@@ -355,7 +355,7 @@ export default function ChatDashboard() {
                 className="message-input w-full pr-11"
                 aria-label="메시지 입력"
                 value={input}
-                disabled={false}
+                disabled={typing}
                 onChange={(e) => setInput(e.target.value)}
                 onCompositionStart={() => setIsComposing(true)}
                 onCompositionEnd={() => setIsComposing(false)}
@@ -368,7 +368,7 @@ export default function ChatDashboard() {
                   }
                 }}
               />
-              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || (activeThread === "samsung" && typing)}>
+              <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2" onClick={send} disabled={!input.trim() || typing}>
                 <Send className="h-5 w-5 text-primary" />
               </Button>
             </div>
