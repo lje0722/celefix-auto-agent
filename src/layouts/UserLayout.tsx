@@ -45,12 +45,6 @@ export default function UserLayout() {
           {/* Right: Actions */}
           <div className="flex items-center gap-2 justify-self-end">
             <ThemeToggle />
-            <div className="hidden sm:flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
-                서
-              </div>
-              <span className="text-sm">서울대학교 축제준비위원회</span>
-            </div>
           </div>
         </div>
       </header>
