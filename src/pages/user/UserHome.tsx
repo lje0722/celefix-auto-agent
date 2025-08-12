@@ -7,10 +7,10 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const UserHome = () => {
   const artistAlbums = [
-    "/lovable-uploads/10dac3ee-b9c1-40f1-9c99-6d6910e2b7ad.png",
-    "/lovable-uploads/15de82c7-aea5-440e-ad89-9b3c852eacda.png",
-    "/lovable-uploads/53846977-76eb-46e1-a02a-bad75b5ca7c4.png",
-    "/lovable-uploads/7bbc29ce-f354-47df-b6ff-ac29c80c7bea.png",
+    "/lovable-uploads/5a314363-7af4-4321-afc9-13e3ae39e169.png", // aespa
+    "/lovable-uploads/1ed960bb-3645-4316-82e1-ed725fc1059c.png", // 투모로우바이투게더
+    "/lovable-uploads/5dcc1f13-ad58-4924-a232-47f8487bbe13.png", // 아이브
+    "/lovable-uploads/e58f80d0-fb06-4ea7-82bd-d71c669899b1.png", // 적재
   ];
   return (
     <div className="container mx-auto px-6 py-10 relative">
@@ -159,7 +159,7 @@ const UserHome = () => {
             <Card key={i} className="overflow-hidden">
               <div className="bg-muted">
                 <AspectRatio ratio={16 / 9}>
-                  <img src={artistAlbums[i]} alt={`${a.name} 포스터`} loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                  <img src={artistAlbums[i]} alt={`${a.name} 포스터`} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </AspectRatio>
               </div>
               <CardContent className="p-3">
