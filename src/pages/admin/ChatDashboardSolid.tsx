@@ -183,14 +183,61 @@ export default function ChatDashboardSolid() {
 
           {/* Messages - static */}
           <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-4" ref={listRef}>
-            {botSteps.map((node, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                  <Bot className="h-4 w-4" />
-                </div>
-                {node}
+            {/* Bot 1 */}
+            <div className="flex items-start gap-3">
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                <Bot className="h-4 w-4" />
               </div>
-            ))}
+              {botSteps[0]}
+            </div>
+
+            {/* User between 1 and 2 */}
+            <div className="ml-auto flex max-w-3xl items-start gap-3">
+              <div className="rounded-md bg-primary/10 p-4">
+                <p>추천 이유가 궁금합니다.</p>
+              </div>
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
+            </div>
+
+            {/* Bot 2 */}
+            <div className="flex items-start gap-3">
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                <Bot className="h-4 w-4" />
+              </div>
+              {botSteps[1]}
+            </div>
+
+            {/* User between 2 and 3 */}
+            <div className="ml-auto flex max-w-3xl items-start gap-3">
+              <div className="rounded-md bg-primary/10 p-4">
+                <p>담당자에게 내용을 전달할게요.</p>
+              </div>
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
+            </div>
+
+            {/* Bot 3 */}
+            <div className="flex items-start gap-3">
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                <Bot className="h-4 w-4" />
+              </div>
+              {botSteps[2]}
+            </div>
+
+            {/* User between 3 and 4 */}
+            <div className="ml-auto flex max-w-3xl items-start gap-3">
+              <div className="rounded-md bg-primary/10 p-4">
+                <p>담당자가 승인했어요 계약서를 작성해주세요</p>
+              </div>
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground">김</div>
+            </div>
+
+            {/* Bot 4 */}
+            <div className="flex items-start gap-3">
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                <Bot className="h-4 w-4" />
+              </div>
+              {botSteps[3]}
+            </div>
           </div>
 
         </section>
