@@ -29,9 +29,10 @@ export default function AdminNotifications() {
   const { toast } = useToast();
   const [approvedSNU, setApprovedSNU] = useState(false);
 
-  const handleMarkAllRead = () =>
+  const handleMarkAllRead = () => {
+    window.dispatchEvent(new Event("notifications:clear"));
     toast({ title: "모두 읽음 처리", description: "모든 알림을 읽음 처리했어요." });
-
+  };
   return (
     <div>
       <SEO title="관리자 알림 | Celefix" description="시스템 및 작업 알림" />

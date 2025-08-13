@@ -2,8 +2,15 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Bell, Star, Home, MessageSquare, Calendar, BarChart3 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function AdminLayout() {
+  const [showBadge, setShowBadge] = useState(true);
+  useEffect(() => {
+    const handler = (_e: Event) => setShowBadge(false);
+    window.addEventListener("notifications:clear", handler);
+    return () => window.removeEventListener("notifications:clear", handler);
+  }, []);
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 z-50 h-14 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -72,7 +79,7 @@ export default function AdminLayout() {
               role="button"
             >
               <Bell className="h-4 w-4" />
-              <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />
+              {showBadge && <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--urgent))]" />}
             </Link>
 
             <div className="flex items-center gap-2">
