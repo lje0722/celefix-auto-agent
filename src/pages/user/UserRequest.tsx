@@ -33,7 +33,7 @@ const UserRequest = () => {
     window.dispatchEvent(new Event("notifications:new"));
     setLoading(true);
     setTimeout(() => {
-      toast({ title: "요청이 접수되었습니다", description: "관리자 페이지와 자동 연동됩니다." });
+      toast({ title: "요청이 접수되었습니다" });
       setLoading(false);
     }, 800);
   };
