@@ -65,6 +65,8 @@ const UserFeedback = () => {
     toast({ title: "임시 저장", description: "임시 저장되었습니다." });
 
   const handleNext = () => {
+    // 관리자 페이지 알림 배지 표시 (임시 효과)
+    window.dispatchEvent(new Event("notifications:new"));
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
