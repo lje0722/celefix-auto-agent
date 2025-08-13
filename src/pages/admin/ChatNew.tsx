@@ -188,15 +188,6 @@ export default function ChatNew() {
 
             <Separator className="my-3" />
 
-            {/* 하단 프로필 */}
-            <div className="mt-auto">
-              <div className="flex items-center gap-2 rounded-md px-2 py-2">
-                <div className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
-                  김
-                </div>
-                <div className="text-sm">김희연 관리자</div>
-              </div>
-            </div>
           </div>
         </aside>
 
