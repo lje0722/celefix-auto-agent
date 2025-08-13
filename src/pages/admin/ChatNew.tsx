@@ -1,5 +1,6 @@
 
 import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -139,9 +140,11 @@ export default function ChatNew() {
                 <Star className="h-3.5 w-3.5 text-primary" />
               </div>
               <ul className="space-y-2">
-                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary" data-active>
-                  <div className="text-sm font-medium">삼성전자 런칭쇼 제안</div>
-                  <div className="truncate text-xs text-muted-foreground">아이유, 적재, 에픽하이 라인업 제안...</div>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary">
+                  <Link to="/admin/chat/dashboard?thread=samsung" className="block">
+                    <div className="text-sm font-medium">삼성전자 런칭쇼 제안</div>
+                    <div className="truncate text-xs text-muted-foreground">아이유, 적재, 에픽하이 라인업 제안...</div>
+                  </Link>
                 </li>
                 <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
                   <div className="text-sm font-medium">LG 신제품 발표회</div>
@@ -167,8 +170,10 @@ export default function ChatNew() {
               </div>
               <ul className="space-y-2">
                 <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
-                  <div className="text-sm font-medium">서울대 축제 제안</div>
-                  <div className="truncate text-xs text-muted-foreground">축제 라인업 추천 및 분석</div>
+                  <Link to="/admin/chat/dashboard?thread=seoul" className="block">
+                    <div className="text-sm font-medium">서울대 축제 제안</div>
+                    <div className="truncate text-xs text-muted-foreground">축제 라인업 추천 및 분석</div>
+                  </Link>
                 </li>
                 <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
                   <div className="text-sm font-medium">부산 음악 페스티벌</div>
