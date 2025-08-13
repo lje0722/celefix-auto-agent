@@ -181,7 +181,7 @@ export default function ChatDashboardDetail() {
                   <option>2023년</option>
                 </select>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 items-center min-h-[16rem]">
                 <ChartContainer className="h-48 w-full" config={{ dist: { label: "분포", color: "hsl(330 78% 60%)" } }}>
                   <PieChart>
                     <Pie data={activityDist} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80} paddingAngle={2}>
