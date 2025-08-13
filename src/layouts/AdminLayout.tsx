@@ -7,9 +7,14 @@ import { useEffect, useState } from "react";
 export default function AdminLayout() {
   const [showBadge, setShowBadge] = useState(true);
   useEffect(() => {
-    const handler = (_e: Event) => setShowBadge(false);
-    window.addEventListener("notifications:clear", handler);
-    return () => window.removeEventListener("notifications:clear", handler);
+    const onClear = (_e: Event) => setShowBadge(false);
+    const onNew = (_e: Event) => setShowBadge(true);
+    window.addEventListener("notifications:clear", onClear);
+    window.addEventListener("notifications:new", onNew);
+    return () => {
+      window.removeEventListener("notifications:clear", onClear);
+      window.removeEventListener("notifications:new", onNew);
+    };
   }, []);
   return (
     <div className="flex min-h-screen w-full flex-col">
