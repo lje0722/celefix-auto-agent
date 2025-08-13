@@ -202,7 +202,7 @@ export default function ChatDashboardDetail() {
                       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
                         <div className="h-full" style={{ width: `${i.value}%`, backgroundColor: i.fill }} />
                       </div>
-                      <div className="mt-1 text-xs text-muted-foreground">예시 데이터</div>
+                      
                     </div>
                   ))}
                 </div>
