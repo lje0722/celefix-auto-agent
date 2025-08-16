@@ -158,13 +158,13 @@ const UserRequest = () => {
                   <p className="text-sm text-muted-foreground">선택된 아티스트가 없습니다.</p>
                 ) : (
                   artists.map((name) => (
-                    <span key={name} className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm">
+                    <span key={name} className="inline-flex items-center gap-1 rounded-full bg-primary/10 border-primary/20 border px-3 py-1 text-sm text-primary font-medium hover:bg-primary/20 transition-colors">
                       {name}
                       <button
                         type="button"
                         aria-label={`${name} 제거`}
                         onClick={() => removeArtist(name)}
-                        className="text-muted-foreground hover:text-foreground"
+                        className="text-primary/70 hover:text-primary"
                       >
                         <X className="h-3.5 w-3.5" />
                       </button>
@@ -180,7 +180,7 @@ const UserRequest = () => {
                 <div className="rounded-lg border border-dashed border-primary/20 bg-primary/5 p-4">
                   <div className="flex items-center mb-3">
                     <Calculator className="h-4 w-4 text-primary mr-2" />
-                    <h3 className="font-semibold text-gray-700">섭외비 예측</h3>
+                    <h3 className="font-semibold text-foreground dark:text-white">섭외비 예측</h3>
                     <span className="h-4 w-4 text-muted-foreground ml-2 cursor-help" title="AI 기반 예측 금액입니다">
                       <Info className="h-4 w-4" />
                     </span>
