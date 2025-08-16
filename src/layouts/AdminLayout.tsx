@@ -33,7 +33,7 @@ export default function AdminLayout() {
               end
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  ? "flex items-center gap-2 text-primary"
                   : "flex items-center gap-2 hover:text-foreground"
               }
             >
@@ -43,7 +43,7 @@ export default function AdminLayout() {
               to="/admin/chat"
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  ? "flex items-center gap-2 text-primary"
                   : "flex items-center gap-2 hover:text-foreground"
               }
             >
@@ -53,7 +53,7 @@ export default function AdminLayout() {
               to="/admin/calendar"
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  ? "flex items-center gap-2 text-primary"
                   : "flex items-center gap-2 hover:text-foreground"
               }
             >
@@ -63,7 +63,7 @@ export default function AdminLayout() {
               to="/admin/dashboard"
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center gap-2 rounded-md bg-primary/20 px-3 py-1 text-primary"
+                  ? "flex items-center gap-2 text-primary"
                   : "flex items-center gap-2 hover:text-foreground"
               }
             >
