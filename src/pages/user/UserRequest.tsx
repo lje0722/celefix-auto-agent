@@ -177,11 +177,11 @@ const UserRequest = () => {
             {/* 섭외비 예측 모델 섹션 */}
             {artists.length > 0 && (
               <div className="md:col-span-2 mt-4">
-                <div className="rounded-lg border border-dashed border-primary/20 bg-primary/5 p-4">
+                <div className="rounded-lg border border-dashed border-primary bg-primary p-4">
                   <div className="flex items-center mb-3">
-                    <Calculator className="h-4 w-4 text-primary mr-2" />
-                    <h3 className="font-semibold text-gray-700">섭외비 예측</h3>
-                    <span className="h-4 w-4 text-muted-foreground ml-2 cursor-help" title="AI 기반 예측 금액입니다">
+                    <Calculator className="h-4 w-4 text-primary-foreground mr-2" />
+                    <h3 className="font-semibold text-primary-foreground">섭외비 예측</h3>
+                    <span className="h-4 w-4 text-primary-foreground/70 ml-2 cursor-help" title="AI 기반 예측 금액입니다">
                       <Info className="h-4 w-4" />
                     </span>
                   </div>
@@ -191,15 +191,15 @@ const UserRequest = () => {
                       if (!estimate) return null;
                       return (
                         <div key={artist} className="flex justify-between items-center">
-                          <span className="text-sm">{artist}</span>
-                          <span className="font-semibold text-primary">
+                          <span className="text-sm text-primary-foreground">{artist}</span>
+                          <span className="font-semibold text-primary-foreground">
                             {estimate.min.toLocaleString('ko-KR')}원 ~ {estimate.max.toLocaleString('ko-KR')}원
                           </span>
                         </div>
                       );
                     })}
                   </div>
-                  <div className="text-xs text-muted-foreground italic">
+                  <div className="text-xs text-primary-foreground/70 italic">
                     본 예측값은 참고용이며, 실제 섭외 조건·스케줄·시장 상황에 따라 변동될 수 있습니다.
                   </div>
                 </div>
