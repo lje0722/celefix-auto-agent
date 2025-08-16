@@ -8,13 +8,31 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-import { Search, X } from "lucide-react";
+import { Search, X, Calculator, Info } from "lucide-react";
 const UserRequest = () => {
   const [loading, setLoading] = useState(false);
   const [budget, setBudget] = useState<number>(50_000_000);
   const [flexibility, setFlexibility] = useState<string>("일부 조정 가능 (±10%)");
   const [artistInput, setArtistInput] = useState("");
   const [artists, setArtists] = useState<string[]>(["아이유", "뉴진스", "에스파"]);
+
+  // 섭외비 예측 데이터
+  const feeEstimates: Record<string, { min: number; max: number }> = {
+    "아이유": { min: 45_000_000, max: 55_000_000 },
+    "뉴진스": { min: 70_000_000, max: 85_000_000 },
+    "에스파": { min: 40_000_000, max: 50_000_000 },
+    "방탄소년단": { min: 200_000_000, max: 300_000_000 },
+    "블랙핑크": { min: 150_000_000, max: 200_000_000 },
+    "스트레이키즈": { min: 80_000_000, max: 100_000_000 },
+    "트와이스": { min: 120_000_000, max: 150_000_000 },
+    "세븐틴": { min: 100_000_000, max: 130_000_000 },
+    "르세라핌": { min: 60_000_000, max: 75_000_000 },
+    "아일릿": { min: 50_000_000, max: 65_000_000 },
+    "키스오브라이프": { min: 30_000_000, max: 40_000_000 },
+    "뉴이스트": { min: 50_000_000, max: 70_000_000 },
+    "엔하이픈": { min: 80_000_000, max: 100_000_000 },
+    "있지": { min: 60_000_000, max: 80_000_000 }
+  };
 
   const addArtist = (name: string) => {
     const trimmed = name.trim();
@@ -155,6 +173,38 @@ const UserRequest = () => {
                 )}
               </div>
             </div>
+
+            {/* 섭외비 예측 모델 섹션 */}
+            {artists.length > 0 && (
+              <div className="md:col-span-2 mt-4">
+                <div className="rounded-lg border border-dashed border-primary/20 bg-primary/5 p-4">
+                  <div className="flex items-center mb-3">
+                    <Calculator className="h-4 w-4 text-primary mr-2" />
+                    <h3 className="font-semibold text-gray-700">섭외비 예측</h3>
+                    <span className="h-4 w-4 text-muted-foreground ml-2 cursor-help" title="AI 기반 예측 금액입니다">
+                      <Info className="h-4 w-4" />
+                    </span>
+                  </div>
+                  <div className="space-y-2 mb-3">
+                    {artists.map((artist) => {
+                      const estimate = feeEstimates[artist];
+                      if (!estimate) return null;
+                      return (
+                        <div key={artist} className="flex justify-between items-center">
+                          <span className="text-sm">{artist}</span>
+                          <span className="font-semibold text-primary">
+                            {estimate.min.toLocaleString('ko-KR')}원 ~ {estimate.max.toLocaleString('ko-KR')}원
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="text-xs text-muted-foreground italic">
+                    본 예측값은 참고용이며, 실제 섭외 조건·스케줄·시장 상황에 따라 변동될 수 있습니다.
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="md:col-span-2 md:max-w-md">
               <Label htmlFor="artist-type">공연 유형</Label>
