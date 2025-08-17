@@ -193,7 +193,7 @@ const UserRequest = () => {
                         <div key={artist} className="flex justify-between items-center">
                           <span className="text-sm">{artist}</span>
                           <span className="font-semibold text-primary">
-                            {estimate.min.toLocaleString('ko-KR')}원 ~ {estimate.max.toLocaleString('ko-KR')}원
+                            {(estimate.min / 10000).toLocaleString('ko-KR')}만원 ~ {(estimate.max / 10000).toLocaleString('ko-KR')}만원
                           </span>
                         </div>
                       );
