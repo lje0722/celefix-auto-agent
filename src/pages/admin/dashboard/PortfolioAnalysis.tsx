@@ -2,15 +2,15 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, ResponsiveContainer } from "recharts";
 
 const pieDataGenre = [
-  { name: "댄스", value: 60, fill: "hsl(315 40% 80%)" },
-  { name: "힙합/랩", value: 31, fill: "hsl(280 30% 73%)" },
-  { name: "발라드", value: 9, fill: "hsl(265 35% 65%)" },
+  { name: "댄스", value: 60, fill: "hsl(var(--primary))" },
+  { name: "힙합/랩", value: 31, fill: "hsl(340 75% 65%)" },
+  { name: "발라드", value: 9, fill: "hsl(320 70% 72%)" },
 ];
 
 const pieDataGeneration = [
-  { name: "1등급", value: 44, fill: "hsl(315 40% 80%)" },
-  { name: "2등급", value: 38, fill: "hsl(280 30% 73%)" },
-  { name: "3등급", value: 18, fill: "hsl(265 35% 65%)" },
+  { name: "1등급", value: 44, fill: "hsl(var(--primary))" },
+  { name: "2등급", value: 38, fill: "hsl(340 75% 65%)" },
+  { name: "3등급", value: 18, fill: "hsl(320 70% 72%)" },
 ];
 
 const feeLineData = [
