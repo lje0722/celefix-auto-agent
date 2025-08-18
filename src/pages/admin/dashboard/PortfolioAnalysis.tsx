@@ -3,13 +3,13 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, LineCh
 
 const pieDataGenre = [
   { name: "댄스", value: 60, fill: "hsl(var(--primary))" },
-  { name: "힙합/랩", value: 31, fill: "hsl(var(--info))" },
+  { name: "힙합/랩", value: 31, fill: "hsl(var(--warning))" },
   { name: "발라드", value: 9, fill: "hsl(var(--brand-2))" },
 ];
 
 const pieDataGeneration = [
   { name: "1등급", value: 44, fill: "hsl(var(--primary))" },
-  { name: "2등급", value: 38, fill: "hsl(var(--info))" },
+  { name: "2등급", value: 38, fill: "hsl(var(--warning))" },
   { name: "3등급", value: 18, fill: "hsl(var(--brand-2))" },
 ];
 
