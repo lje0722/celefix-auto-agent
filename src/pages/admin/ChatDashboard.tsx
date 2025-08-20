@@ -192,40 +192,8 @@ export default function ChatDashboard() {
           </div>
 
           <div className="flex h-[calc(100%-132px)] flex-col overflow-y-auto pr-1">
-            {/* Proactive proposals */}
-            <div className="category-section mb-4">
-              <div className="category-header mb-2 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="category-icon grid h-6 w-6 place-items-center rounded bg-primary/15 text-primary">
-                    <Lightbulb className="h-3.5 w-3.5" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-primary">선제 제안</h3>
-                </div>
-                <Star className="h-3.5 w-3.5 text-primary" />
-              </div>
-
-              <ul className="space-y-2">
-                <li
-                  className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary"
-                  data-active={activeThread === "samsung"}
-                  onClick={() => setActiveThread("samsung")}
-                >
-                  <div className="text-sm font-medium">삼성전자 런칭쇼 제안</div>
-                  <div className="truncate text-xs text-muted-foreground">아이유, 적재, 에픽하이 라인업 제안...</div>
-                </li>
-                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
-                  <div className="text-sm font-medium">LG 신제품 발표회</div>
-                  <div className="truncate text-xs text-muted-foreground">유명 인플루언서 섭외 제안</div>
-                </li>
-                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
-                  <div className="text-sm font-medium">현대자동차 론칭쇼</div>
-                  <div className="truncate text-xs text-muted-foreground">유명 아이돌 그룹 섭외 전략</div>
-                </li>
-              </ul>
-            </div>
-
             {/* General lineup */}
-            <div className="category-section">
+            <div className="category-section mb-4">
               <div className="category-header mb-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="category-icon grid h-6 w-6 place-items-center rounded bg-info/15 text-[hsl(var(--info))]">
@@ -252,6 +220,38 @@ export default function ChatDashboard() {
                 <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
                   <div className="text-sm font-medium">고려대 가을 축제</div>
                   <div className="truncate text-xs text-muted-foreground">힙합 아티스트 라인업 추천</div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Proactive proposals */}
+            <div className="category-section">
+              <div className="category-header mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="category-icon grid h-6 w-6 place-items-center rounded bg-primary/15 text-primary">
+                    <Lightbulb className="h-3.5 w-3.5" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-primary">선제 제안</h3>
+                </div>
+                <Star className="h-3.5 w-3.5 text-primary" />
+              </div>
+
+              <ul className="space-y-2">
+                <li
+                  className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40 ring-0 data-[active=true]:bg-muted/50 data-[active=true]:border-l-2 data-[active=true]:border-l-primary"
+                  data-active={activeThread === "samsung"}
+                  onClick={() => setActiveThread("samsung")}
+                >
+                  <div className="text-sm font-medium">삼성전자 런칭쇼 제안</div>
+                  <div className="truncate text-xs text-muted-foreground">아이유, 적재, 에픽하이 라인업 제안...</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">LG 신제품 발표회</div>
+                  <div className="truncate text-xs text-muted-foreground">유명 인플루언서 섭외 제안</div>
+                </li>
+                <li className="chat-item cursor-pointer rounded-md border border-border bg-muted/30 p-3 transition hover:bg-muted/40">
+                  <div className="text-sm font-medium">현대자동차 론칭쇼</div>
+                  <div className="truncate text-xs text-muted-foreground">유명 아이돌 그룹 섭외 전략</div>
                 </li>
               </ul>
             </div>
