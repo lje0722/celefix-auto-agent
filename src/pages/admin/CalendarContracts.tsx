@@ -134,7 +134,7 @@ const CalendarContracts = () => {
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <h2 className="text-xl font-bold">2025년 8월</h2>
+            <h2 className="text-xl font-bold">2025년 9월</h2>
             <button
               className="ml-2 rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50"
               aria-label="다음 달"

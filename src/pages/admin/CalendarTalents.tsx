@@ -99,7 +99,7 @@ const eventsMap: Record<string, CalendarEvent[]> = {
 const CalendarTalents: React.FC = () => {
   const { toast } = useToast();
   const [year] = React.useState(2025);
-  const [monthIndex0] = React.useState(6); // 0-based -> 6 = July
+  const [monthIndex0] = React.useState(8); // 0-based -> 8 = September
 
   const cells = React.useMemo(() => getMonthGrid(year, monthIndex0), [year, monthIndex0]);
 
@@ -195,7 +195,7 @@ const CalendarTalents: React.FC = () => {
             <button className="mr-2 rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="이전 달" onClick={onPrev}>
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <h2 className="text-xl font-bold">2025년 7월</h2>
+            <h2 className="text-xl font-bold">2025년 9월</h2>
             <button className="ml-2 rounded-lg border border-border bg-muted/30 p-2 transition hover:bg-muted/50" aria-label="다음 달" onClick={onNext}>
               <ChevronRight className="h-4 w-4" />
             </button>
