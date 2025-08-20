@@ -43,8 +43,8 @@ function getMonthGrid(year: number, monthIndex0: number) {
     cells.push({ date: new Date(year, monthIndex0, d), inCurrentMonth: true });
   }
 
-  // Trailing days to fill 6 weeks (42 cells)
-  while (cells.length % 7 !== 0 || cells.length < 42) {
+  // Trailing days to fill 5 weeks (35 cells)
+  while (cells.length % 7 !== 0 || cells.length < 35) {
     const last = cells[cells.length - 1].date;
     const next = new Date(last);
     next.setDate(last.getDate() + 1);
@@ -252,7 +252,7 @@ const CalendarTalents: React.FC = () => {
             return (
               <div
                 key={key}
-                className={`min-h-28 border border-border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
+                className={`min-h-20 border border-border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
               >
                 <div className="mb-1 text-right text-sm">{date.getDate()}</div>
                 <div className="space-y-1">
