@@ -66,7 +66,6 @@ const eventsMap: Record<string, CalendarEvent[]> = {
     { label: "아이유 - 대학 축제 출연 (18:30)", status: "conflict" },
   ],
   "2025-09-06": [
-    { label: "싸이 - 가용", status: "available" },
     { label: "아이브 - 가용", status: "available" },
   ],
   "2025-09-07": [{ label: "에스파 - 공연", status: "booked" }],
@@ -81,7 +80,6 @@ const eventsMap: Record<string, CalendarEvent[]> = {
     { label: "뉴진스 - 가용", status: "available" },
   ],
   "2025-09-12": [
-    { label: "엔믹스 - 가용", status: "available" },
     { label: "싸이 - 가용", status: "available" },
   ],
   "2025-09-14": [{ label: "에픽하이 - 페스티벌", status: "booked" }],
@@ -89,7 +87,6 @@ const eventsMap: Record<string, CalendarEvent[]> = {
   "2025-09-16": [{ label: "뉴진스 - 가용", status: "available" }],
   "2025-09-17": [{ label: "아이브 - 가용", status: "available" }],
   "2025-09-19": [
-    { label: "싸이 - 가용", status: "available" },
     { label: "아이브 - 가용", status: "available" },
   ],
   "2025-09-20": [
@@ -104,7 +101,6 @@ const eventsMap: Record<string, CalendarEvent[]> = {
   "2025-09-23": [{ label: "적재 - 가용", status: "available" }],
   "2025-09-25": [{ label: "적재 - 일정 조율중", status: "pending" }],
   "2025-09-26": [
-    { label: "아이브 - 가용", status: "available" },
     { label: "엔믹스 - 가용", status: "available" },
   ],
   "2025-09-28": [{ label: "에픽하이 - 협의중", status: "pending" }],
