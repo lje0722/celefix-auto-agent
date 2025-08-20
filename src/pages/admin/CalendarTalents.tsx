@@ -252,7 +252,7 @@ const CalendarTalents: React.FC = () => {
             return (
               <div
                 key={key}
-                className={`min-h-20 border border-border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
+                className={`min-h-24 border border-border p-2 ${inCurrentMonth ? "" : "opacity-50"} ${isConflictDay ? "bg-destructive/10 border-destructive animate-pulse" : ""}`}
               >
                 <div className="mb-1 text-right text-sm">{date.getDate()}</div>
                 <div className="space-y-1">
