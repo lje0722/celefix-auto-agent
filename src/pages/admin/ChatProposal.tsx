@@ -32,72 +32,6 @@ const ChatProposal = () => {
       {/* 추천 라인업 */}
       <section>
         <h2 className="text-lg font-semibold mb-3">추천 라인업</h2>
-        <Card className="p-5">
-          <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <Users className="h-4 w-4" /> 관객층 분석 및 시너지 효과
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {/* 타겟 관객층 분석 */}
-            <div className="rounded-md border bg-muted/30 p-4">
-              <h3 className="mb-3 text-sm font-medium text-muted-foreground">타겟 관객층 분석</h3>
-              <div className="space-y-3 text-sm">
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>20대 초반</span><span>35%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-primary" style={{ width: "35%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>20대 후반</span><span>30%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-[hsl(var(--urgent))]" style={{ width: "30%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>30-40대</span><span>35%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-[hsl(var(--info))]" style={{ width: "35%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 음악 장르 선호도 */}
-            <div className="rounded-md border bg-muted/30 p-4">
-              <h3 className="mb-3 text-sm font-medium text-muted-foreground">음악 장르 선호도</h3>
-              <div className="space-y-3 text-sm">
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>팝/K-Pop</span><span>55%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-primary" style={{ width: "55%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>인디/어쿠스틱</span><span>20%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-[hsl(var(--success))]" style={{ width: "20%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-1 flex items-center justify-between"><span>힙합/랩</span><span>25%</span></div>
-                  <div className="h-2 rounded-full bg-muted">
-                    <div className="h-full rounded-full bg-[hsl(var(--warning))]" style={{ width: "25%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 시너지 분석 */}
-            <div className="rounded-md border bg-muted/30 p-4">
-              <h3 className="mb-3 text-sm font-medium text-muted-foreground">라인업 시너지 분석</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center justify-between"><span>브랜드 이미지 적합도</span><span className="font-semibold text-[hsl(var(--success))]">96.5%</span></div>
-                <div className="flex items-center justify-between"><span>미디어 노출 효과</span><span className="font-semibold text-[hsl(var(--warning))]">98.7%</span></div>
-                <div className="flex items-center justify-between"><span>SNS 화제성 예측</span><span className="font-semibold text-primary">매우 높음</span></div>
-              </div>
-            </div>
-          </div>
-        </Card>
       </section>
 
       {/* 연예인 탭 */}
@@ -190,6 +124,77 @@ const ChatProposal = () => {
             </TabsContent>
           </Tabs>
         </div>
+      </section>
+
+      {/* 관객층 분석 및 시너지 효과 */}
+      <section>
+        <h2 className="text-lg font-semibold mb-3">관객층 분석 및 시너지 효과</h2>
+        <Card className="p-5">
+          <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
+            <BarChart3 className="h-4 w-4" /> 관객층 분석 및 시너지 효과
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {/* 타겟 관객층 분석 */}
+            <div className="rounded-md border bg-muted/30 p-4">
+              <h3 className="mb-3 text-sm font-medium text-muted-foreground">타겟 관객층 분석</h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>20대 초반</span><span>35%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-primary" style={{ width: "35%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>20대 후반</span><span>30%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-[hsl(var(--urgent))]" style={{ width: "30%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>30-40대</span><span>35%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-[hsl(var(--info))]" style={{ width: "35%" }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 음악 장르 선호도 */}
+            <div className="rounded-md border bg-muted/30 p-4">
+              <h3 className="mb-3 text-sm font-medium text-muted-foreground">음악 장르 선호도</h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>팝/K-Pop</span><span>55%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-primary" style={{ width: "55%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>인디/어쿠스틱</span><span>20%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-[hsl(var(--success))]" style={{ width: "20%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-1 flex items-center justify-between"><span>힙합/랩</span><span>25%</span></div>
+                  <div className="h-2 rounded-full bg-muted">
+                    <div className="h-full rounded-full bg-[hsl(var(--warning))]" style={{ width: "25%" }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 시너지 분석 */}
+            <div className="rounded-md border bg-muted/30 p-4">
+              <h3 className="mb-3 text-sm font-medium text-muted-foreground">라인업 시너지 분석</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center justify-between"><span>브랜드 이미지 적합도</span><span className="font-semibold text-[hsl(var(--success))]">96.5%</span></div>
+                <div className="flex items-center justify-between"><span>미디어 노출 효과</span><span className="font-semibold text-[hsl(var(--warning))]">98.7%</span></div>
+                <div className="flex items-center justify-between"><span>SNS 화제성 예측</span><span className="font-semibold text-primary">매우 높음</span></div>
+              </div>
+            </div>
+          </div>
+        </Card>
       </section>
 
       {/* 예산 & 일정 */}
