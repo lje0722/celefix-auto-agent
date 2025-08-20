@@ -140,7 +140,7 @@ export default function ChatDashboard() {
           setMessages((m) => [...m, { role: "ai", node: botSteps[idx] }]);
           setNextBotIndex(idx + 1);
           setTyping(false);
-        }, 1500);
+        }, 1000);
       }
       return;
     }
@@ -152,7 +152,7 @@ export default function ChatDashboard() {
       setTimeout(() => {
         setSeoulMessages((m) => [...m, { role: "ai", node: <SeoulFestivalAnswer /> }]);
         setTyping(false);
-      }, 1500);
+      }, 1000);
     }
   };
 
