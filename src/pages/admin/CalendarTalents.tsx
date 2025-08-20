@@ -55,42 +55,42 @@ function getMonthGrid(year: number, monthIndex0: number) {
 }
 
 const eventsMap: Record<string, CalendarEvent[]> = {
-  "2025-07-01": [{ label: "아이유 - 뮤직뱅크 출연", status: "booked" }],
-  "2025-07-02": [
+  "2025-09-01": [{ label: "아이유 - 뮤직뱅크 출연", status: "booked" }],
+  "2025-09-02": [
     { label: "뉴진스 - 가용", status: "available" },
     { label: "에스파 - 가용", status: "available" },
   ],
-  "2025-07-03": [{ label: "BTS - 미정", status: "pending" }],
-  "2025-07-04": [
+  "2025-09-03": [{ label: "BTS - 미정", status: "pending" }],
+  "2025-09-04": [
     { label: "아이유 - 스케줄 충돌", status: "conflict" },
     { label: "아이유 - KBS 음악 특집 (19:00)", status: "conflict" },
     { label: "아이유 - 대학 축제 출연 (18:30)", status: "conflict" },
   ],
-  "2025-07-07": [{ label: "에스파 - 공연", status: "booked" }],
-  "2025-07-08": [{ label: "아이브 - 팬미팅", status: "booked" }],
-  "2025-07-09": [
+  "2025-09-07": [{ label: "에스파 - 공연", status: "booked" }],
+  "2025-09-08": [{ label: "아이브 - 팬미팅", status: "booked" }],
+  "2025-09-09": [
     { label: "적재 - 협의중", status: "pending" },
     { label: "에픽하이 - 가용", status: "available" },
   ],
-  "2025-07-10": [{ label: "아이유 - 가용", status: "available" }],
-  "2025-07-11": [
+  "2025-09-10": [{ label: "아이유 - 가용", status: "available" }],
+  "2025-09-11": [
     { label: "아이유 - 가용", status: "available" },
     { label: "뉴진스 - 가용", status: "available" },
   ],
-  "2025-07-14": [{ label: "에픽하이 - 페스티벌", status: "booked" }],
-  "2025-07-15": [{ label: "적재 - 가용", status: "available" }],
-  "2025-07-16": [{ label: "뉴진스 - 가용", status: "available" }],
-  "2025-07-17": [{ label: "아이브 - 가용", status: "available" }],
-  "2025-07-21": [{ label: "에스파 - 협의중", status: "pending" }],
-  "2025-07-22": [
+  "2025-09-14": [{ label: "에픽하이 - 페스티벌", status: "booked" }],
+  "2025-09-15": [{ label: "적재 - 가용", status: "available" }],
+  "2025-09-16": [{ label: "뉴진스 - 가용", status: "available" }],
+  "2025-09-17": [{ label: "아이브 - 가용", status: "available" }],
+  "2025-09-21": [{ label: "에스파 - 협의중", status: "pending" }],
+  "2025-09-22": [
     { label: "아이유 - 가용", status: "available" },
     { label: "에픽하이 - 가용", status: "available" },
   ],
-  "2025-07-23": [{ label: "적재 - 가용", status: "available" }],
-  "2025-07-25": [{ label: "적재 - 일정 조율중", status: "pending" }],
-  "2025-07-28": [{ label: "에픽하이 - 협의중", status: "pending" }],
-  "2025-07-29": [{ label: "BTS - 페스티벌 출연", status: "booked" }],
-  "2025-07-31": [
+  "2025-09-23": [{ label: "적재 - 가용", status: "available" }],
+  "2025-09-25": [{ label: "적재 - 일정 조율중", status: "pending" }],
+  "2025-09-28": [{ label: "에픽하이 - 협의중", status: "pending" }],
+  "2025-09-29": [{ label: "BTS - 페스티벌 출연", status: "booked" }],
+  "2025-09-30": [
     { label: "아이유 - 대학 축제 출연", status: "booked" },
     { label: "에픽하이 - 대학 축제 출연", status: "booked" },
   ],
@@ -147,7 +147,7 @@ const CalendarTalents: React.FC = () => {
         <div className="flex items-center gap-2">
           <AlertTriangle className="h-4 w-4 text-destructive" />
           <span className="font-medium">스케줄 충돌 감지!</span>
-          <span className="text-sm text-muted-foreground">아이유님의 7월 4일 일정이 중복되어있습니다. (2건의 스케줄 충돌)</span>
+          <span className="text-sm text-muted-foreground">아이유님의 9월 4일 일정이 중복되어있습니다. (2건의 스케줄 충돌)</span>
         </div>
         <button className="inline-flex items-center gap-1 rounded-full border border-accent bg-accent px-2 py-1 text-xs text-accent-foreground shadow transition hover:bg-accent/90">
           <Bell className="h-3.5 w-3.5" />
@@ -269,9 +269,9 @@ const CalendarTalents: React.FC = () => {
         <h3 className="text-sm font-medium flex items-center mb-2"><AlertTriangle className="h-4 w-4 text-yellow-500 mr-2" />충돌 해결 제안</h3>
         <div className="flex items-start gap-2">
           <div className="flex-1 text-xs text-muted-foreground">
-            <p className="mb-1"><span className="text-destructive">충돌 감지:</span> 아이유 - 7월 4일 (목) KBS 음악 특집과 대학 축제 출연 시간 중복</p>
+            <p className="mb-1"><span className="text-destructive">충돌 감지:</span> 아이유 - 9월 4일 (목) KBS 음악 특집과 대학 축제 출연 시간 중복</p>
             <p className="mb-1"><span className="text-yellow-500">제안 1:</span> 대학 축제 출연 시간을 20:30으로 변경 (현재 18:30)</p>
-            <p><span className="text-yellow-500">제안 2:</span> KBS 음악 특집 녹화 참여로 변경 (7월 3일 오전)</p>
+            <p><span className="text-yellow-500">제안 2:</span> KBS 음악 특집 녹화 참여로 변경 (9월 3일 오전)</p>
           </div>
           <Button variant="secondary" size="sm">적용하기</Button>
         </div>
