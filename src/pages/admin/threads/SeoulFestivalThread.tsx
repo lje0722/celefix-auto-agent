@@ -3,7 +3,7 @@ import { Bot } from "lucide-react";
 export function SeoulFestivalAnswer() {
   return (
     <div className="max-w-3xl rounded-md bg-muted/40 p-4">
-      <p className="mb-3">안녕하세요, 서울대학교 축제준비위원회님! 요청하신 아이유, 에스파, 뉴진스 라인업에 대해 분석해 보았습니다.</p>
+      <p className="mb-3">안녕하세요, 김희연 관리자님! 요청하신 아이유, 에스파, 뉴진스 라인업에 대해 분석해 보았습니다.</p>
 
       {/* 예산 분석 */}
       <div className="mb-4 rounded-lg border border-[hsl(var(--destructive))/0.5] bg-[hsl(var(--destructive))/0.08] p-4">
