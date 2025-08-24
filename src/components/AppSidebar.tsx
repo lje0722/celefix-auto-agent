@@ -27,7 +27,7 @@ import {
 const items = [
   { title: "관리자 홈", url: "/admin", icon: Home },
   { title: "선제 제안", url: "/admin/chat/forecast", icon: Sparkles },
-  { title: "라인업 추천", url: "/admin/chat/lineup", icon: Bot },
+  { title: "라인업 추천", url: "/admin/chat/dashboard?thread=seoul", icon: Bot },
   { title: "세부 대시보드", url: "/admin/chat/dashboard", icon: BarChart3 },
   { title: "제안서", url: "/admin/chat/proposal", icon: FileText },
   { title: "계약서", url: "/admin/chat/contract", icon: FileSignature },
