@@ -21,7 +21,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import SeoulFestivalThread, { SeoulFestivalAnswer } from "./threads/SeoulFestivalThread";
 export default function ChatDashboard() {
-  const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("samsung");
+  const [activeThread, setActiveThread] = useState<"samsung" | "seoul">("seoul");
   const location = useLocation();
 
   // Predefined bot responses (same content as 기존 자동 재생)
