@@ -130,7 +130,7 @@ All colors MUST be HSL.
     left: var(--cursor-x, 0);
     width: 36px;
     height: 36px;
-    background: radial-gradient(circle, hsl(var(--muted-foreground) / 0.6) 0%, hsl(var(--muted-foreground) / 0.3) 70%, transparent 100%);
+    background: radial-gradient(circle, hsl(var(--muted-foreground) / 0.8) 0%, hsl(var(--muted-foreground) / 0.5) 70%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
