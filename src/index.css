@@ -128,8 +128,8 @@ All colors MUST be HSL.
     position: fixed;
     top: var(--cursor-y, 0);
     left: var(--cursor-x, 0);
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     background: radial-gradient(circle, hsl(var(--muted-foreground) / 0.6) 0%, hsl(var(--muted-foreground) / 0.3) 70%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
