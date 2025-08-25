@@ -14,13 +14,13 @@ const UserRequest = () => {
   const [budget, setBudget] = useState<number>(50_000_000);
   const [flexibility, setFlexibility] = useState<string>("일부 조정 가능 (±10%)");
   const [artistInput, setArtistInput] = useState("");
-  const [artists, setArtists] = useState<string[]>(["아이유", "뉴진스", "에스파"]);
+  const [artists, setArtists] = useState<string[]>(["아이유", "에스파", "뉴진스"]);
 
   // 섭외비 예측 데이터
   const feeEstimates: Record<string, { min: number; max: number }> = {
-    "아이유": { min: 45_000_000, max: 55_000_000 },
-    "뉴진스": { min: 70_000_000, max: 85_000_000 },
-    "에스파": { min: 40_000_000, max: 50_000_000 },
+    "아이유": { min: 85_000_000, max: 95_000_000 },
+    "뉴진스": { min: 30_000_000, max: 40_000_000 },
+    "에스파": { min: 45_000_000, max: 55_000_000 },
     "방탄소년단": { min: 200_000_000, max: 300_000_000 },
     "블랙핑크": { min: 150_000_000, max: 200_000_000 },
     "스트레이키즈": { min: 80_000_000, max: 100_000_000 },
