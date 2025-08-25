@@ -47,7 +47,7 @@ export function SeoulFestivalAnswer() {
       </div>
 
       <p className="mb-4">
-        예산 제약을 고려하여, <span className="font-semibold text-primary">뉴진스 대신 잔나비</span>를 추천해 드립니다. 이 경우 예산 내에서 최적의 라인업을 구성할 수 있습니다:
+        현재 법적・계약적 문제를 고려하여, <span className="font-semibold text-primary">뉴진스 대신 잔나비</span>를 추천해 드립니다. 이 경우 예산 내에서 최적의 라인업을 구성할 수 있습니다:
       </p>
 
       {/* 뉴진스 vs 잔나비 */}
